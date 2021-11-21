@@ -6,7 +6,7 @@ class BehringerX32 extends Mixer {
   }
 
   getMixes(): string[] {
-    return ['foo', 'bar'];
+    return ['bus01', 'bus02'];
   }
 }
 

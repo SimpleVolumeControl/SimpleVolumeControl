@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render correctly on home page 1`] = `
+<DocumentFragment>
+  <div
+    __source="[object Object]"
+  >
+    SimpleVolumeControl
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Header should render correctly on other pages 1`] = `
+<DocumentFragment>
+  <div
+    __source="[object Object]"
+  >
+    <a
+      href="/"
+    >
+      zurück
+    </a>
+  </div>
+  <div
+    __source="[object Object]"
+  >
+    SimpleVolumeControl
+  </div>
+</DocumentFragment>
+`;
