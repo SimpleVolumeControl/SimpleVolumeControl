@@ -30,6 +30,9 @@ module.exports = {
   },
   projects: [
     {
+      transform: {
+        '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
+      },
       displayName: 'client',
       setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
       testEnvironment: 'jsdom',
@@ -43,6 +46,9 @@ module.exports = {
       ],
     },
     {
+      transform: {
+        '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
+      },
       displayName: 'server',
       testMatch: [
         '<rootDir>/(model|server)/**/__tests__/**/*.[jt]s?(x)',

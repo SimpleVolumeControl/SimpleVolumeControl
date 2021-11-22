@@ -1,6 +1,9 @@
 default:
   image: node:lts-alpine
 
+variables:
+  NEXT_TELEMETRY_DISABLED: 1
+
 cache:
   key: "$CI_COMMIT_REF_NAME"
   paths:
