@@ -21,9 +21,9 @@ const MixOverview: FC<MixOverviewProps> = () => {
 
   return (
     <div>
-      {lastJsonMessage?.map((mix: string) => (
-        <div key={mix}>
-          <Link href={`/mix/${mix}`}>{mix}</Link>
+      {lastJsonMessage?.map((mix: any) => (
+        <div key={mix?.id}>
+          <Link href={`/mix/${mix?.id}`}>{mix?.name}</Link>
         </div>
       ))}
     </div>

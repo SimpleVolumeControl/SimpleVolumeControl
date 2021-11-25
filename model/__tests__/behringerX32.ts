@@ -1,29 +1,16 @@
 import BehringerX32 from '../behringerX32';
 
 describe('BehringerX32', () => {
-  test('should return valid mixes', () => {
-    const mixes = new BehringerX32().getMixes();
-    mixes.forEach((mix) => {
-      expect([
-        'bus01',
-        'bus02',
-        'bus03',
-        'bus04',
-        'bus05',
-        'bus06',
-        'bus07',
-        'bus08',
-        'bus09',
-        'bus10',
-        'bus11',
-        'bus12',
-        'bus13',
-        'bus14',
-        'bus15',
-        'bus16',
-        'mc',
-        'lr',
-      ]).toContain(mix);
-    });
+  test('should return valid input information with a level of 0', () => {
+    expect(new BehringerX32().getInputData('bus01', 'ch01').level).toBe(0);
+  });
+  test('should return valid input information with a muted state', () => {
+    expect(new BehringerX32().getInputData('bus01', 'ch01').mute).toBe(true);
+  });
+  test('should return valid mix information with a level of 0', () => {
+    expect(new BehringerX32().getMixData('bus01').level).toBe(0);
+  });
+  test('should return valid mix information with a muted state', () => {
+    expect(new BehringerX32().getMixData('bus01').mute).toBe(true);
   });
 });
