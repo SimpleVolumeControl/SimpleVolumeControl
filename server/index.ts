@@ -10,13 +10,18 @@ import api from './api';
 import { parse } from 'url';
 import { Socket } from 'net';
 import WebSocket from 'ws';
+import { homedir } from 'os';
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const port = process.env.PORT || 3000;
 
+export const configFile = `${homedir()}/.simplevolumecontrol_config.json`;
+
 App.initialize();
+App.getInstance().loadConfig(configFile);
+App.getInstance().saveConfig(configFile); // TODO Remove
 
 (async () => {
   try {

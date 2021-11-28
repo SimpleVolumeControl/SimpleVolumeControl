@@ -2,7 +2,7 @@ module.exports = {
   testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
   collectCoverage: true,
   collectCoverageFrom: [
-    '<rootDir>/(components|containers|pages|model|server)/**/*.[jt]s?(x)',
+    '<rootDir>/(components|containers|pages|model|server|utils)/**/*.[jt]s?(x)',
     '!<rootDir>/**/__tests__/**/*.[jt]s?(x)',
     '!<rootDir>/**/?(*.)+(spec|test).[jt]s?(x)',
   ],
@@ -40,10 +40,6 @@ module.exports = {
         '<rootDir>/(components|containers|pages)/**/__tests__/**/*.[jt]s?(x)',
         '<rootDir>/(components|containers|pages)/**/?(*.)+(spec|test).[jt]s?(x)',
       ],
-      collectCoverage: true,
-      collectCoverageFrom: [
-        '<rootDir>/(components|containers|pages)/**/*.[jt]s?(x)',
-      ],
     },
     {
       transform: {
@@ -51,8 +47,8 @@ module.exports = {
       },
       displayName: 'server',
       testMatch: [
-        '<rootDir>/(model|server)/**/__tests__/**/*.[jt]s?(x)',
-        '<rootDir>/(model|server)/**/?(*.)+(spec|test).[jt]s?(x)',
+        '<rootDir>/(model|server|utils)/**/__tests__/**/*.[jt]s?(x)',
+        '<rootDir>/(model|server|utils)/**/?(*.)+(spec|test).[jt]s?(x)',
       ],
     },
   ],

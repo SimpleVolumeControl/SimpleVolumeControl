@@ -23,6 +23,16 @@ class App {
   private constructor() {
     this.config = new Config();
     this.mixer = new MixerFactory(this.config.mixer).createMixer();
+    this.refreshConfig();
+  }
+
+  public loadConfig(filename: string) {
+    this.config.readFromFile(filename);
+    this.refreshConfig();
+  }
+
+  public saveConfig(filename: string) {
+    this.config.saveToFile(filename);
   }
 
   public getMixes(): MixData[] {
@@ -36,10 +46,10 @@ class App {
   }
 
   public getInputs(id: string): InputData[] {
-    const mixAssignment =
+    const inputs =
       this.config.mixes.find((mixAssignment) => mixAssignment.mix === id)
         ?.inputs ?? [];
-    return mixAssignment.map((input) => this.mixer.getInputData(id, input));
+    return inputs.map((input) => this.mixer.getInputData(id, input));
   }
 
   public subscribeToChange(func: () => void) {}
@@ -49,6 +59,10 @@ class App {
   public setLevel(level: number, mix: string, input: string | null) {}
 
   public setMute(state: boolean, mix: string, input: string | null) {}
+
+  private refreshConfig() {
+    this.mixer = new MixerFactory(this.config.mixer).createMixer();
+  }
 }
 
 export default App;

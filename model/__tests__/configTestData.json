@@ -1,0 +1,28 @@
+{
+  "ip": "192.168.0.42",
+  "mixer": "Behringer X32",
+  "mixes": [
+    {
+      "mix": "bus01",
+      "inputs": ["ch01", "aux01"]
+    },
+    {
+      "mix": "bus01",
+      "inputs": ["ch02", "aux02"]
+    },
+    {
+      "mix": "lr",
+      "inputs": ["ch01", "ch02", "ch03"]
+    },
+    "invalid",
+    {},
+    {
+      "mix": "mc"
+    },
+    {
+      "mix": "bus16",
+      "inputs": ["ch01", 123]
+    }
+  ],
+  "password": "foobaz"
+}
