@@ -8,6 +8,7 @@ describe('App', () => {
   });
 
   test('should return a list of mixes', () => {
+    App.getInstance().loadConfig('./model/__tests__/configTestData.json');
     App.getInstance()
       .getMixes()
       .forEach((mix) => {
@@ -19,6 +20,7 @@ describe('App', () => {
   });
 
   test('should return an empty inputs list for invalid bus name', () => {
+    App.getInstance().loadConfig('./model/__tests__/configTestData.json');
     expect(
       App.getInstance().getInputs('supercalifragilisticexpialidocious'),
     ).toEqual([]);
