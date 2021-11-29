@@ -7,6 +7,11 @@ exports[`Header should render correctly on home page 1`] = `
   >
     SimpleVolumeControl
   </div>
+  <button
+    __source="[object Object]"
+  >
+    Logout
+  </button>
 </DocumentFragment>
 `;
 
@@ -26,5 +31,10 @@ exports[`Header should render correctly on other pages 1`] = `
   >
     SimpleVolumeControl
   </div>
+  <button
+    __source="[object Object]"
+  >
+    Logout
+  </button>
 </DocumentFragment>
 `;
