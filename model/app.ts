@@ -60,6 +60,10 @@ class App {
 
   public setMute(state: boolean, mix: string, input: string | null) {}
 
+  public getPasswordHash() {
+    return this.config.password; // TODO Actually use hashes
+  }
+
   private refreshConfig() {
     this.mixer = new MixerFactory(this.config.mixer).createMixer();
   }
