@@ -5,7 +5,7 @@ import LoginForm from '../containers/loginForm';
 const Login: NextPage = () => {
   return (
     <>
-      <Header isHome={true} hideLogout={true} />
+      <Header isHome={true} />
       <LoginForm />
     </>
   );
