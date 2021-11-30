@@ -25,6 +25,7 @@
     "recoil": "0.5.2"
   },
   "devDependencies": {
+    "@babel/core": "7.16.0",
     "@testing-library/dom": "8.11.1",
     "@testing-library/jest-dom": "5.15.1",
     "@testing-library/preact": "2.0.1",
