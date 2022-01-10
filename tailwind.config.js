@@ -52,7 +52,7 @@ module.exports = {
           neutral: colors.stone[700],
           'neutral-focus': colors.stone[800],
           'neutral-content': colors.stone[100],
-          'base-100': '#57534E',
+          'base-100': colors.stone[600],
           'base-200': colors.stone[700],
           'base-300': colors.stone[800],
           'base-content': colors.stone[100],
