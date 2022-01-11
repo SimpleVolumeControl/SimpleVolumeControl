@@ -1,0 +1,209 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MixTile should render correctly (blue) 1`] = `
+<DocumentFragment>
+  <div
+    __source="[object Object]"
+    class="card shadow bg-base-100 border-2 text-center border-blue-500"
+  >
+    <a
+      __source="[object Object]"
+      href="/mix/mix01"
+    >
+      <div
+        __source="[object Object]"
+        class="card-body bg-blue-500/20"
+      >
+        <h2
+          __source="[object Object]"
+          class="card-title m-0"
+        >
+          Mix 1
+        </h2>
+      </div>
+    </a>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`MixTile should render correctly (foobar) 1`] = `
+<DocumentFragment>
+  <div
+    __source="[object Object]"
+    class="card shadow bg-base-100 border-2 text-center border-base-300"
+  >
+    <a
+      __source="[object Object]"
+      href="/mix/mix01"
+    >
+      <div
+        __source="[object Object]"
+        class="card-body bg-base-300/20"
+      >
+        <h2
+          __source="[object Object]"
+          class="card-title m-0"
+        >
+          Mix 1
+        </h2>
+      </div>
+    </a>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`MixTile should render correctly (green) 1`] = `
+<DocumentFragment>
+  <div
+    __source="[object Object]"
+    class="card shadow bg-base-100 border-2 text-center border-lime-500"
+  >
+    <a
+      __source="[object Object]"
+      href="/mix/mix01"
+    >
+      <div
+        __source="[object Object]"
+        class="card-body bg-lime-500/20"
+      >
+        <h2
+          __source="[object Object]"
+          class="card-title m-0"
+        >
+          Mix 1
+        </h2>
+      </div>
+    </a>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`MixTile should render correctly (lightblue) 1`] = `
+<DocumentFragment>
+  <div
+    __source="[object Object]"
+    class="card shadow bg-base-100 border-2 text-center border-cyan-400"
+  >
+    <a
+      __source="[object Object]"
+      href="/mix/mix01"
+    >
+      <div
+        __source="[object Object]"
+        class="card-body bg-cyan-400/20"
+      >
+        <h2
+          __source="[object Object]"
+          class="card-title m-0"
+        >
+          Mix 1
+        </h2>
+      </div>
+    </a>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`MixTile should render correctly (pink) 1`] = `
+<DocumentFragment>
+  <div
+    __source="[object Object]"
+    class="card shadow bg-base-100 border-2 text-center border-pink-500"
+  >
+    <a
+      __source="[object Object]"
+      href="/mix/mix01"
+    >
+      <div
+        __source="[object Object]"
+        class="card-body bg-pink-500/20"
+      >
+        <h2
+          __source="[object Object]"
+          class="card-title m-0"
+        >
+          Mix 1
+        </h2>
+      </div>
+    </a>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`MixTile should render correctly (red) 1`] = `
+<DocumentFragment>
+  <div
+    __source="[object Object]"
+    class="card shadow bg-base-100 border-2 text-center border-red-500"
+  >
+    <a
+      __source="[object Object]"
+      href="/mix/mix01"
+    >
+      <div
+        __source="[object Object]"
+        class="card-body bg-red-500/20"
+      >
+        <h2
+          __source="[object Object]"
+          class="card-title m-0"
+        >
+          Mix 1
+        </h2>
+      </div>
+    </a>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`MixTile should render correctly (white) 1`] = `
+<DocumentFragment>
+  <div
+    __source="[object Object]"
+    class="card shadow bg-base-100 border-2 text-center border-base-300"
+  >
+    <a
+      __source="[object Object]"
+      href="/mix/mix01"
+    >
+      <div
+        __source="[object Object]"
+        class="card-body bg-base-300/20"
+      >
+        <h2
+          __source="[object Object]"
+          class="card-title m-0"
+        >
+          Mix 1
+        </h2>
+      </div>
+    </a>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`MixTile should render correctly (yellow) 1`] = `
+<DocumentFragment>
+  <div
+    __source="[object Object]"
+    class="card shadow bg-base-100 border-2 text-center border-yellow-400"
+  >
+    <a
+      __source="[object Object]"
+      href="/mix/mix01"
+    >
+      <div
+        __source="[object Object]"
+        class="card-body bg-yellow-400/20"
+      >
+        <h2
+          __source="[object Object]"
+          class="card-title m-0"
+        >
+          Mix 1
+        </h2>
+      </div>
+    </a>
+  </div>
+</DocumentFragment>
+`;

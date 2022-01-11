@@ -14,11 +14,22 @@ export const isObject = (
 ): value is Record<string | number | symbol, unknown> | null | unknown[] =>
   typeof value === 'object';
 
+export const isArray = (value: unknown): value is unknown[] =>
+  Array.isArray(value);
+
+export const isRecord = (
+  value: unknown,
+): value is Record<string | number | symbol, unknown> =>
+  isObject(value) && !Array.isArray(value) && value !== null;
+
 export const ensureRecord = (
   value: unknown,
-): Record<string | number | symbol, unknown> => {
-  if (isObject(value) && !Array.isArray(value) && value !== null) {
-    return value;
+): Record<string | number | symbol, unknown> => (isRecord(value) ? value : {});
+
+export const tryJsonParse = (data: string, fallback: unknown): unknown => {
+  try {
+    return JSON.parse(data);
+  } catch (e) {
+    return fallback;
   }
-  return {};
 };

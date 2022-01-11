@@ -1,25 +1,18 @@
 import { FC } from 'react';
-import Link from 'next/link';
 import useAuthenticatedWebsocket from './useAuthenticatedWebsocket';
+import MixTile from '../components/mixTile';
+import useMixes from './useMixes';
 
 interface MixOverviewProps {}
 
 const MixOverview: FC<MixOverviewProps> = () => {
   const { lastMessage } = useAuthenticatedWebsocket('mixes');
-  const lastJsonMessage = (() => {
-    try {
-      return JSON.parse(lastMessage?.data);
-    } catch (e) {
-      return [];
-    }
-  })();
+  const mixes = useMixes(lastMessage?.data);
 
   return (
-    <div>
-      {lastJsonMessage?.map?.((mix: any) => (
-        <div key={mix?.id}>
-          <Link href={`/mix/${mix?.id}`}>{mix?.name}</Link>
-        </div>
+    <div className="container mx-auto columns-3xs">
+      {mixes.map((mix) => (
+        <MixTile key={mix.id} {...mix} />
       ))}
     </div>
   );
