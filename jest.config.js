@@ -2,7 +2,7 @@ module.exports = {
   testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
   collectCoverage: true,
   collectCoverageFrom: [
-    '<rootDir>/(components|containers|pages|model|server|utils)/**/*.[jt]s?(x)',
+    '<rootDir>/(common|components|containers|pages|model|server|utils)/**/*.[jt]s?(x)',
     '!<rootDir>/**/__tests__/**/*.[jt]s?(x)',
     '!<rootDir>/**/?(*.)+(spec|test).[jt]s?(x)',
   ],
@@ -40,6 +40,12 @@ module.exports = {
         '<rootDir>/(components|containers|pages)/**/__tests__/**/*.[jt]s?(x)',
         '<rootDir>/(components|containers|pages)/**/?(*.)+(spec|test).[jt]s?(x)',
       ],
+      moduleNameMapper: {
+        '^react$': 'preact/compat',
+        '^react-dom/test-utils$': 'preact/test-utils',
+        '^react-dom$': 'preact/compat',
+        '^react/jsx-runtime$': 'preact/jsx-runtime',
+      },
     },
     {
       transform: {
@@ -47,8 +53,8 @@ module.exports = {
       },
       displayName: 'server',
       testMatch: [
-        '<rootDir>/(model|server|utils)/**/__tests__/**/*.[jt]s?(x)',
-        '<rootDir>/(model|server|utils)/**/?(*.)+(spec|test).[jt]s?(x)',
+        '<rootDir>/(common|model|server|utils)/**/__tests__/**/*.[jt]s?(x)',
+        '<rootDir>/(common|model|server|utils)/**/?(*.)+(spec|test).[jt]s?(x)',
       ],
     },
   ],

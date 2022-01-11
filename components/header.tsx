@@ -13,7 +13,7 @@ const Header: FC<HeaderProps> = ({ isHome }) => {
   const router = useRouter();
   return (
     <>
-      <div className="navbar mb-2 shadow-lg bg-primary text-neutral-content rounded-box flex-wrap xs:flex-nowrap">
+      <div className="navbar mb-4 shadow-lg bg-primary text-neutral-content rounded-box flex-wrap xs:flex-nowrap">
         <div className="navbar-start">
           {!isHome && (
             <div className="btn btn-outline btn-accent">

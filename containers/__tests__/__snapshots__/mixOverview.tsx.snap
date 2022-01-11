@@ -4,6 +4,7 @@ exports[`MixOverview should render correctly 1`] = `
 <DocumentFragment>
   <div
     __source="[object Object]"
+    class="container mx-auto columns-3xs"
   />
 </DocumentFragment>
 `;

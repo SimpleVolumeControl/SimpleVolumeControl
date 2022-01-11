@@ -10,7 +10,7 @@ export interface ExtendedWebsocket extends WebSocket {
 const router = Router();
 
 router.ws('/mixes', (ws, req) => {
-  ws.send(JSON.stringify(App.getInstance().getMixes()));
+  ws.send(`MIXES:${JSON.stringify(App.getInstance().getMixes())}`);
   ws.on('message', (msg: string) => {
     console.log(msg); // TODO Remove
     if (!handleAuth(msg, ws)) {
