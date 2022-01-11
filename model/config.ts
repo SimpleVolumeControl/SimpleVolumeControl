@@ -1,5 +1,6 @@
 import MixAssignment from './mixAssignment';
-import MixerFactory, { mixerData } from './mixerFactory';
+import MixerFactory from './mixerFactory';
+import mixerData from './mixers.json';
 import { ensureRecord, isObject } from '../utils/helpers';
 import * as fs from 'fs';
 

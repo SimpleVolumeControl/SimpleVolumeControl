@@ -1,5 +1,5 @@
 import Config from '../config';
-import { mixerData } from '../mixerFactory';
+import mixerData from '../mixers.json';
 
 describe('Config', () => {
   test('should contain valid data after initialization', () => {
