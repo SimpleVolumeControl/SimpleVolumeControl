@@ -1,14 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
 import useWebSocket from 'react-use-websocket';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { passwordState } from './sessionProvider';
 import { useRouter } from 'next/router';
 import ApiCode from '../common/apiCode';
+import useLogin from './useLogin';
 
 function useAuthenticatedWebsocket(path: string) {
   const didUnmount = useRef(false);
   const [url, setUrl] = useState(() => () => new Promise<string>(() => {}));
-  const [password, setPassword] = useRecoilState(passwordState);
+  const password = useRecoilValue(passwordState);
+  const { logout } = useLogin();
   const router = useRouter();
   useEffect(() => {
     const { protocol, host } = window.location;
@@ -30,10 +32,9 @@ function useAuthenticatedWebsocket(path: string) {
   }, [sendMessage, password]);
   useEffect(() => {
     if (lastMessage?.data?.startsWith(ApiCode.DEAUTH)) {
-      setPassword('');
-      router.push('/login').then();
+      logout();
     }
-  }, [lastMessage, router, setPassword]);
+  }, [lastMessage, router, logout]);
   return { lastMessage, sendMessage };
 }
 
