@@ -32,10 +32,10 @@ describe('Config', () => {
   test('should import from JSON file correctly (ignoring invalid entries)', () => {
     const config = new Config();
     config.readFromFile('./model/__tests__/configTestData.json');
-    expect(config.mixes?.[0]?.mix).toEqual('bus01');
-    expect(config.mixes?.[0]?.inputs).toEqual(['ch01', 'aux01']);
-    expect(config.mixes?.[1]?.mix).toEqual('lr');
-    expect(config.mixes?.[1]?.inputs).toEqual(['ch01', 'ch02', 'ch03']);
+    expect(config.mixes?.[0]?.mix).toEqual('bus-01');
+    expect(config.mixes?.[0]?.inputs).toEqual(['ch-01', 'auxin-01']);
+    expect(config.mixes?.[1]?.mix).toEqual('main-st');
+    expect(config.mixes?.[1]?.inputs).toEqual(['ch-01', 'ch-02', 'ch-03']);
     expect(config.mixer).toBe('Behringer X32');
     expect(config.ip).toBe('192.168.0.42');
     expect(config.password).toBe('foobaz');
@@ -49,18 +49,18 @@ describe('Config', () => {
         '  "mixer": "Behringer X32",\n' +
         '  "mixes": [\n' +
         '    {\n' +
-        '      "mix": "bus01",\n' +
+        '      "mix": "bus-01",\n' +
         '      "inputs": [\n' +
-        '        "ch01",\n' +
-        '        "aux01"\n' +
+        '        "ch-01",\n' +
+        '        "auxin-01"\n' +
         '      ]\n' +
         '    },\n' +
         '    {\n' +
-        '      "mix": "lr",\n' +
+        '      "mix": "main-st",\n' +
         '      "inputs": [\n' +
-        '        "ch01",\n' +
-        '        "ch02",\n' +
-        '        "ch03"\n' +
+        '        "ch-01",\n' +
+        '        "ch-02",\n' +
+        '        "ch-03"\n' +
         '      ]\n' +
         '    }\n' +
         '  ],\n' +
@@ -68,7 +68,7 @@ describe('Config', () => {
         '}',
     );
     expect(config.toJSON()).toBe(
-      '{"ip":"192.168.0.42","mixer":"Behringer X32","mixes":[{"mix":"bus01","inputs":["ch01","aux01"]},{"mix":"lr","inputs":["ch01","ch02","ch03"]}],"password":"foobaz"}',
+      '{"ip":"192.168.0.42","mixer":"Behringer X32","mixes":[{"mix":"bus-01","inputs":["ch-01","auxin-01"]},{"mix":"main-st","inputs":["ch-01","ch-02","ch-03"]}],"password":"foobaz"}',
     );
   });
 });

@@ -3,25 +3,25 @@
   "mixer": "Behringer X32",
   "mixes": [
     {
-      "mix": "bus01",
-      "inputs": ["ch01", "aux01"]
+      "mix": "bus-01",
+      "inputs": ["ch-01", "auxin-01"]
     },
     {
-      "mix": "bus01",
-      "inputs": ["ch02", "aux02"]
+      "mix": "bus-01",
+      "inputs": ["ch-02", "auxin-02"]
     },
     {
-      "mix": "lr",
-      "inputs": ["ch01", "ch02", "ch03"]
+      "mix": "main-st",
+      "inputs": ["ch-01", "ch-02", "ch-03"]
     },
     "invalid",
     {},
     {
-      "mix": "mc"
+      "mix": "main-m"
     },
     {
-      "mix": "bus16",
-      "inputs": ["ch01", 123]
+      "mix": "bus-16",
+      "inputs": ["ch-01", 123]
     }
   ],
   "password": "foobaz"

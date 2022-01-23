@@ -31,6 +31,7 @@ class Queue<T> {
         handler(value);
       });
       this.timeoutId = setTimeout(() => this.fire(), this.interval);
+      this.timeoutId.unref();
     }
   }
 }

@@ -2,9 +2,13 @@ module.exports = {
   testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
   collectCoverage: true,
   collectCoverageFrom: [
-    '<rootDir>/(common|components|containers|pages|model|server|utils)/**/*.[jt]s?(x)',
+    // Unit tests on a page level don't seem to be very useful.
+    // Thus, `/server` and `/pages` are excluded.
+    // End-to-end testing with Cypress may be more useful for this.
+    '<rootDir>/(common|components|containers|model|utils)/**/*.[jt]s?(x)',
     '!<rootDir>/**/__tests__/**/*.[jt]s?(x)',
     '!<rootDir>/**/?(*.)+(spec|test).[jt]s?(x)',
+    '!<rootDir>/model/behringerX32.ts', // TODO Cover the mixer communication via E2E tests.
   ],
   coverageThreshold: {
     global: {
@@ -12,20 +16,6 @@ module.exports = {
       functions: 50,
       lines: 50,
       statements: 50,
-    },
-    // Unit tests on a page level don't seem to be very useful.
-    // End-to-end testing with Cypress may be more useful for this.
-    './server/': {
-      branches: 0,
-      functions: 0,
-      lines: 0,
-      statements: 0,
-    },
-    './pages/': {
-      branches: 0,
-      functions: 0,
-      lines: 0,
-      statements: 0,
     },
   },
   projects: [

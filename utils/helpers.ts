@@ -33,3 +33,5 @@ export const tryJsonParse = (data: string, fallback: unknown): unknown => {
     return fallback;
   }
 };
+
+export const notNull = <T>(value: T | null): value is T => value !== null;

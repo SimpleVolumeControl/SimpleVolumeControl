@@ -3,6 +3,9 @@ import MixerFactory from './mixerFactory';
 import Mixer from './mixer';
 import MixData from './mixData';
 import InputData from './inputData';
+import { notNull } from '../utils/helpers';
+import DummyMixer from './dummyMixer';
+import MixerUpdateCallbacks from './mixerUpdateCallbacks';
 
 class App {
   private static instance: App;
@@ -22,8 +25,7 @@ class App {
 
   private constructor() {
     this.config = new Config();
-    this.mixer = new MixerFactory(this.config.mixer).createMixer();
-    this.refreshConfig();
+    this.mixer = new DummyMixer('127.0.0.1');
   }
 
   public loadConfig(filename: string) {
@@ -36,12 +38,12 @@ class App {
   }
 
   public getMixes(): MixData[] {
-    return this.config.mixes.map((mixAssignment) =>
-      this.mixer.getMixData(mixAssignment.mix),
-    );
+    return this.config.mixes
+      .map((mixAssignment) => this.mixer.getMixData(mixAssignment.mix))
+      .filter(notNull);
   }
 
-  public getMix(id: string): MixData {
+  public getMix(id: string): MixData | null {
     return this.mixer.getMixData(id);
   }
 
@@ -49,12 +51,18 @@ class App {
     const inputs =
       this.config.mixes.find((mixAssignment) => mixAssignment.mix === id)
         ?.inputs ?? [];
-    return inputs.map((input) => this.mixer.getInputData(id, input));
+    return inputs
+      .map((input) => this.mixer.getInputData(id, input))
+      .filter(notNull);
   }
 
-  public subscribeToChange(func: () => void) {}
+  registerListeners(callbacks: MixerUpdateCallbacks): void {
+    this.mixer.registerListeners(callbacks);
+  }
 
-  public subscribeToMeter(func: () => void) {}
+  unregisterListeners(callbacks: MixerUpdateCallbacks): void {
+    this.mixer.unregisterListeners(callbacks);
+  }
 
   public setLevel(level: number, mix: string, input: string | null) {}
 
@@ -65,7 +73,15 @@ class App {
   }
 
   private refreshConfig() {
-    this.mixer = new MixerFactory(this.config.mixer).createMixer();
+    const mixerFactory = new MixerFactory(this.config.mixer);
+    if (mixerFactory.getMixerName() != this.mixer.getMixerName()) {
+      this.mixer.stop();
+      this.mixer = mixerFactory.createMixer(this.config.ip);
+      // TODO Migrate registered listeners on mixer change
+    }
+    if (this.mixer.ip !== this.config.ip) {
+      this.mixer.setIp(this.config.ip);
+    }
   }
 }
 

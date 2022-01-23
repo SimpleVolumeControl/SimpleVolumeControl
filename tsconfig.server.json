@@ -5,5 +5,15 @@
     "outDir": "dist",
     "noEmit": false
   },
-  "include": ["server"]
+  "include": [
+    "server/**/*.ts",
+    "model/**/*.ts",
+    "common/**/*.ts",
+    "utils/**/*.ts",
+    "server/**/*.json",
+    "model/**/*.json",
+    "common/**/*.json",
+    "utils/**/*.json"
+  ],
+  "exclude": ["node_modules", "**/__tests__"]
 }
