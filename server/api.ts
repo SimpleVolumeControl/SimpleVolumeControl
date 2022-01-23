@@ -17,7 +17,6 @@ router.ws('/mixes', (ws, req) => {
     if (!handleAuth(msg, ws)) {
       return;
     }
-    console.log('authenticated'); // TODO Remove
   });
   const callbacks: MixerUpdateCallbacks = {
     onMixChange: (mix: string) => {

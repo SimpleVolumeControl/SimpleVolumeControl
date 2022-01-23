@@ -6,6 +6,7 @@ import InputData from './inputData';
 import { notNull } from '../utils/helpers';
 import DummyMixer from './dummyMixer';
 import MixerUpdateCallbacks from './mixerUpdateCallbacks';
+import * as crypto from 'crypto';
 
 class App {
   private static instance: App;
@@ -69,7 +70,10 @@ class App {
   public setMute(state: boolean, mix: string, input: string | null) {}
 
   public getPasswordHash() {
-    return this.config.password; // TODO Actually use hashes
+    return crypto
+      .createHash('sha256')
+      .update(this.config.password)
+      .digest('base64');
   }
 
   private refreshConfig() {

@@ -1,18 +1,14 @@
 import { FC, FormEvent, useState } from 'react';
-import { useSetRecoilState } from 'recoil';
-import { passwordState } from './sessionProvider';
-import { useRouter } from 'next/router';
+import useLogin from './useLogin';
 
 interface LoginFormProps {}
 
 const LoginForm: FC<LoginFormProps> = () => {
-  const setPassword = useSetRecoilState(passwordState);
+  const { login } = useLogin();
   const [input, setInput] = useState('');
-  const router = useRouter();
   const submit = (e: FormEvent) => {
     e.preventDefault();
-    setPassword(input);
-    router.push('/').then();
+    login(input);
   };
   return (
     <>

@@ -1,16 +1,13 @@
 import { FC } from 'react';
 import Link from 'next/link';
-import { useRecoilState } from 'recoil';
-import { passwordState } from '../containers/sessionProvider';
-import { useRouter } from 'next/router';
+import useLogin from '../containers/useLogin';
 
 interface HeaderProps {
   isHome: boolean;
 }
 
 const Header: FC<HeaderProps> = ({ isHome }) => {
-  const [password, setPassword] = useRecoilState(passwordState);
-  const router = useRouter();
+  const { logout, isLoggedIn } = useLogin();
   return (
     <>
       <div className="navbar mb-4 shadow-lg bg-primary text-neutral-content rounded-box flex-wrap xs:flex-nowrap">
@@ -27,14 +24,8 @@ const Header: FC<HeaderProps> = ({ isHome }) => {
           </span>
         </div>
         <div className="navbar-end">
-          {password !== '' && (
-            <button
-              onClick={() => {
-                setPassword('');
-                router.push('/login').then();
-              }}
-              className="btn btn-outline btn-accent"
-            >
+          {isLoggedIn && (
+            <button onClick={logout} className="btn btn-outline btn-accent">
               Logout
             </button>
           )}
