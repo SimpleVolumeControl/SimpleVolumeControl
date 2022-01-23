@@ -1,17 +1,17 @@
 {
   "Behringer X32": {
     "inputs": [
-      "ch01", "ch02", "ch03", "ch04", "ch05", "ch06", "ch07", "ch08",
-      "ch09", "ch10", "ch11", "ch12", "ch13", "ch14", "ch15", "ch16",
-      "ch17", "ch18", "ch19", "ch20", "ch21", "ch22", "ch23", "ch24",
-      "ch25", "ch26", "ch27", "ch28", "ch29", "ch30", "ch31", "ch32",
-      "aux01", "aux02", "aux03", "aux04", "aux05", "aux06",
-      "fx01", "fx02", "fx03", "fx04", "fx05", "fx06", "fx07", "fx08"
+      "ch-01", "ch-02", "ch-03", "ch-04", "ch-05", "ch-06", "ch-07", "ch-08",
+      "ch-09", "ch-10", "ch-11", "ch-12", "ch-13", "ch-14", "ch-15", "ch-16",
+      "ch-17", "ch-18", "ch-19", "ch-20", "ch-21", "ch-22", "ch-23", "ch-24",
+      "ch-25", "ch-26", "ch-27", "ch-28", "ch-29", "ch-30", "ch-31", "ch-32",
+      "auxin-01", "auxin-02", "auxin-03", "auxin-04", "auxin-05", "auxin-06", "auxin-07", "auxin-08",
+      "fxrtn-01", "fxrtn-02", "fxrtn-03", "fxrtn-04", "fxrtn-05", "fxrtn-06", "fxrtn-07", "fxrtn-08"
     ],
     "mixes": [
-      "bus01", "bus02", "bus03", "bus04", "bus05", "bus06", "bus07", "bus08",
-      "bus09", "bus10", "bus11", "bus12", "bus13", "bus14", "bus15", "bus16",
-      "mc", "lr"
+      "bus-01", "bus-02", "bus-03", "bus-04", "bus-05", "bus-06", "bus-07", "bus-08",
+      "bus-09", "bus-10", "bus-11", "bus-12", "bus-13", "bus-14", "bus-15", "bus-16",
+      "main-m", "main-st"
     ]
   }
 }
