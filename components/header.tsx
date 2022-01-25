@@ -13,9 +13,9 @@ const Header: FC<HeaderProps> = ({ isHome }) => {
       <div className="navbar mb-4 shadow-lg bg-primary text-neutral-content rounded-box flex-wrap xs:flex-nowrap">
         <div className="navbar-start">
           {!isHome && (
-            <div className="btn btn-outline btn-accent">
-              <Link href="/">zurück</Link>
-            </div>
+            <Link href="/">
+              <a className="btn btn-outline btn-accent">zurück</a>
+            </Link>
           )}
         </div>
         <div className="px-2 mx-2 navbar-center w-full xs:w-auto order-first xs:order-none justify-center">

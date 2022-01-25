@@ -20,14 +20,6 @@ class BehringerX32 extends Mixer {
   static readonly mixerName = 'Behringer X32';
   static readonly inputs = mixers[BehringerX32.mixerName]?.inputs ?? [];
   static readonly mixes = mixers[BehringerX32.mixerName]?.mixes ?? [];
-  // prettier-ignore
-  static readonly sendsTargets = [
-    'st', 'fader', 'mono', 'mlevel',
-    '01/on', '01/level', '02/on', '02/level', '03/on', '03/level', '04/on', '04/level',
-    '05/on', '05/level', '06/on', '06/level', '07/on', '07/level', '08/on', '08/level',
-    '09/on', '09/level', '10/on', '10/level', '11/on', '11/level', '12/on', '12/level',
-    '13/on', '13/level', '14/on', '14/level', '15/on', '15/level', '16/on', '16/level',
-  ]
 
   private readonly CMD_INTERVAL = 2;
   private readonly XREMOTE_INTERVAL = 8_000;
@@ -62,22 +54,28 @@ class BehringerX32 extends Mixer {
     });
     this.queue.addHandler((val) => this.sendCommand(val));
     this.queryBuffers = [
-      ...BehringerX32.mixes.flatMap((mixId) => [
-        new OscMessage('/node', `${mixId.replace('-', '/')}/config`).toBuffer(),
-        new OscMessage(`/${mixId.replace('-', '/')}/mix/on`).toBuffer(),
-        new OscMessage(`/${mixId.replace('-', '/')}/mix/level`).toBuffer(),
-      ]),
-      ...BehringerX32.inputs.flatMap((inputId) => [
-        new OscMessage(
-          '/node',
-          `${inputId.replace('-', '/')}/config`,
-        ).toBuffer(),
-        ...BehringerX32.sendsTargets.map((target) =>
-          new OscMessage(
-            `/${inputId.replace('-', '/')}/mix/${target}`,
-          ).toBuffer(),
-        ),
-      ]),
+      ...BehringerX32.mixes.flatMap((mixId) => {
+        const mixPath = mixId.replace('-', '/');
+        return [
+          new OscMessage('/node', `${mixPath}/config`).toBuffer(),
+          new OscMessage(`/${mixPath}/mix/on`).toBuffer(),
+          new OscMessage(`/${mixPath}/mix/fader`).toBuffer(),
+        ];
+      }),
+      ...BehringerX32.inputs.flatMap((inputId) => {
+        const inputPath = inputId.replace('-', '/');
+        return [
+          new OscMessage('/node', `${inputPath}/config`).toBuffer(),
+          ...BehringerX32.mixes.flatMap((mixId) => {
+            const muteSend = BehringerX32.mixNameToDestination(mixId, true);
+            const levelSend = BehringerX32.mixNameToDestination(mixId, false);
+            return [
+              new OscMessage(`/${inputPath}/mix/${muteSend}`).toBuffer(),
+              new OscMessage(`/${inputPath}/mix/${levelSend}`).toBuffer(),
+            ];
+          }),
+        ];
+      }),
     ];
     this.queryIterator = perpetuallyIterateOverArray(this.queryBuffers);
     this.startListening();
@@ -98,8 +96,8 @@ class BehringerX32 extends Mixer {
       id: inputId,
       name: this.inputNames[inputId] ?? inputId.toUpperCase(),
       color: this.inputColors[inputId] ?? 'white',
-      level: 0,
-      mute: true,
+      level: this.inputLevels[mixId][inputId] ?? 0,
+      mute: this.inputMutes[mixId][inputId] ?? true,
     };
   }
 
@@ -108,8 +106,8 @@ class BehringerX32 extends Mixer {
       id: id,
       name: this.mixNames[id] ?? id.toUpperCase(),
       color: this.mixColors[id] ?? 'white',
-      level: 0,
-      mute: true,
+      level: this.mixLevels[id] ?? 0,
+      mute: this.mixMutes[id] ?? true,
     };
   }
 
@@ -123,6 +121,46 @@ class BehringerX32 extends Mixer {
 
   getMixerName(): string {
     return BehringerX32.mixerName;
+  }
+
+  setLevel(level: number, mix: string, input: string | null): void {
+    if (
+      !BehringerX32.mixes.includes(mix) ||
+      (input !== null && !BehringerX32.inputs.includes(input))
+    ) {
+      return;
+    }
+    this.queue.queueValue(
+      new OscMessage(
+        input === null
+          ? `/${mix.replace('-', '/')}/mix/fader`
+          : `/${input.replace(
+              '-',
+              '/',
+            )}/mix/${BehringerX32.mixNameToDestination(mix, false)}`,
+        [{ type: OscParameterType.FLOAT, value: level }],
+      ).toBuffer(),
+    );
+  }
+
+  setMute(state: boolean, mix: string, input: string | null): void {
+    if (
+      !BehringerX32.mixes.includes(mix) ||
+      (input !== null && !BehringerX32.inputs.includes(input))
+    ) {
+      return;
+    }
+    this.queue.queueValue(
+      new OscMessage(
+        input === null
+          ? `/${mix.replace('-', '/')}/mix/on`
+          : `/${input.replace(
+              '-',
+              '/',
+            )}/mix/${BehringerX32.mixNameToDestination(mix, true)}`,
+        [{ type: OscParameterType.INT, value: state ? 0 : 1 }],
+      ).toBuffer(),
+    );
   }
 
   private startListening() {
@@ -216,7 +254,7 @@ class BehringerX32 extends Mixer {
     );
   }
 
-  private static destinationToMixName(destination: string): string {
+  private static destinationToMixName(destination: string): string | null {
     switch (destination) {
       case 'st':
       case 'fader':
@@ -224,6 +262,8 @@ class BehringerX32 extends Mixer {
       case 'mono':
       case 'mlevel':
         return 'main-m';
+      case 'on':
+        return null;
       default:
         return `bus-${destination.substring(0, 2)}`;
     }
@@ -279,6 +319,10 @@ class BehringerX32 extends Mixer {
       } else if (
         // Mute change messages
         cmd[2] === 'mix' &&
+        (cmd[3] === 'st' ||
+          cmd[3] === 'mono' ||
+          cmd[3] === 'on' ||
+          cmd[4] === 'on') &&
         parameter?.type === OscParameterType.INT &&
         typeof parameter.value === 'number'
       ) {
@@ -286,6 +330,10 @@ class BehringerX32 extends Mixer {
       } else if (
         // Level change messages
         cmd[2] === 'mix' &&
+        (cmd[3] === 'fader' ||
+          cmd[3] === 'mlevel' ||
+          cmd[4] === 'fader' ||
+          cmd[4] === 'level') &&
         parameter?.type === OscParameterType.FLOAT &&
         typeof parameter.value === 'number'
       ) {
@@ -333,7 +381,7 @@ class BehringerX32 extends Mixer {
     const id = `${cmd[0]}-${cmd[1]}`;
     if (BehringerX32.inputs.includes(id)) {
       const mixName = BehringerX32.destinationToMixName(cmd[3]);
-      if (this.inputMutes[mixName][id] !== mute) {
+      if (mixName !== null && this.inputMutes[mixName][id] !== mute) {
         this.inputMutes[mixName][id] = mute;
         this.callbacks.forEach((cb) => cb.onMuteChange?.(mixName, id));
       }
@@ -349,7 +397,7 @@ class BehringerX32 extends Mixer {
     const id = `${cmd[0]}-${cmd[1]}`;
     if (BehringerX32.inputs.includes(id)) {
       const mixName = BehringerX32.destinationToMixName(cmd[3]);
-      if (this.inputLevels[mixName][id] !== value) {
+      if (mixName !== null && this.inputLevels[mixName][id] !== value) {
         this.inputLevels[mixName][id] = value;
         this.callbacks.forEach((cb) => cb.onLevelChange?.(mixName, id));
       }

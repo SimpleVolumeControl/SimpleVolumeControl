@@ -25,6 +25,9 @@ class DummyMixer extends Mixer {
   getMixerName(): string {
     return DummyMixer.mixerName;
   }
+
+  setLevel(level: number, mix: string, input: string | null): void {}
+  setMute(state: boolean, mix: string, input: string | null): void {}
 }
 
 export default DummyMixer;
