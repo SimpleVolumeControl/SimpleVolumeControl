@@ -57,6 +57,21 @@ class App {
       .filter(notNull);
   }
 
+  public getInput(mixId: string, inputId: string): InputData | null {
+    return this.mixer.getInputData(mixId, inputId);
+  }
+
+  public getConfiguredMixIds(): string[] {
+    return this.config.mixes.map((mixAssignment) => mixAssignment.mix);
+  }
+
+  public getConfiguredInputIds(mix: string): string[] {
+    return (
+      this.config.mixes.find((mixAssignment) => mixAssignment.mix === mix)
+        ?.inputs ?? []
+    );
+  }
+
   registerListeners(callbacks: MixerUpdateCallbacks): void {
     this.mixer.registerListeners(callbacks);
   }
@@ -65,9 +80,13 @@ class App {
     this.mixer.unregisterListeners(callbacks);
   }
 
-  public setLevel(level: number, mix: string, input: string | null) {}
+  public setLevel(level: number, mix: string, input: string | null) {
+    this.mixer.setLevel(level, mix, input);
+  }
 
-  public setMute(state: boolean, mix: string, input: string | null) {}
+  public setMute(state: boolean, mix: string, input: string | null) {
+    this.mixer.setMute(state, mix, input);
+  }
 
   public getPasswordHash() {
     return crypto

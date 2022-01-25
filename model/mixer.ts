@@ -30,6 +30,9 @@ abstract class Mixer {
   abstract unregisterListeners(callbacks: MixerUpdateCallbacks): void;
 
   abstract getMixerName(): string;
+
+  abstract setLevel(level: number, mix: string, input: string | null): void;
+  abstract setMute(state: boolean, mix: string, input: string | null): void;
 }
 
 export default Mixer;

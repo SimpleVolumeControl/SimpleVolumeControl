@@ -3,7 +3,7 @@ import { isMixData } from '../mixData';
 describe('isMixData', () => {
   test('should accept valid MixData', () => {
     const mixData = {
-      id: 'bus01',
+      id: 'bus-01',
       name: 'BUS01',
       color: 'red',
       level: 0,
@@ -34,7 +34,7 @@ describe('isMixData', () => {
 
   test('should reject objects with missing keys', () => {
     const mixData = {
-      id: 'bus01',
+      id: 'bus-01',
       name: 'BUS01',
       color: 'red',
       mute: true,

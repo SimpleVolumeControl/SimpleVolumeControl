@@ -10,16 +10,13 @@ exports[`Header should hide logout button when no password is set 1`] = `
       __source="[object Object]"
       class="navbar-start"
     >
-      <div
+      <a
         __source="[object Object]"
         class="btn btn-outline btn-accent"
+        href="/"
       >
-        <a
-          href="/"
-        >
-          zurück
-        </a>
-      </div>
+        zurück
+      </a>
     </div>
     <div
       __source="[object Object]"
@@ -93,16 +90,13 @@ exports[`Header should render correctly on other pages 1`] = `
       __source="[object Object]"
       class="navbar-start"
     >
-      <div
+      <a
         __source="[object Object]"
         class="btn btn-outline btn-accent"
+        href="/"
       >
-        <a
-          href="/"
-        >
-          zurück
-        </a>
-      </div>
+        zurück
+      </a>
     </div>
     <div
       __source="[object Object]"
@@ -140,16 +134,13 @@ exports[`Header should show logout button when password is set 1`] = `
       __source="[object Object]"
       class="navbar-start"
     >
-      <div
+      <a
         __source="[object Object]"
         class="btn btn-outline btn-accent"
+        href="/"
       >
-        <a
-          href="/"
-        >
-          zurück
-        </a>
-      </div>
+        zurück
+      </a>
     </div>
     <div
       __source="[object Object]"
