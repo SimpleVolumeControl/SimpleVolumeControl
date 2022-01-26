@@ -98,6 +98,15 @@ router.ws('/mix/:mixId', (ws, req) => {
         }
       }
     },
+    onMetersChange: () => {
+      const app = App.getInstance();
+      ws.send(
+        `${ApiCode.METERS}${app.getMetersString([
+          mixId,
+          ...app.getConfiguredInputIds(mixId),
+        ])}`,
+      );
+    },
   };
   App.getInstance().registerListeners(callbacks);
   ws.on('close', () => App.getInstance().unregisterListeners(callbacks));

@@ -8,6 +8,7 @@ import OscMessage, { OscParameter, OscParameterType } from './oscMessage';
 import mixers from './mixers.json';
 import { perpetuallyIterateOverArray } from '../utils/perpetualIteration';
 import MixerUpdateCallbacks from './mixerUpdateCallbacks';
+import { b64Encode } from '../common/b64';
 
 interface QueuedMessageWithCloseFunction {
   msg: Buffer;
@@ -32,6 +33,8 @@ class BehringerX32 extends Mixer {
   private readonly queryBuffers: Buffer[];
 
   private xremoteConnection: Socket | null = null;
+  private meters2Connection: Socket | null = null;
+  private meters13Connection: Socket | null = null;
   private xremoteInterval: NodeJS.Timer | null = null;
   private queryInterval: NodeJS.Timer | null = null;
 
@@ -43,6 +46,7 @@ class BehringerX32 extends Mixer {
   private inputColors: Record<string, string> = {};
   private inputMutes: Record<string, Record<string, boolean>> = {};
   private inputLevels: Record<string, Record<string, number>> = {};
+  private meters: Record<string, number | undefined> = {};
 
   private callbacks: MixerUpdateCallbacks[] = [];
 
@@ -111,6 +115,10 @@ class BehringerX32 extends Mixer {
     };
   }
 
+  getMetersString(ids: string[]): string {
+    return ids.map((id) => b64Encode(this.meters[id] ?? 0)).join('');
+  }
+
   registerListeners(callbacks: MixerUpdateCallbacks): void {
     this.callbacks.push(callbacks);
   }
@@ -171,12 +179,39 @@ class BehringerX32 extends Mixer {
         this.xremoteConnection = connection;
       },
     };
+    const meters2: QueuedMessage = {
+      msg: new OscMessage('/meters', [
+        { type: OscParameterType.STRING, value: '/meters/2' },
+        { type: OscParameterType.INT, value: 0 },
+        { type: OscParameterType.INT, value: 0 },
+        { type: OscParameterType.INT, value: 10 },
+      ]).toBuffer(),
+      close: (connection: Socket) => {
+        this.meters2Connection?.close();
+        this.meters2Connection = connection;
+      },
+    };
+    const meters13: QueuedMessage = {
+      msg: new OscMessage('/meters', [
+        { type: OscParameterType.STRING, value: '/meters/13' },
+        { type: OscParameterType.INT, value: 0 },
+        { type: OscParameterType.INT, value: 0 },
+        { type: OscParameterType.INT, value: 10 },
+      ]).toBuffer(),
+      close: (connection: Socket) => {
+        this.meters13Connection?.close();
+        this.meters13Connection = connection;
+      },
+    };
 
     this.queue.queueValue(xremote);
-    this.xremoteInterval = setInterval(
-      () => this.queue.queueValue(xremote),
-      this.XREMOTE_INTERVAL,
-    );
+    this.queue.queueValue(meters2);
+    this.queue.queueValue(meters13);
+    this.xremoteInterval = setInterval(() => {
+      this.queue.queueValue(xremote);
+      this.queue.queueValue(meters2);
+      this.queue.queueValue(meters13);
+    }, this.XREMOTE_INTERVAL);
     this.xremoteInterval.unref();
     this.queryBuffers.forEach((buffer) => this.queue.queueValue(buffer));
     this.queryInterval = setInterval(
@@ -280,6 +315,18 @@ class BehringerX32 extends Mixer {
     }
   }
 
+  private static getNumberOfLEDs(level: number) {
+    if (level > 0.97) {
+      return 20;
+    }
+    const leds = Math.round(22.3633 * Math.pow(level, 0.2478) - 2.7771);
+    if (leds <= 0 || leds > 20) {
+      return 0;
+    } else {
+      return leds;
+    }
+  }
+
   private handleMixerResponse(buffer: Buffer) {
     const msg = OscMessage.fromBuffer(buffer);
     if (
@@ -338,6 +385,12 @@ class BehringerX32 extends Mixer {
         typeof parameter.value === 'number'
       ) {
         this.handleLevelMessage(cmd, parameter.value);
+      } else if (
+        cmd[0] === 'meters' &&
+        msg.parameters[0]?.type === OscParameterType.BLOB &&
+        msg.parameters[0].value instanceof Buffer
+      ) {
+        this.handleMetersMessage(cmd[1], msg.parameters[0].value);
       }
     }
   }
@@ -406,6 +459,47 @@ class BehringerX32 extends Mixer {
         this.mixLevels[id] = value;
         this.callbacks.forEach((cb) => cb.onLevelChange?.(id, null));
       }
+    }
+  }
+
+  private handleMetersMessage(metersId: string, values: Buffer) {
+    const mappings: Record<string, (string | null)[] | undefined> = {
+      // prettier-ignore
+      '2': [
+        'bus-01', 'bus-02', 'bus-03', 'bus-04', 'bus-05', 'bus-06', 'bus-07', 'bus-08',
+        'bus-09', 'bus-10', 'bus-11', 'bus-12', 'bus-13', 'bus-14', 'bus-15', 'bus-16',
+        null, null, null, null, null, null, 'main-st', 'main-m',
+      ],
+      // prettier-ignore
+      '13': [
+        'ch-01', 'ch-02', 'ch-03', 'ch-04', 'ch-05', 'ch-06', 'ch-07', 'ch-08',
+        'ch-09', 'ch-10', 'ch-11', 'ch-12', 'ch-13', 'ch-14', 'ch-15', 'ch-16',
+        'ch-17', 'ch-18', 'ch-19', 'ch-20', 'ch-21', 'ch-22', 'ch-23', 'ch-24',
+        'ch-25', 'ch-26', 'ch-27', 'ch-28', 'ch-29', 'ch-30', 'ch-31', 'ch-32',
+        'auxin-01', 'auxin-02', 'auxin-03', 'auxin-04', 'auxin-05', 'auxin-06', 'auxin-07', 'auxin-08',
+        'fxrtn-01', 'fxrtn-02', 'fxrtn-03', 'fxrtn-04', 'fxrtn-05', 'fxrtn-06', 'fxrtn-07', 'fxrtn-08',
+      ],
+    };
+    const mapping = mappings[metersId];
+    if (mapping === undefined) {
+      return;
+    }
+    let offset = 0;
+    mapping.forEach((currentMappingValue) => {
+      offset += 4;
+      if (currentMappingValue === 'main-st') {
+        this.meters[currentMappingValue] = BehringerX32.getNumberOfLEDs(
+          (values.readFloatLE(offset) + values.readFloatLE(offset + 4)) / 2,
+        );
+        offset += 4;
+      } else if (currentMappingValue !== null) {
+        this.meters[currentMappingValue] = BehringerX32.getNumberOfLEDs(
+          values.readFloatLE(offset),
+        );
+      }
+    });
+    if (metersId === '13') {
+      this.callbacks.forEach((cb) => cb.onMetersChange?.());
     }
   }
 }

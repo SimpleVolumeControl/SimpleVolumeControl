@@ -26,6 +26,8 @@ abstract class Mixer {
   abstract getInputData(mixId: string, inputId: string): InputData | null;
   abstract getMixData(id: string): MixData | null;
 
+  abstract getMetersString(ids: string[]): string;
+
   abstract registerListeners(callbacks: MixerUpdateCallbacks): void;
   abstract unregisterListeners(callbacks: MixerUpdateCallbacks): void;
 

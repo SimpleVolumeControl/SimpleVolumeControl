@@ -4,10 +4,18 @@ import ApiCode from '../common/apiCode';
 import { tryJsonParse, isArray, isRecord } from '../utils/helpers';
 import MixData, { isMixData } from '../model/mixData';
 import InputData, { isInputData } from '../model/inputData';
+import { atom, useSetRecoilState } from 'recoil';
+
+export const metersState = atom<string>({
+  key: 'metersState',
+  default: '',
+});
 
 function useMix(message: unknown) {
   const [inputs, setInputs] = useState<InputData[]>([]);
   const [mix, setMix] = useState<MixData | null>(null);
+  const setMeters = useSetRecoilState(metersState);
+
   useEffect(() => {
     if (typeof message !== 'string') {
       return;
@@ -50,8 +58,10 @@ function useMix(message: unknown) {
           ),
         );
       }
+    } else if (code === ApiCode.METERS) {
+      setMeters(content);
     }
-  }, [message]);
+  }, [message, setMeters]);
   return { inputs, mix };
 }
 
