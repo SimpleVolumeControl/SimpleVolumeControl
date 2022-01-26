@@ -19,6 +19,10 @@ class DummyMixer extends Mixer {
     return null;
   }
 
+  getMetersString(ids: string[]) {
+    return ids.map(() => 'A').join('');
+  }
+
   registerListeners(callbacks: MixerUpdateCallbacks): void {}
   unregisterListeners(callbacks: MixerUpdateCallbacks): void {}
 

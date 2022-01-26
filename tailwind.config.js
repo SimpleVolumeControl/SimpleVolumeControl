@@ -12,6 +12,17 @@ module.exports = {
       xs: '475px',
       ...defaultTheme.screens,
     },
+    extend: {
+      keyframes: {
+        push: {
+          '0%, 100%': { transform: 'scaleX(1)' },
+          '50%': { transform: 'scaleX(1.05)' },
+        },
+      },
+      animation: {
+        push: 'push 500ms ease-in-out infinite',
+      },
+    },
   },
   plugins: [require('@tailwindcss/typography'), require('daisyui')],
   daisyui: {

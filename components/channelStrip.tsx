@@ -1,4 +1,8 @@
 import { FC } from 'react';
+import { useRecoilValue } from 'recoil';
+import { metersState } from '../containers/useMix';
+import { b64Decode } from '../common/b64';
+import { clamp } from '../utils/math';
 
 interface ChannelStripProps {
   highlight?: boolean;
@@ -9,6 +13,7 @@ interface ChannelStripProps {
   level: number;
   sendMute: (value: boolean) => void;
   sendLevel: (value: number) => void;
+  meterIndex: number;
 }
 
 const getColorClasses = (color: string) => {
@@ -67,8 +72,11 @@ const ChannelStrip: FC<ChannelStripProps> = ({
   level,
   sendMute,
   sendLevel,
+  meterIndex,
 }) => {
   const colorClasses = getColorClasses(color);
+  const meters = useRecoilValue(metersState);
+  const meter = Math.max(0, b64Decode(meters.charAt(meterIndex)));
   return (
     <div
       key={id}
@@ -91,13 +99,25 @@ const ChannelStrip: FC<ChannelStripProps> = ({
             Mute
           </button>
         </div>
-        <div className="relative leading-none">
-          <div
-            className={
-              // TODO Proper Meter
-              'absolute w-full bg-gradient-to-r from-lime-500 via-lime-500 to-red-600 top-[calc(50%-.5rem)] bottom-[calc(50%-.5rem)] rounded-full opacity-50'
-            }
-          />
+        <div className="relative leading-[0]">
+          <div className="absolute w-full top-1/4 bottom-1/4 rounded-full opacity-50 overflow-hidden flex">
+            <div
+              className="h-full bg-lime-600 transition-all origin-left animate-push"
+              style={{ width: `${clamp(meter * 5, 0, 50)}%` }}
+            />
+            <div
+              className="h-full bg-yellow-500 transition-all origin-left animate-push"
+              style={{ width: `${clamp(meter * 5 - 50, 0, 30)}%` }}
+            />
+            <div
+              className="h-full bg-orange-600 transition-all origin-left animate-push"
+              style={{ width: `${clamp(meter * 5 - 80, 0, 15)}%` }}
+            />
+            <div
+              className="h-full bg-red-600 transition-all origin-left animate-push"
+              style={{ width: `${clamp(meter * 5 - 95, 0, 5)}%` }}
+            />
+          </div>
           <input
             type="range"
             min="0"

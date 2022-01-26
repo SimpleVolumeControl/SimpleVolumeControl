@@ -2,6 +2,7 @@ export enum OscParameterType {
   STRING = 'string',
   INT = 'int',
   FLOAT = 'float',
+  BLOB = 'blob',
 }
 
 export namespace OscParameterType {
@@ -13,6 +14,8 @@ export namespace OscParameterType {
         return OscParameterType.INT;
       case 'f':
         return OscParameterType.FLOAT;
+      case 'b':
+        return OscParameterType.BLOB;
       default:
         return null;
     }
@@ -21,7 +24,7 @@ export namespace OscParameterType {
 
 export interface OscParameter {
   type?: OscParameterType;
-  value: string | number;
+  value: string | number | Buffer;
 }
 
 class OscMessage {
@@ -48,6 +51,7 @@ class OscMessage {
     let readyargs: number[] = [];
     this.parameters.forEach((parameter) => {
       const value = parameter.value;
+      // Blobs are never sent and can thus be omitted here.
       switch (parameter.type) {
         case OscParameterType.INT:
           if (typeof value === 'number') {
@@ -99,7 +103,7 @@ class OscMessage {
         return;
       }
       let paramEnd = paramStart + 4;
-      let param: string | number = '';
+      let param: string | number | Buffer = '';
       switch (paramType) {
         case OscParameterType.STRING:
           paramEnd = msg.indexOf(0, paramStart);
@@ -115,6 +119,14 @@ class OscMessage {
           break;
         case OscParameterType.FLOAT:
           param = msg.readFloatBE(paramStart);
+          break;
+        case OscParameterType.BLOB:
+          const length = msg.readInt32BE(paramStart);
+          paramEnd = paramStart + 4 + length;
+          param = msg.slice(
+            paramStart + 4,
+            paramEnd < msg.length ? paramEnd : msg.length,
+          );
           break;
       }
       params.push({ type: paramType, value: param });

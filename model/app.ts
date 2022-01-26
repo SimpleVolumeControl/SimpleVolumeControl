@@ -72,11 +72,15 @@ class App {
     );
   }
 
-  registerListeners(callbacks: MixerUpdateCallbacks): void {
+  public getMetersString(ids: string[]): string {
+    return this.mixer.getMetersString(ids);
+  }
+
+  public registerListeners(callbacks: MixerUpdateCallbacks): void {
     this.mixer.registerListeners(callbacks);
   }
 
-  unregisterListeners(callbacks: MixerUpdateCallbacks): void {
+  public unregisterListeners(callbacks: MixerUpdateCallbacks): void {
     this.mixer.unregisterListeners(callbacks);
   }
 

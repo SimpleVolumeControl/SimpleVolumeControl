@@ -38,15 +38,17 @@ const MixDetails: FC<MixDetailsProps> = ({ mixId }) => {
           highlight={true}
           sendMute={(value) => sendMute('', value)}
           sendLevel={(value) => sendLevel('', value)}
+          meterIndex={0}
         />
       )}
       <hr className={'border-base-content/50 my-8'} />
-      {inputs.map((input) => (
+      {inputs.map((input, idx) => (
         <ChannelStrip
           key={input.id}
           {...input}
           sendMute={(value) => sendMute(input.id, value)}
           sendLevel={(value) => sendLevel(input.id, value)}
+          meterIndex={idx + 1}
         />
       ))}
     </div>
