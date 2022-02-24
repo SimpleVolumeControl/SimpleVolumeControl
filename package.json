@@ -46,7 +46,7 @@
     "eslint-plugin-prettier": "4.0.0",
     "jest": "27.5.1",
     "nodemon": "2.0.15",
-    "postcss": "8.4.6",
+    "postcss": "8.4.7",
     "postcss-input-range": "4.0.0",
     "prettier": "2.5.1",
     "scheduler": "0.20.2",
