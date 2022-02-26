@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react';
-import useAuthenticatedWebsocket from './useAuthenticatedWebsocket';
+import useAuthenticatedWebSocket from './useAuthenticatedWebSocket';
 import useMix from './useMix';
 import ChannelStrip from '../components/channelStrip';
 import ApiCode from '../common/apiCode';
@@ -9,7 +9,7 @@ interface MixDetailsProps {
 }
 
 const MixDetails: FC<MixDetailsProps> = ({ mixId }) => {
-  const { lastMessage, sendMessage } = useAuthenticatedWebsocket(
+  const { lastMessage, sendMessage } = useAuthenticatedWebSocket(
     `mix/${mixId}`,
   );
   const { mix, inputs } = useMix(lastMessage?.data);

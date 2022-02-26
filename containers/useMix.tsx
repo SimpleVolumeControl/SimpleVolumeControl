@@ -21,7 +21,7 @@ function useMix(message: unknown) {
       return;
     }
     const { code, content } = splitMessage(message);
-    if (code === ApiCode.INPUTS) {
+    if (code === ApiCode.MIX) {
       const data = tryJsonParse(content, null);
       if (!isRecord(data) || !isArray(data.inputs) || !isMixData(data.mix)) {
         return;

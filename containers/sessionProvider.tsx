@@ -11,7 +11,7 @@ export const passwordState = atom<string | null>({
 const SessionProvider: FC<SessionProviderProps> = ({ children }) => {
   const [password, setPassword] = useRecoilState(passwordState);
   useEffect(() => {
-    setPassword(window.localStorage.getItem('password') ?? '');
+    setPassword(window.localStorage.getItem('password') ?? ''); // TODO Replace with hash('')
   }, [setPassword]);
   useEffect(() => {
     if (password !== null) {

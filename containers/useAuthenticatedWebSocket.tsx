@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import ApiCode from '../common/apiCode';
 import useLogin from './useLogin';
 
-function useAuthenticatedWebsocket(path: string) {
+function useAuthenticatedWebSocket(path: string) {
   const didUnmount = useRef(false);
   const [url, setUrl] = useState(() => () => new Promise<string>(() => {}));
   const password = useRecoilValue(passwordState);
@@ -38,4 +38,4 @@ function useAuthenticatedWebsocket(path: string) {
   return { lastMessage, sendMessage };
 }
 
-export default useAuthenticatedWebsocket;
+export default useAuthenticatedWebSocket;

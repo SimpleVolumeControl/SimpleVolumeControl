@@ -13,13 +13,9 @@ class App {
   private config: Config;
   private mixer: Mixer;
 
-  static initialize() {
-    this.instance = new App();
-  }
-
   static getInstance() {
     if (!this.instance) {
-      App.initialize();
+      this.instance = new App();
     }
     return this.instance;
   }
@@ -92,18 +88,19 @@ class App {
     this.mixer.setMute(state, mix, input);
   }
 
-  public getPasswordHash() {
-    return crypto
-      .createHash('sha256')
-      .update(this.config.password)
-      .digest('base64');
+  public checkPassword(password: String): boolean {
+    return (
+      crypto
+        .createHash('sha256')
+        .update(this.config.password)
+        .digest('base64') === password
+    );
   }
 
   private refreshConfig() {
-    const mixerFactory = new MixerFactory(this.config.mixer);
-    if (mixerFactory.getMixerName() != this.mixer.getMixerName()) {
+    if (this.config.mixer != this.mixer.getMixerName()) {
       this.mixer.stop();
-      this.mixer = mixerFactory.createMixer(this.config.ip);
+      this.mixer = MixerFactory.createMixer(this.config.mixer, this.config.ip);
       // TODO Migrate registered listeners on mixer change
     }
     if (this.mixer.ip !== this.config.ip) {

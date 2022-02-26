@@ -2,7 +2,7 @@ enum ApiCode {
   AUTH = 'AUTH:',
   DEAUTH = 'DEAUTH:',
   MIXES = 'MIXES:',
-  INPUTS = 'INPUTS:',
+  MIX = 'MIX:',
   LEVEL = 'LEVEL:',
   MUTE = 'MUTE:',
   METERS = 'METERS:',

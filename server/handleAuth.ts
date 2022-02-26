@@ -8,7 +8,7 @@ export function handleAuth(msg: string, ws: WebSocket): boolean {
   const extWs = ws as ExtendedWebsocket;
   const { code, content } = splitMessage(msg);
   if (code === ApiCode.AUTH) {
-    if (content === App.getInstance().getPasswordHash()) {
+    if (App.getInstance().checkPassword(content)) {
       extWs.authenticated = true;
     } else {
       ws.send(`${ApiCode.DEAUTH}Invalid password.`);
