@@ -19,7 +19,6 @@ const port = process.env.PORT || 3000;
 
 export const configFile = `${homedir()}/.simplevolumecontrol_config.json`;
 
-App.initialize();
 App.getInstance().loadConfig(configFile);
 App.getInstance().saveConfig(configFile); // TODO Remove
 

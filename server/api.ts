@@ -35,7 +35,7 @@ router.ws('/mix/:mixId', (ws, req) => {
   const mixId = req.params.mixId;
   const sendAll = () => {
     ws.send(
-      `${ApiCode.INPUTS}${JSON.stringify({
+      `${ApiCode.MIX}${JSON.stringify({
         inputs: App.getInstance().getInputs(mixId),
         mix: App.getInstance().getMix(mixId),
       })}`,

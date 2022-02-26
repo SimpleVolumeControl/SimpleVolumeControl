@@ -1,5 +1,4 @@
 import { isRecord } from '../utils/helpers';
-import MixData from './mixData';
 
 interface InputData {
   id: string;

@@ -1,8 +1,11 @@
 import MixAssignment from './mixAssignment';
-import MixerFactory from './mixerFactory';
-import mixerData from './mixers.json';
 import { ensureRecord, isObject } from '../utils/helpers';
 import * as fs from 'fs';
+import {
+  getAllInputs,
+  getAllMixes,
+  getAvailableMixers,
+} from '../common/mixerProperties';
 
 class Config {
   ip: string = '';
@@ -42,6 +45,8 @@ class Config {
     );
   }
 
+  // This method already ensures that the types are correct
+  // and thus does basic validation even before calling validate().
   public fromJSON(json: string) {
     let rawConfig: unknown = {};
     try {
@@ -70,23 +75,31 @@ class Config {
     this.validate();
   }
 
+  // This method ensures that the used values make sense from a domain logic point of view.
+  // The correct data types have to be ensured before calling this method.
   private validate() {
     if (!this.ip) {
       this.ip = '127.0.0.1';
     }
-    if (!(this.mixer in mixerData)) {
+
+    if (!(this.mixer in getAvailableMixers())) {
+      // In the long term, this should probably be changed.
+      // For now, Behringer X32 is the only actual mixer and thus a reasonable default.
       this.mixer = 'Behringer X32';
     }
-    const factory = new MixerFactory(this.mixer);
-    const inputs = factory.getInputs();
-    const mixes = factory.getMixes();
+
+    const inputs = getAllInputs(this.mixer);
+    const mixes = getAllMixes(this.mixer);
+
     // Store already visited mix names here to avoid duplicate entries for a single mix.
+    // This solution is based on the "Hashtable" approach found at https://stackoverflow.com/a/9229821
     const seen: Record<string, boolean> = {};
     this.mixes = this.mixes.filter(
       (mixAssignment) =>
         mixes.includes(mixAssignment.mix) &&
         (mixAssignment.mix in seen ? false : (seen[mixAssignment.mix] = true)),
     );
+
     this.mixes.forEach((mixAssignment) => {
       mixAssignment.inputs = mixAssignment.inputs.filter((input) =>
         inputs.includes(input),

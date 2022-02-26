@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import useAuthenticatedWebsocket from './useAuthenticatedWebsocket';
+import useAuthenticatedWebSocket from './useAuthenticatedWebSocket';
 import MixTile from '../components/mixTile';
 import useMixes from './useMixes';
 
 interface MixOverviewProps {}
 
 const MixOverview: FC<MixOverviewProps> = () => {
-  const { lastMessage } = useAuthenticatedWebsocket('mixes');
+  const { lastMessage } = useAuthenticatedWebSocket('mixes');
   const mixes = useMixes(lastMessage?.data);
 
   return (

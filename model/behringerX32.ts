@@ -19,7 +19,7 @@ type QueuedMessage = QueuedMessageWithCloseFunction | Buffer;
 
 class BehringerX32 extends Mixer {
   static readonly mixerName = 'Behringer X32';
-  static readonly inputs = mixers[BehringerX32.mixerName]?.inputs ?? [];
+  static readonly inputs = mixers[BehringerX32.mixerName]?.inputs ?? []; // TODO Check if this is necessary and if it should be public
   static readonly mixes = mixers[BehringerX32.mixerName]?.mixes ?? [];
 
   private readonly CMD_INTERVAL = 2;
