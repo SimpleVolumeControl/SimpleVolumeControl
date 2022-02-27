@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Header from '../components/header';
-import MixOverview from '../containers/mixOverview';
+import MixOverview from '../components/mixOverview';
 
 const Home: NextPage = () => {
   return (

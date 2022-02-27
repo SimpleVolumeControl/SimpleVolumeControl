@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Header from '../../components/header';
-import MixDetails from '../../containers/mixDetails';
+import MixDetails from '../../components/mixDetails';
 import { useRouter } from 'next/router';
 
 const Mix: NextPage = () => {

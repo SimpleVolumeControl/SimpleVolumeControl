@@ -4,7 +4,7 @@ const colors = require('tailwindcss/colors');
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
-    './containers/**/*.{js,ts,jsx,tsx}',
+    './hooks/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
@@ -21,6 +21,9 @@ module.exports = {
       },
       animation: {
         push: 'push 500ms ease-in-out infinite',
+      },
+      boxShadow: {
+        glow: '0 0 6px -1px rgb(0 0 0 / 0.1), 0 0 4px -2px rgb(0 0 0 / 0.1)',
       },
     },
   },

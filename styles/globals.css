@@ -14,3 +14,22 @@ body {
     aspect-ratio: 2;
   }
 }
+
+.fader::range-thumb {
+  box-shadow: none;
+  background-color: hsl(var(--range-shdw));
+}
+
+.btn.muted {
+  @apply bg-red-500;
+  @apply text-white;
+  @apply border-red-500;
+  @apply outline-red-500;
+}
+
+.btn.unmuted {
+  @apply bg-transparent;
+  @apply text-red-500;
+  @apply border-red-500;
+  @apply outline-red-500;
+}
