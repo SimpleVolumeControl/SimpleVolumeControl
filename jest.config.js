@@ -5,7 +5,7 @@ module.exports = {
     // Unit tests on a page level don't seem to be very useful.
     // Thus, `/server` and `/pages` are excluded.
     // End-to-end testing with Cypress may be more useful for this.
-    '<rootDir>/(common|components|containers|model|utils)/**/*.[jt]s?(x)',
+    '<rootDir>/(common|components|hooks|model|utils)/**/*.[jt]s?(x)',
     '!<rootDir>/**/__tests__/**/*.[jt]s?(x)',
     '!<rootDir>/**/?(*.)+(spec|test).[jt]s?(x)',
     '!<rootDir>/model/behringerX32.ts', // TODO Cover the mixer communication via E2E tests.
@@ -27,8 +27,8 @@ module.exports = {
       setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
       testEnvironment: 'jsdom',
       testMatch: [
-        '<rootDir>/(components|containers|pages)/**/__tests__/**/*.[jt]s?(x)',
-        '<rootDir>/(components|containers|pages)/**/?(*.)+(spec|test).[jt]s?(x)',
+        '<rootDir>/(components|hooks|pages)/**/__tests__/**/*.[jt]s?(x)',
+        '<rootDir>/(components|hooks|pages)/**/?(*.)+(spec|test).[jt]s?(x)',
       ],
       moduleNameMapper: {
         '^react$': 'preact/compat',

@@ -32,14 +32,7 @@ exports[`Header should hide logout button when no password is set 1`] = `
     <div
       __source="[object Object]"
       class="navbar-end"
-    >
-      <button
-        __source="[object Object]"
-        class="btn btn-outline btn-accent"
-      >
-        Logout
-      </button>
-    </div>
+    />
   </div>
 </DocumentFragment>
 `;
@@ -68,14 +61,7 @@ exports[`Header should render correctly on home page 1`] = `
     <div
       __source="[object Object]"
       class="navbar-end"
-    >
-      <button
-        __source="[object Object]"
-        class="btn btn-outline btn-accent"
-      >
-        Logout
-      </button>
-    </div>
+    />
   </div>
 </DocumentFragment>
 `;
@@ -112,58 +98,7 @@ exports[`Header should render correctly on other pages 1`] = `
     <div
       __source="[object Object]"
       class="navbar-end"
-    >
-      <button
-        __source="[object Object]"
-        class="btn btn-outline btn-accent"
-      >
-        Logout
-      </button>
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`Header should show logout button when password is set 1`] = `
-<DocumentFragment>
-  <div
-    __source="[object Object]"
-    class="navbar mb-4 shadow-lg bg-primary text-neutral-content rounded-box flex-wrap xs:flex-nowrap"
-  >
-    <div
-      __source="[object Object]"
-      class="navbar-start"
-    >
-      <a
-        __source="[object Object]"
-        class="btn btn-outline btn-accent"
-        href="/"
-      >
-        zurück
-      </a>
-    </div>
-    <div
-      __source="[object Object]"
-      class="px-2 mx-2 navbar-center w-full xs:w-auto order-first xs:order-none justify-center"
-    >
-      <span
-        __source="[object Object]"
-        class="text-lg sm:text-3xl sm:font-thin"
-      >
-        SimpleVolumeControl
-      </span>
-    </div>
-    <div
-      __source="[object Object]"
-      class="navbar-end"
-    >
-      <button
-        __source="[object Object]"
-        class="btn btn-outline btn-accent"
-      >
-        Logout
-      </button>
-    </div>
+    />
   </div>
 </DocumentFragment>
 `;

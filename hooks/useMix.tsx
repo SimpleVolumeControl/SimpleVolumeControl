@@ -5,18 +5,39 @@ import { tryJsonParse, isArray, isRecord } from '../utils/helpers';
 import MixData, { isMixData } from '../model/mixData';
 import InputData, { isInputData } from '../model/inputData';
 import { atom, useSetRecoilState } from 'recoil';
+import useAuthenticatedWebSocket from './useAuthenticatedWebSocket';
 
 export const metersState = atom<string>({
   key: 'metersState',
   default: '',
 });
 
-function useMix(message: unknown) {
+function useMix(id: string) {
+  const { lastMessage, sendMessage } = useAuthenticatedWebSocket(`mix/${id}`);
   const [inputs, setInputs] = useState<InputData[]>([]);
   const [mix, setMix] = useState<MixData | null>(null);
+  const [sendMute, setSendMute] = useState<
+    (id: string, value: boolean) => void
+  >(() => () => {});
+  const [sendLevel, setSendLevel] = useState<
+    (id: string, value: number) => void
+  >(() => () => {});
+
   const setMeters = useSetRecoilState(metersState);
 
   useEffect(() => {
+    setSendMute(
+      () => (id: string, value: boolean) =>
+        sendMessage(`${ApiCode.MUTE}${id}/${value}`),
+    );
+    setSendLevel(
+      () => (id: string, value: number) =>
+        sendMessage(`${ApiCode.LEVEL}${id}/${value}`),
+    );
+  }, [sendMessage]);
+
+  useEffect(() => {
+    const message = lastMessage?.data;
     if (typeof message !== 'string') {
       return;
     }
@@ -61,8 +82,8 @@ function useMix(message: unknown) {
     } else if (code === ApiCode.METERS) {
       setMeters(content);
     }
-  }, [message, setMeters]);
-  return { inputs, mix };
+  }, [lastMessage, setMeters]);
+  return { inputs, mix, sendLevel, sendMute };
 }
 
 export default useMix;

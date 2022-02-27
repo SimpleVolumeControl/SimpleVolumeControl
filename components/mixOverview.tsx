@@ -1,13 +1,11 @@
 import { FC } from 'react';
-import useAuthenticatedWebSocket from './useAuthenticatedWebSocket';
-import MixTile from '../components/mixTile';
-import useMixes from './useMixes';
+import MixTile from './mixTile';
+import useMixes from '../hooks/useMixes';
 
 interface MixOverviewProps {}
 
 const MixOverview: FC<MixOverviewProps> = () => {
-  const { lastMessage } = useAuthenticatedWebSocket('mixes');
-  const mixes = useMixes(lastMessage?.data);
+  const mixes = useMixes();
 
   return (
     <div className="container mx-auto grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4">
