@@ -6,7 +6,7 @@
     "build:server": "tsc --project tsconfig.server.json",
     "build:next": "next build",
     "build": "yarn run build:next && yarn run build:server",
-    "start": "NODE_ENV=production node dist/server/index.js",
+    "start": "cross-env NODE_ENV=production node dist/server/index.js",
     "test": "jest",
     "lint": "next lint",
     "fix": "next lint --fix"
@@ -39,6 +39,7 @@
     "@types/sjcl": "1.0.30",
     "autoprefixer": "10.4.2",
     "babel-jest": "27.5.1",
+    "cross-env": "^7.0.3",
     "daisyui": "2.2.2",
     "eslint": "8.10.0",
     "eslint-config-next": "12.1.0",
