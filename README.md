@@ -1,34 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SimpleVolumeControl
 
-## Getting Started
+SimpleVolumeControl is a web application
+that allows the simple remote control of digital mixing consoles.
 
-First, run the development server:
+It is intended to be used with a Raspberry Pi as a local server.
+The Raspberry Pi must be connected to the local network,
+from which the web application will be used.
+A network route must exist on the Raspberry Pi to reach the mixing console.
 
-```bash
-npm run dev
-# or
-yarn dev
+Currently, only mixing consoles belonging to the Behringer X32/Midas M32 family are supported.
+
+## Running SimpleVolumeControl
+
+You can create a production build of SimpleVolumeControl and start it using the following commands:
+
+```
+ $ yarn build
+ $ yarn start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+SimpleVolumeControl is only intended to be run on Linux,
+but it might very well be possible that it (at least partially) works on other operating systems, too.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Configuration
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+The configuration file for SimpleVolumeControl can be found at `~/.simplevolumecontrol_config.json`.
+The configuration has the following format:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```json
+{
+  "ip": "192.168.2.60",
+  "mixer": "Behringer X32",
+  "mixes": [
+    {
+      "mix": "bus-01",
+      "inputs": ["ch-01", "ch-03", "ch-04", "ch-05"]
+    },
+    {
+      "mix": "bus-02",
+      "inputs": ["ch-01", "ch-05"]
+    },
+    {
+      "mix": "bus-03",
+      "inputs": ["ch-01", "ch-03", "ch-04", "ch-05"]
+    },
+    {
+      "mix": "bus-04",
+      "inputs": ["ch-01", "ch-02", "ch-03", "ch-04", "ch-05"]
+    },
+    {
+      "mix": "bus-05",
+      "inputs": ["ch-02", "ch-05"]
+    },
+    {
+      "mix": "bus-06",
+      "inputs": ["ch-03", "ch-04", "ch-05"]
+    }
+  ],
+  "password": "foobar"
+}
+```
 
-## Learn More
+## Screenshots
 
-To learn more about Next.js, take a look at the following resources:
+TODO
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+TODO
