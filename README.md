@@ -62,9 +62,14 @@ The configuration has the following format:
 ```
 
 ## Screenshots
+| Light Theme                                   | Dark Theme                                   |
+|-----------------------------------------------|----------------------------------------------|
+| ![Login](./screenshots/login-light.png)       | ![Login](./screenshots/login-dark.png)       |
+| ![Overview](./screenshots/overview-light.png) | ![Overview](./screenshots/overview-dark.png) |
+| ![Room](./screenshots/room-light.png)         | ![Room](./screenshots/room-dark.png)         |
 
-TODO
 
 ## License
 
-TODO
+SimpleVolumeControl is licensed under the MIT License.
+See `LICENSE.txt` for more information.

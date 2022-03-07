@@ -1,13 +1,25 @@
 import { FC } from 'react';
 import useMix from '../hooks/useMix';
 import ChannelStrip from './channelStrip';
+import { b64Decode } from '../common/b64';
 
 interface MixDetailsProps {
+  // The identifier of the mix of which the details should be shown.
   mixId: string;
 }
 
+/**
+ * This component contains all details of a mix.
+ * This includes the title, the main channel strip for the mix itself,
+ * as well as channel strips for all configured individual inputs of the mix.
+ */
 const MixDetails: FC<MixDetailsProps> = ({ mixId }) => {
-  const { mix, inputs, sendMute, sendLevel } = useMix(mixId);
+  // Utilize the useMix hook for the communication with the server.
+  const { mix, inputs, meters, sendMute, sendLevel } = useMix(mixId);
+
+  // A helper function to get the actual value for a certain position in the base64 encoded meters string.
+  const getMeterValue = (index: number) =>
+    Math.max(0, b64Decode(meters.charAt(index)));
 
   return (
     <div className="container mx-auto">
@@ -22,7 +34,7 @@ const MixDetails: FC<MixDetailsProps> = ({ mixId }) => {
             highlight={true}
             sendMute={(value) => sendMute('', value)}
             sendLevel={(value) => sendLevel('', value)}
-            meterIndex={0}
+            meter={getMeterValue(0)}
           />
         </>
       )}
@@ -33,7 +45,7 @@ const MixDetails: FC<MixDetailsProps> = ({ mixId }) => {
           {...input}
           sendMute={(value) => sendMute(input.id, value)}
           sendLevel={(value) => sendLevel(input.id, value)}
-          meterIndex={idx + 1}
+          meter={getMeterValue(idx + 1)}
         />
       ))}
     </div>

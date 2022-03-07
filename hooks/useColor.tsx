@@ -1,11 +1,28 @@
 import { useEffect, useState } from 'react';
 
+/**
+ * This hook helps to translate the color names sent by the API to class names that can be used with TailwindCSS.
+ * For every color, a faint background, a normal background and a border color class are returned.
+ * Because of the optimization features of TailwindCSS, the classnames have to be spelt out and cannot be assembled.
+ * The following colors are supported currently (subject to change):
+ *  - green
+ *  - lightblue
+ *  - blue
+ *  - pink
+ *  - red
+ *  - yellow
+ *
+ * For all other colors, a neutral base color is used.
+ */
 function useColor(rawColor: string) {
+  // Neutral base color as fallback/default.
   const [color, setColor] = useState({
     bgFaint: 'bg-base-300/20',
     border: 'border-base-300',
     bg: 'bg-base-500',
   });
+
+  // If possible, switch to the appropriate class names for the given color name.
   useEffect(() => {
     switch (rawColor) {
       case 'green':
@@ -52,6 +69,8 @@ function useColor(rawColor: string) {
         break;
     }
   }, [rawColor]);
+
+  // Returns the object containing the class names.
   return color;
 }
 

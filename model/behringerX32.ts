@@ -10,6 +10,16 @@ import { perpetuallyIterateOverArray } from '../utils/perpetualIteration';
 import MixerUpdateCallbacks from './mixerUpdateCallbacks';
 import { b64Encode } from '../common/b64';
 
+const close = (connection: Socket | null, silent = false) => {
+  try {
+    connection?.close();
+  } catch (e) {
+    if (!silent) {
+      console.log('Closing the connection failed', e);
+    }
+  }
+};
+
 interface QueuedMessageWithCloseFunction {
   msg: Buffer;
   close?: (connection: Socket) => void;
@@ -175,7 +185,7 @@ class BehringerX32 extends Mixer {
     const xremote: QueuedMessage = {
       msg: new OscMessage('/xremote').toBuffer(),
       close: (connection: Socket) => {
-        this.xremoteConnection?.close();
+        close(this.xremoteConnection);
         this.xremoteConnection = connection;
       },
     };
@@ -187,7 +197,7 @@ class BehringerX32 extends Mixer {
         { type: OscParameterType.INT, value: 10 },
       ]).toBuffer(),
       close: (connection: Socket) => {
-        this.meters2Connection?.close();
+        close(this.meters2Connection);
         this.meters2Connection = connection;
       },
     };
@@ -199,7 +209,7 @@ class BehringerX32 extends Mixer {
         { type: OscParameterType.INT, value: 10 },
       ]).toBuffer(),
       close: (connection: Socket) => {
-        this.meters13Connection?.close();
+        close(this.meters13Connection);
         this.meters13Connection = connection;
       },
     };
@@ -226,8 +236,14 @@ class BehringerX32 extends Mixer {
       clearInterval(this.xremoteInterval);
       this.xremoteInterval = null;
     }
-    this.xremoteConnection?.close();
+
+    close(this.xremoteConnection);
     this.xremoteConnection = null;
+    close(this.meters2Connection);
+    this.meters2Connection = null;
+    close(this.meters13Connection);
+    this.meters13Connection = null;
+
     if (this.queryInterval !== null) {
       clearInterval(this.queryInterval);
       this.queryInterval = null;
@@ -240,14 +256,10 @@ class BehringerX32 extends Mixer {
     connection.on('message', (msg) => {
       this.handleMixerResponse(msg);
       if (!('close' in queuedMessage && queuedMessage.close)) {
-        connection.close();
+        close(connection);
       }
     });
-    setTimeout(() => {
-      try {
-        connection.close();
-      } catch (e) {}
-    }, this.UDP_TIMEOUT).unref();
+    setTimeout(() => close(connection, true), this.UDP_TIMEOUT).unref();
     connection.send(msg, 0, msg.length, this.PORT, this.ip);
     if ('close' in queuedMessage) {
       queuedMessage.close?.(connection);

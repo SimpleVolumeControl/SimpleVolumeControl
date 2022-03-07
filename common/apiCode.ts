@@ -1,3 +1,6 @@
+/**
+ * The type prefixes for API messages.
+ */
 enum ApiCode {
   AUTH = 'AUTH:',
   DEAUTH = 'DEAUTH:',
