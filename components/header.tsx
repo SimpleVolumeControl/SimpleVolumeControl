@@ -3,9 +3,17 @@ import Link from 'next/link';
 import useLogin from '../hooks/useLogin';
 
 interface HeaderProps {
+  // Indicates if the current page is the home page of the application.
   isHome: boolean;
 }
 
+/**
+ * This component provides the header bar of the user interface.
+ * It displays the name of the application and adjusts responsively to different screen widths.
+ * If not used on a home page of the application,
+ * a back button is displayed which can be used to navigate to the index page.
+ * If currently logged in, a logout button is displayed.
+ */
 const Header: FC<HeaderProps> = ({ isHome }) => {
   const { logout, isLoggedIn } = useLogin();
   return (

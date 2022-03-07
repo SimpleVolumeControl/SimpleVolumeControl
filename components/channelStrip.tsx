@@ -1,24 +1,45 @@
 import { FC } from 'react';
-import { useRecoilValue } from 'recoil';
-import { metersState } from '../hooks/useMix';
-import { b64Decode } from '../common/b64';
 import MuteButton from './muteButton';
 import Meter from './meter';
 import Fader from './fader';
 import useColor from '../hooks/useColor';
 
 interface ChannelStripProps {
+  // Indicates if the channel strip should be highlighted.
   highlight?: boolean;
+
+  // The identifier corresponding to the channel strip.
   id: string;
+
+  // The name of this channel.
   name: string;
+
+  // The color of this channel.
   color: string;
+
+  // Indicates if this channel is muted.
   mute: boolean;
+
+  // The level of this channel as a number between 0 and 1.
   level: number;
+
+  // A function that gets called when a mute status change is initiated.
+  // It receives the new mute status as an argument.
   sendMute: (value: boolean) => void;
+
+  // A function that gets called when a level change is initiated.
+  // It receives the new level as a number between 0 and 1.
   sendLevel: (value: number) => void;
-  meterIndex: number;
+
+  // The current meter value of this channel.
+  // Currently expressed as an integer in the range of 0 to 20, but this might change in the future.
+  meter: number;
 }
 
+/**
+ * This component contains all controls and information for a single channel/mix.
+ * It is the equivalent of a channel strip on an actual mixing console.
+ */
 const ChannelStrip: FC<ChannelStripProps> = ({
   highlight,
   id,
@@ -28,11 +49,9 @@ const ChannelStrip: FC<ChannelStripProps> = ({
   level,
   sendMute,
   sendLevel,
-  meterIndex,
+  meter,
 }) => {
   const colorClasses = useColor(color);
-  const meters = useRecoilValue(metersState);
-  const meter = Math.max(0, b64Decode(meters.charAt(meterIndex)));
   return (
     <div
       key={id}

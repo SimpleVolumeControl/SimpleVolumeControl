@@ -3,6 +3,9 @@ import useLogin from '../hooks/useLogin';
 
 interface LoginFormProps {}
 
+/**
+ * This component shows a form which can be used to enter a password.
+ */
 const LoginForm: FC<LoginFormProps> = () => {
   const { login } = useLogin();
   const [input, setInput] = useState('');
