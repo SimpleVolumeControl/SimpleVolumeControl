@@ -20,13 +20,21 @@ const port = process.env.PORT || 3000;
 export const configFile = `${homedir()}/.simplevolumecontrol_config.json`;
 
 App.getInstance().loadConfig(configFile);
-App.getInstance().saveConfig(configFile); // TODO Remove
+
+// The config file is immediately saved here again to correct possible invalidities in the config file itself.
+App.getInstance().saveConfig(configFile);
 
 (async () => {
   try {
     await app.prepare();
+
+    // Delegate all api paths to a dedicated router.
     server.use('/api', api);
+
+    // Everything else should be handled by next.js.
     server.all('*', (req: Request, res: Response) => handle(req, res));
+
+    // Start listening and print the connection details on the console.
     const srv = server.listen(port, (err?: any) => {
       if (err) throw err;
       console.log(`> Ready on http://localhost:${port}`);
