@@ -12,9 +12,11 @@ Currently, only mixing consoles belonging to the Behringer X32/Midas M32 family 
 
 ## Running SimpleVolumeControl
 
-You can create a production build of SimpleVolumeControl and start it using the following commands:
+After installing the dependencies,
+you can create a production build of SimpleVolumeControl and start it using the following commands:
 
 ```
+ $ yarn install
  $ yarn build
  $ yarn start
 ```
