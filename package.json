@@ -40,7 +40,7 @@
     "autoprefixer": "10.4.4",
     "babel-jest": "27.5.1",
     "cross-env": "7.0.3",
-    "daisyui": "2.13.6",
+    "daisyui": "2.14.0",
     "eslint": "8.13.0",
     "eslint-config-next": "12.1.5",
     "eslint-config-prettier": "8.5.0",
