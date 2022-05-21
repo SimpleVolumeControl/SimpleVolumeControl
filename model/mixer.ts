@@ -14,6 +14,11 @@ abstract class Mixer {
   protected _ip: string;
 
   /**
+   * Holds all registered mixer update callbacks.
+   */
+  protected callbacks: MixerUpdateCallbacks[] = [];
+
+  /**
    * Initialize a mixer.
    * Stores the IP address for later usage.
    * @param ip The IP address of the mixing console.
@@ -87,14 +92,27 @@ abstract class Mixer {
    *
    * @param callbacks The callbacks to be registered.
    */
-  abstract registerListeners(callbacks: MixerUpdateCallbacks): void;
+  registerListeners(callbacks: MixerUpdateCallbacks): void {
+    this.callbacks.push(callbacks);
+  }
 
   /**
    * Remove callbacks that were previously registered.
    *
    * @param callbacks The exact same callbacks instance that was previously registered and is now to be removed.
    */
-  abstract unregisterListeners(callbacks: MixerUpdateCallbacks): void;
+  unregisterListeners(callbacks: MixerUpdateCallbacks): void {
+    this.callbacks = this.callbacks.filter((cb) => cb !== callbacks);
+  }
+
+  /**
+   * Get all currently registered listeners.
+   *
+   * @return A copy of the array with all currently registered listeners.
+   */
+  getListeners(): MixerUpdateCallbacks[] {
+    return [...this.callbacks];
+  }
 
   /**
    * Get the identifier of this type of mixing console.

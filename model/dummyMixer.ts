@@ -1,7 +1,6 @@
 import InputData from './inputData';
 import MixData from './mixData';
 import Mixer from './mixer';
-import MixerUpdateCallbacks from './mixerUpdateCallbacks';
 
 /**
  * This is a minimal concrete implementation of Mixer.
@@ -26,9 +25,6 @@ class DummyMixer extends Mixer {
   getMetersString(ids: string[]) {
     return ids.map(() => 'A').join('');
   }
-
-  registerListeners(callbacks: MixerUpdateCallbacks): void {}
-  unregisterListeners(callbacks: MixerUpdateCallbacks): void {}
 
   getMixerName(): string {
     return DummyMixer.mixerName;

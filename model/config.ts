@@ -6,11 +6,13 @@ import {
   getAllMixes,
   getAvailableMixers,
 } from '../common/mixerProperties';
+import NullableConfig from './nullableConfig';
+import crypto from 'crypto';
 
 /**
  * This class represents the configuration of SimpleVolumeControl.
  */
-class Config {
+class Config implements NullableConfig {
   /**
    * The IP address by which the mixer can be reached.
    */
@@ -28,10 +30,10 @@ class Config {
   mixes: MixAssignment[] = [];
 
   /**
-   * The password that is used for authentication.
-   * Currently stored in plain text on the server side, but this may change in the future.
+   * The password hash that is used for authentication.
+   * Defaults to the hash of the empty password.
    */
-  password: string = '';
+  password: string = crypto.createHash('sha256').update('').digest('base64');
 
   /**
    * Initializes a valid configuration.
@@ -70,14 +72,15 @@ class Config {
    * Get the JSON representation of the configuration.
    *
    * @param pretty If set to true, the JSON output is formatted for better readability.
+   * @param redactPassword If set to true, the password will be set to null in the JSON output.
    */
-  public toJSON(pretty = false) {
+  public toJSON(pretty = false, redactPassword = false) {
     return JSON.stringify(
       {
         ip: this.ip,
         mixer: this.mixer,
         mixes: this.mixes,
-        password: this.password,
+        password: redactPassword ? null : this.password,
       },
       undefined,
       pretty ? 2 : undefined,
@@ -122,6 +125,22 @@ class Config {
     this.password = typeof config?.password === 'string' ? config.password : '';
 
     // Perform some more in depth validation.
+    this.validate();
+  }
+
+  public adjust(config: NullableConfig) {
+    if (config.ip) {
+      this.ip = config.ip;
+    }
+    if (config.mixer) {
+      this.mixer = config.mixer;
+    }
+    if (config.mixes) {
+      this.mixes = config.mixes;
+    }
+    if (config.password !== null && config.password !== undefined) {
+      this.password = config.password;
+    }
     this.validate();
   }
 

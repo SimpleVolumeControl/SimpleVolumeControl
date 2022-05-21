@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    __source="[object Object]"
+    class="tabs -mb-px z-10"
+  >
+    <a
+      __source="[object Object]"
+      class="tab md:tab-lg tab-lifted border-b-0 tab-active"
+    >
+      a
+    </a>
+    <a
+      __source="[object Object]"
+      class="tab md:tab-lg tab-lifted border-b-0 "
+    >
+      b
+    </a>
+    <a
+      __source="[object Object]"
+      class="tab md:tab-lg tab-lifted border-b-0 "
+    >
+      c
+    </a>
+    <span
+      __source="[object Object]"
+    />
+  </div>
+  <div
+    __source="[object Object]"
+    class="bg-base-100 border border-base-300 p-4 rounded-tr-box rounded-b-box"
+  >
+    A
+  </div>
+</DocumentFragment>
+`;

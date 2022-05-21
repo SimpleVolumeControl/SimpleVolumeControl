@@ -21,8 +21,9 @@ export const configFile = `${homedir()}/.simplevolumecontrol_config.json`;
 
 App.getInstance().loadConfig(configFile);
 
-// The config file is immediately saved here again to correct possible invalidities in the config file itself.
-App.getInstance().saveConfig(configFile);
+App.getInstance().registerConfigChangeListener(() =>
+  App.getInstance().saveConfig(configFile),
+);
 
 (async () => {
   try {

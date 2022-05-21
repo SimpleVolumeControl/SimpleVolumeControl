@@ -1,3 +1,5 @@
+import { isArray, isRecord } from '../utils/helpers';
+
 /**
  * Links a mix to a list of inputs.
  */
@@ -12,5 +14,11 @@ interface MixAssignment {
    */
   inputs: string[];
 }
+
+export const isMixAssignment = (data: unknown): data is MixAssignment =>
+  isRecord(data) &&
+  typeof data.mix === 'string' &&
+  isArray(data.inputs) &&
+  data.inputs.every((input) => typeof input === 'string');
 
 export default MixAssignment;

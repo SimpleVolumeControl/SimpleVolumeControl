@@ -7,7 +7,6 @@ import { Socket } from 'dgram';
 import OscMessage, { OscParameter, OscParameterType } from './oscMessage';
 import mixers from './mixers.json';
 import { perpetuallyIterateOverArray } from '../utils/perpetualIteration';
-import MixerUpdateCallbacks from './mixerUpdateCallbacks';
 import { b64Encode } from '../common/b64';
 
 /**
@@ -201,11 +200,6 @@ class BehringerX32 extends Mixer {
   private meters: Record<string, number | undefined> = {};
 
   /**
-   * Holds all registered mixer update callbacks.
-   */
-  private callbacks: MixerUpdateCallbacks[] = [];
-
-  /**
    * Initializes a new Behringer X32.
    * Sets up the internal data and starts communications with the actual mixer.
    * @param ip The IP address of the mixing console.
@@ -315,24 +309,6 @@ class BehringerX32 extends Mixer {
    */
   getMetersString(ids: string[]): string {
     return ids.map((id) => b64Encode(this.meters[id] ?? 0)).join('');
-  }
-
-  /**
-   * Register callbacks that are called when changes occur on the mixer.
-   *
-   * @param callbacks The callbacks to be registered.
-   */
-  registerListeners(callbacks: MixerUpdateCallbacks): void {
-    this.callbacks.push(callbacks);
-  }
-
-  /**
-   * Remove callbacks that were previously registered.
-   *
-   * @param callbacks The exact same callbacks instance that was previously registered and is now to be removed.
-   */
-  unregisterListeners(callbacks: MixerUpdateCallbacks): void {
-    this.callbacks = this.callbacks.filter((cb) => cb !== callbacks);
   }
 
   /**
