@@ -6,7 +6,7 @@ import InputData from './inputData';
 import { notNull } from '../utils/helpers';
 import DummyMixer from './dummyMixer';
 import MixerUpdateCallbacks from './mixerUpdateCallbacks';
-import * as crypto from 'crypto';
+import NullableConfig from './nullableConfig';
 
 /**
  * App represents the whole application.
@@ -28,6 +28,8 @@ class App {
    * The currently used mixer.
    */
   private mixer: Mixer;
+
+  private configChangeListeners: (() => void)[] = [];
 
   /**
    * Get access to the singleton instance.
@@ -66,6 +68,19 @@ class App {
    */
   public saveConfig(filename: string) {
     this.config.saveToFile(filename);
+  }
+
+  /**
+   * Get the current configuration as JSON string.
+   * The password field is set to null.
+   */
+  public getJsonConfigWithoutPassword(): string {
+    return this.config.toJSON(false, true);
+  }
+
+  public adjustConfig(config: NullableConfig) {
+    this.config.adjust(config);
+    this.refreshConfig();
   }
 
   /**
@@ -164,6 +179,16 @@ class App {
     this.mixer.unregisterListeners(callbacks);
   }
 
+  public registerConfigChangeListener(callback: () => void) {
+    this.configChangeListeners.push(callback);
+  }
+
+  public unregisterConfigChangeListener(callback: () => void) {
+    this.configChangeListeners = this.configChangeListeners.filter(
+      (cb) => cb !== callback,
+    );
+  }
+
   /**
    * Set a new level for an input or mix.
    * If input is null, the level change affects the mix itself,
@@ -195,26 +220,26 @@ class App {
    * @param password The password hash that is to be checked.
    */
   public checkPassword(password: String): boolean {
-    return (
-      crypto
-        .createHash('sha256')
-        .update(this.config.password)
-        .digest('base64') === password
-    );
+    return this.config.password === password;
   }
 
   /**
    * Adjust the current data (especially mixer data) according to a configuration change.
+   * Calls the registered config change listeners.
    */
   private refreshConfig() {
     if (this.config.mixer != this.mixer.getMixerName()) {
+      const listeners = this.mixer.getListeners();
+      listeners.forEach((listener) => this.mixer.unregisterListeners(listener));
       this.mixer.stop();
       this.mixer = MixerFactory.createMixer(this.config.mixer, this.config.ip);
-      // TODO Migrate registered listeners on mixer change
+      listeners.forEach((listener) => this.mixer.registerListeners(listener));
     }
     if (this.mixer.ip !== this.config.ip) {
       this.mixer.setIp(this.config.ip);
     }
+
+    this.configChangeListeners.forEach((cb) => cb());
   }
 }
 

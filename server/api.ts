@@ -5,6 +5,8 @@ import { WebSocket } from 'ws';
 import MixerUpdateCallbacks from '../model/mixerUpdateCallbacks';
 import ApiCode from '../common/apiCode';
 import splitMessage from '../common/apiSplitMessage';
+import { tryJsonParse } from '../utils/helpers';
+import { isNullableConfig } from '../model/nullableConfig';
 
 // Declare that there can be an `authenticated` field on the WebSocket objects.
 export interface ExtendedWebsocket extends WebSocket {
@@ -137,6 +139,36 @@ router.ws('/mix/:mixId', (ws, req) => {
   };
   App.getInstance().registerListeners(callbacks);
   ws.on('close', () => App.getInstance().unregisterListeners(callbacks));
+});
+
+// API endpoint for the configuration.
+router.ws('/config', (ws) => {
+  // On opening, send the current config (excluding the password).
+  ws.send(
+    `${ApiCode.CONFIG}${App.getInstance().getJsonConfigWithoutPassword()}`,
+  );
+
+  // Handle messages initiated by the client.
+  ws.on('message', (msg: string) => {
+    // Handle auth messages and discard all other messages when not authenticated.
+    if (!handleAuth(msg, ws)) {
+      return;
+    }
+
+    // Handle config change.
+    const { code, content } = splitMessage(msg);
+    if (code === ApiCode.CONFIG) {
+      const data = tryJsonParse(content, {});
+      if (isNullableConfig(data)) {
+        App.getInstance().adjustConfig(data);
+      }
+    }
+
+    // Finally, resend the updated configuration.
+    ws.send(
+      `${ApiCode.CONFIG}${App.getInstance().getJsonConfigWithoutPassword()}`,
+    );
+  });
 });
 
 export default router;

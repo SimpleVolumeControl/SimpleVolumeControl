@@ -6,7 +6,7 @@ import { SHA256 } from 'jshashes';
 // Shortcut function to get the SHA256 hash of a string.
 // jshashes is used instead of the more well known sjcl because of its significantly smaller size in this use case.
 // Using sjcl in the browser would require crypto-browserify, which in turn would account for about half of the final bundle size.
-const hash = (value: string): string => new SHA256().b64(value);
+export const hash = (value: string): string => new SHA256().b64(value);
 
 // The hash of an empty string.
 // The empty password has a special meaning:
