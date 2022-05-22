@@ -23,7 +23,8 @@
     "react-dom": "npm:@preact/compat",
     "react-ssr-prepass": "npm:preact-ssr-prepass",
     "react-use-websocket": "4.2.0",
-    "recoil": "0.7.2"
+    "recoil": "0.7.2",
+    "cross-env": "7.0.3"
   },
   "devDependencies": {
     "@babel/core": "7.18.0",
@@ -39,7 +40,6 @@
     "@types/react": "18.0.9",
     "autoprefixer": "10.4.7",
     "babel-jest": "27.5.1",
-    "cross-env": "7.0.3",
     "daisyui": "2.15.0",
     "eslint": "8.16.0",
     "eslint-config-next": "12.1.5",
