@@ -39,7 +39,7 @@ const ConfigEditor: FC<ConfigEditorProps> = () => {
             werden. Falsche Einstellungen können dazu führen, dass
             SimpleVolumeControl nicht mehr richtig funktioniert.
           </p>
-          <Link href="/pages">
+          <Link href="/">
             <a className="btn btn-outline btn-lg">Zurück zur Raumübersicht</a>
           </Link>
         </div>
