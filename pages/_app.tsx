@@ -8,6 +8,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <RecoilRoot>
       <Head>
         <title>SimpleVolumeControl</title>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </Head>
       <Component {...pageProps} />
     </RecoilRoot>
