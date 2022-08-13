@@ -2262,10 +2262,10 @@ csstype@^3.0.2:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.0.10.tgz#2ad3a7bed70f35b965707c092e5f30b327c290e5"
   integrity sha512-2u44ZG2OcNUO9HDp/Jl8C07x6pU/eTR3ncV91SiK3dhG9TWvRVsCoJw14Ckx5DgWkzGA3waZWO3d7pgqpUI/XA==
 
-daisyui@2.22.1:
-  version "2.22.1"
-  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-2.22.1.tgz#9c10a15067101860238b41027af0c522ee196e0e"
-  integrity sha512-5OjK3kYhqgwKVrun7itvR9Am98SGuhgBx/9vYScBT6GBBhKoVTbSaYDv9Hv+E65Tt5qTgSoEzIxelDlfxQFG7Q==
+daisyui@2.24.0:
+  version "2.24.0"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-2.24.0.tgz#7eacfc943815979227cf50b98f7df622c2814118"
+  integrity sha512-Fdu/4LCdTfWLWAbCuPxvnaRotEfJ+hVPgZ2kv/aUk9RZ00Yk8fGdJtIf0kXJ3IgUKOr8rCXUpfQY6DQU9usPCQ==
   dependencies:
     color "^4.2"
     css-selector-tokenizer "^0.8.0"
