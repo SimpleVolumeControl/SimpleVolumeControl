@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.18.13",
-    "@tailwindcss/typography": "0.5.6",
+    "@tailwindcss/typography": "0.5.7",
     "@testing-library/dom": "8.17.1",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/preact": "3.2.2",
