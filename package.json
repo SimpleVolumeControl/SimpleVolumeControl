@@ -29,7 +29,7 @@
   "devDependencies": {
     "@babel/core": "7.19.1",
     "@tailwindcss/typography": "0.5.7",
-    "@testing-library/dom": "8.18.0",
+    "@testing-library/dom": "8.18.1",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/preact": "3.2.2",
     "@testing-library/react-hooks": "8.0.1",
