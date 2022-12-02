@@ -37,7 +37,7 @@
     "@types/express-ws": "3.0.1",
     "@types/jest": "27.5.2",
     "@types/node": "16.18.4",
-    "@types/react": "18.0.25",
+    "@types/react": "18.0.26",
     "autoprefixer": "10.4.13",
     "babel-jest": "27.5.1",
     "daisyui": "2.42.1",
