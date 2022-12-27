@@ -13,5 +13,6 @@
   "prConcurrentLimit": 0,
   "platform": "github",
   "username": "SimpleVolumeControlBot",
-  "gitAuthor": "SimpleVolumeControlBot <121509642+SimpleVolumeControlBot@users.noreply.github.com>"
+  "gitAuthor": "SimpleVolumeControlBot <121509642+SimpleVolumeControlBot@users.noreply.github.com>",
+  "repositories": ["SimpleVolumeControl"]
 }
