@@ -1,6 +1,17 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "gitlab>simplevolumecontrol/renovate-runner:renovate"
-  ]
+    "config:base"
+  ],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+  ],
+  "labels": ["renovate"],
+  "prConcurrentLimit": 0,
+  "platform": "github",
+  "username": "SimpleVolumeControlBot",
+  "gitAuthor": "SimpleVolumeControlBot <121509642+SimpleVolumeControlBot@users.noreply.github.com>"
 }
