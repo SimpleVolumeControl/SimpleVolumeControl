@@ -39,7 +39,7 @@
     "@types/node": "16.18.41",
     "@types/react": "18.2.20",
     "autoprefixer": "10.4.15",
-    "babel-jest": "27.5.1",
+    "babel-jest": "29.6.3",
     "daisyui": "2.52.0",
     "eslint": "8.47.0",
     "eslint-config-next": "12.3.4",
