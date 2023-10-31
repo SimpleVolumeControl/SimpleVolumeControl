@@ -36,7 +36,7 @@
     "@types/express": "4.17.13",
     "@types/express-ws": "3.0.3",
     "@types/jest": "27.5.2",
-    "@types/node": "16.18.59",
+    "@types/node": "16.18.60",
     "@types/react": "18.2.33",
     "autoprefixer": "10.4.16",
     "babel-jest": "27.5.1",
