@@ -1386,10 +1386,10 @@
     "@types/qs" "*"
     "@types/range-parser" "*"
 
-"@types/express-ws@3.0.3":
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/@types/express-ws/-/express-ws-3.0.3.tgz#67a2c6a9aeb6c7ad77cfbd112a5cf55bc573bacf"
-  integrity sha512-DUPy7Ty4pven+6QgsD/QcDi9P9KRpcSaxWOfuQYLFYrsUQdtmSDAb9tYUJDad4FKkh7Ijef3PRe2EFensEVJmQ==
+"@types/express-ws@3.0.4":
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/@types/express-ws/-/express-ws-3.0.4.tgz#917a11966b520df9f3a5ce56919be057ee65c63b"
+  integrity sha512-Yjj18CaivG5KndgcvzttWe8mPFinPCHJC2wvyQqVzA7hqeufM8EtWMj6mpp5omg3s8XALUexhOu8aXAyi/DyJQ==
   dependencies:
     "@types/express" "*"
     "@types/express-serve-static-core" "*"
