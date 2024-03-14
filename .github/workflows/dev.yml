@@ -1,0 +1,15 @@
+name: Dev Workflow
+
+on: 
+  push:
+    branches-ignore: [main]
+
+jobs:
+  lint:
+    uses: ./.github/workflows/_lint.yml
+
+  unit-tests:
+    uses: ./.github/workflows/_unit-tests.yml
+
+  build:
+    uses: ./.github/workflows/_build.yml

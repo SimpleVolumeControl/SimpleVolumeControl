@@ -17,7 +17,8 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 const port = process.env.PORT || 3000;
 
-export const configFile = `${homedir()}/.simplevolumecontrol_config.json`;
+const configDir = process.env.CONFIG_DIR || homedir();
+export const configFile = `${configDir}/.simplevolumecontrol_config.json`;
 
 App.getInstance().loadConfig(configFile);
 
