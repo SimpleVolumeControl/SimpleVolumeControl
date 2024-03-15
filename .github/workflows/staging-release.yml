@@ -1,0 +1,18 @@
+name: Staging Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        default: nightly
+        type: string
+
+jobs:
+  release:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    steps:
+      - name: Set tag
+        run: |
+          podman login -u "${{ github.actor }}" -p "${{ secrets.GITHUB_TOKEN }}" "ghcr.io"
+          skopeo copy --all docker://ghcr.io/${GITHUB_REPOSITORY,,}:${{ inputs.tag }} docker://ghcr.io/${GITHUB_REPOSITORY,,}:staging
