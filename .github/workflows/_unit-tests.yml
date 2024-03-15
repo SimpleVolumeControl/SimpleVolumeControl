@@ -1,8 +1,11 @@
-name: Verify Code Quality
-on: [push]
+name: (Reusable Workflow) Unit Tests
+
+on: [workflow_call]
+
 jobs:
-  verify:
+  unit-tests:
     runs-on: ubuntu-22.04
+    timeout-minutes: 30
     env:
       NEXT_TELEMETRY_DISABLED: 1
     steps:
@@ -11,6 +14,4 @@ jobs:
         with:
           node-version: 16
       - run: yarn install --frozen-lockfile
-      - run: yarn run lint
       - run: yarn run test --forceExit
-      - run: yarn run build

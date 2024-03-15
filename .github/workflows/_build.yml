@@ -1,0 +1,35 @@
+name: (Reusable Workflow) Build
+
+on: 
+  workflow_call:
+    inputs:
+      release-version:
+        required: false
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    env:
+      NEXT_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+      - name: Dev Build (no publish)
+        if: ${{ !inputs.release-version }}
+        run: podman build --platform linux/amd64,linux/arm64 .
+      - name: Prod Build (publish to ghcr.io)
+        if: ${{ inputs.release-version }}
+        env:
+          IMAGE_NAME: ghcr.io/simplevolumecontrol/simplevolumecontrol:${{ inputs.release-version }}
+        run: |
+          podman manifest create ${{ env.IMAGE_NAME }}
+          podman build --platform linux/amd64,linux/arm64 --manifest ${{ env.IMAGE_NAME }} .
+          podman login -u "${{ github.actor }}" -p "${{ secrets.GITHUB_TOKEN }}" "ghcr.io"
+          podman manifest push ${{ env.IMAGE_NAME }} ${{ env.IMAGE_NAME }}
+          podman manifest push ${{ env.IMAGE_NAME }} ghcr.io/simplevolumecontrol/simplevolumecontrol:nightly
