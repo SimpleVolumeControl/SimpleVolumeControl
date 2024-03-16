@@ -9,6 +9,8 @@ import {
 import NullableConfig from './nullableConfig';
 import crypto from 'crypto';
 
+const emptyPassword = crypto.createHash('sha256').update('').digest('base64');
+
 /**
  * This class represents the configuration of SimpleVolumeControl.
  */
@@ -33,7 +35,7 @@ class Config implements NullableConfig {
    * The password hash that is used for authentication.
    * Defaults to the hash of the empty password.
    */
-  password: string = crypto.createHash('sha256').update('').digest('base64');
+  password: string = emptyPassword;
 
   /**
    * Initializes a valid configuration.
@@ -122,7 +124,8 @@ class Config implements NullableConfig {
         return element.inputs.every((input) => typeof input === 'string');
       });
     }
-    this.password = typeof config?.password === 'string' ? config.password : '';
+    this.password =
+      typeof config?.password === 'string' ? config.password : emptyPassword;
 
     // Perform some more in depth validation.
     this.validate();
