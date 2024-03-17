@@ -21,8 +21,8 @@ const Header: FC<HeaderProps> = ({ isHome }) => {
       <div className="navbar mb-4 shadow-lg bg-primary text-neutral-content rounded-box flex-wrap xs:flex-nowrap">
         <div className="navbar-start">
           {!isHome && (
-            <Link href="/">
-              <a className="btn btn-outline btn-accent">zurück</a>
+            <Link href="/" className="btn btn-outline btn-accent">
+              zurück
             </Link>
           )}
         </div>

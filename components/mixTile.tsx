@@ -28,11 +28,9 @@ const MixTile: FC<MixTileProps> = ({ id, name, color }) => {
       className={`card shadow bg-base-100 border-2 ${colorClasses.border}`}
     >
       <Link href={`/mix/${id}`} passHref>
-        <a>
-          <div className={`card-body ${colorClasses.bgFaint}`}>
-            <h2 className="card-title m-0 justify-center">{name}</h2>
-          </div>
-        </a>
+        <div className={`card-body ${colorClasses.bgFaint}`}>
+          <h2 className="card-title m-0 justify-center">{name}</h2>
+        </div>
       </Link>
     </div>
   );

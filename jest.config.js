@@ -30,12 +30,6 @@ module.exports = {
         '<rootDir>/(components|hooks|pages)/**/__tests__/**/*.[jt]s?(x)',
         '<rootDir>/(components|hooks|pages)/**/?(*.)+(spec|test).[jt]s?(x)',
       ],
-      moduleNameMapper: {
-        '^react$': 'preact/compat',
-        '^react-dom/test-utils$': 'preact/test-utils',
-        '^react-dom$': 'preact/compat',
-        '^react/jsx-runtime$': 'preact/jsx-runtime',
-      },
     },
     {
       transform: {

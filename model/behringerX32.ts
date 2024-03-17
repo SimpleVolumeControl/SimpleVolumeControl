@@ -138,12 +138,12 @@ class BehringerX32 extends Mixer {
   /**
    * The currently used interval timer for triggering /xremote and meters messages.
    */
-  private xremoteInterval: NodeJS.Timer | null = null;
+  private xremoteInterval: NodeJS.Timeout | null = null;
 
   /**
    * The currently used interval timer for triggering the query messages.
    */
-  private queryInterval: NodeJS.Timer | null = null;
+  private queryInterval: NodeJS.Timeout | null = null;
 
   /**
    * Contains the name (can be configured on the mixing console) associated with each mix.

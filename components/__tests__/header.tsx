@@ -1,6 +1,10 @@
-import { render } from '@testing-library/preact';
+import { render } from '@testing-library/react';
 import Header from '../header';
 import { RecoilRoot } from 'recoil';
+
+jest.mock('next/router', () => ({
+  useRouter: jest.fn(),
+}));
 
 describe('Header', () => {
   test('should render correctly on home page', () => {
