@@ -27,7 +27,7 @@ const Header: FC<HeaderProps> = ({ isHome }) => {
           )}
         </div>
         <div className="px-2 mx-2 navbar-center w-full xs:w-auto order-first xs:order-none justify-center">
-          <span className="text-lg sm:text-3xl sm:font-thin">
+          <span className="text-lg sm:text-3xl sm:font-light">
             SimpleVolumeControl
           </span>
         </div>

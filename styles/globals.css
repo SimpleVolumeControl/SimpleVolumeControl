@@ -17,7 +17,7 @@ body {
 
 .fader::range-thumb {
   box-shadow: none;
-  background-color: hsl(var(--range-shdw));
+  @apply bg-base-content;
 }
 
 .btn.muted {

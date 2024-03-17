@@ -61,7 +61,9 @@ const ChannelStrip: FC<ChannelStripProps> = ({
         <div className="flex items-center mb-2">
           <h2 className="card-title m-0 text-base flex-1">
             {name}{' '}
-            <span className={`badge ${colorClasses.bg} border-0`}>
+            <span
+              className={`badge ${colorClasses.bg} text-neutral-content border-0`}
+            >
               {Math.round(level * 100)}%
             </span>
           </h2>

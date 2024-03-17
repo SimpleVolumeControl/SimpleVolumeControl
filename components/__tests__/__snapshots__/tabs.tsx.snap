@@ -3,27 +3,26 @@
 exports[`Tabs should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="tabs -mb-px z-10"
+    class="tabs md:tabs-lg tabs-lifted -mb-px z-10"
   >
     <a
-      class="tab md:tab-lg tab-lifted border-b-0 tab-active"
+      class="tab [&&]:border-b-0 tab-active"
     >
       a
     </a>
     <a
-      class="tab md:tab-lg tab-lifted border-b-0 "
+      class="tab [&&]:border-b-0 "
     >
       b
     </a>
     <a
-      class="tab md:tab-lg tab-lifted border-b-0 "
+      class="tab [&&]:border-b-0 "
     >
       c
     </a>
-    <span />
   </div>
   <div
-    class="bg-base-100 border border-base-300 p-4 rounded-tr-box rounded-b-box"
+    class="bg-base-100 border border-base-300 p-4 rounded-b-box  rounded-tr-box "
   >
     A
   </div>

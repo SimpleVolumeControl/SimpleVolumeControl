@@ -19,7 +19,7 @@ function useColor(rawColor: string) {
   const [color, setColor] = useState({
     bgFaint: 'bg-base-300/20',
     border: 'border-base-300',
-    bg: 'bg-base-500',
+    bg: 'bg-stone-700',
   });
 
   // If possible, switch to the appropriate class names for the given color name.
