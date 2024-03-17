@@ -37,7 +37,7 @@ const MixerConfig: FC<MixerConfigProps> = ({ config, changeConfig }) => {
                   <option key={mixer}>{mixer}</option>
                 ))}
               </select>
-              <button type="submit" className="btn">
+              <button type="submit" className="btn btn-neutral">
                 Speichern
               </button>
             </div>

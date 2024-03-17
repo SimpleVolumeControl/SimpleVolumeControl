@@ -115,7 +115,7 @@ const MixAssignmentCard: FC<MixAssignmentCardProps> = ({
                         </option>
                       ))}
                     </select>
-                    <button type="submit" className="btn btn-sm">
+                    <button type="submit" className="btn btn-sm btn-neutral">
                       Hinzufügen
                     </button>
                   </div>

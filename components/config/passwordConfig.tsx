@@ -89,7 +89,7 @@ const PasswordConfig: FC<PasswordConfigProps> = ({ changeConfig }) => {
             </div>
           </label>
         </div>
-        <button type="submit" className="btn">
+        <button type="submit" className="btn btn-neutral">
           Speichern
         </button>
       </form>
