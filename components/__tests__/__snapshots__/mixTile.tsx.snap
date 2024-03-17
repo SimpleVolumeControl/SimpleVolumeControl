@@ -3,19 +3,15 @@
 exports[`MixTile should render correctly (blue) 1`] = `
 <DocumentFragment>
   <div
-    __source="[object Object]"
     class="card shadow bg-base-100 border-2 border-blue-500"
   >
     <a
-      __source="[object Object]"
       href="/mix/mix01"
     >
       <div
-        __source="[object Object]"
         class="card-body bg-blue-500/20"
       >
         <h2
-          __source="[object Object]"
           class="card-title m-0 justify-center"
         >
           Mix 1
@@ -29,19 +25,15 @@ exports[`MixTile should render correctly (blue) 1`] = `
 exports[`MixTile should render correctly (foobar) 1`] = `
 <DocumentFragment>
   <div
-    __source="[object Object]"
     class="card shadow bg-base-100 border-2 border-base-300"
   >
     <a
-      __source="[object Object]"
       href="/mix/mix01"
     >
       <div
-        __source="[object Object]"
         class="card-body bg-base-300/20"
       >
         <h2
-          __source="[object Object]"
           class="card-title m-0 justify-center"
         >
           Mix 1
@@ -55,19 +47,15 @@ exports[`MixTile should render correctly (foobar) 1`] = `
 exports[`MixTile should render correctly (green) 1`] = `
 <DocumentFragment>
   <div
-    __source="[object Object]"
     class="card shadow bg-base-100 border-2 border-lime-500"
   >
     <a
-      __source="[object Object]"
       href="/mix/mix01"
     >
       <div
-        __source="[object Object]"
         class="card-body bg-lime-500/20"
       >
         <h2
-          __source="[object Object]"
           class="card-title m-0 justify-center"
         >
           Mix 1
@@ -81,19 +69,15 @@ exports[`MixTile should render correctly (green) 1`] = `
 exports[`MixTile should render correctly (lightblue) 1`] = `
 <DocumentFragment>
   <div
-    __source="[object Object]"
     class="card shadow bg-base-100 border-2 border-cyan-400"
   >
     <a
-      __source="[object Object]"
       href="/mix/mix01"
     >
       <div
-        __source="[object Object]"
         class="card-body bg-cyan-400/20"
       >
         <h2
-          __source="[object Object]"
           class="card-title m-0 justify-center"
         >
           Mix 1
@@ -107,19 +91,15 @@ exports[`MixTile should render correctly (lightblue) 1`] = `
 exports[`MixTile should render correctly (pink) 1`] = `
 <DocumentFragment>
   <div
-    __source="[object Object]"
     class="card shadow bg-base-100 border-2 border-pink-500"
   >
     <a
-      __source="[object Object]"
       href="/mix/mix01"
     >
       <div
-        __source="[object Object]"
         class="card-body bg-pink-500/20"
       >
         <h2
-          __source="[object Object]"
           class="card-title m-0 justify-center"
         >
           Mix 1
@@ -133,19 +113,15 @@ exports[`MixTile should render correctly (pink) 1`] = `
 exports[`MixTile should render correctly (red) 1`] = `
 <DocumentFragment>
   <div
-    __source="[object Object]"
     class="card shadow bg-base-100 border-2 border-red-500"
   >
     <a
-      __source="[object Object]"
       href="/mix/mix01"
     >
       <div
-        __source="[object Object]"
         class="card-body bg-red-500/20"
       >
         <h2
-          __source="[object Object]"
           class="card-title m-0 justify-center"
         >
           Mix 1
@@ -159,19 +135,15 @@ exports[`MixTile should render correctly (red) 1`] = `
 exports[`MixTile should render correctly (white) 1`] = `
 <DocumentFragment>
   <div
-    __source="[object Object]"
     class="card shadow bg-base-100 border-2 border-base-300"
   >
     <a
-      __source="[object Object]"
       href="/mix/mix01"
     >
       <div
-        __source="[object Object]"
         class="card-body bg-base-300/20"
       >
         <h2
-          __source="[object Object]"
           class="card-title m-0 justify-center"
         >
           Mix 1
@@ -185,19 +157,15 @@ exports[`MixTile should render correctly (white) 1`] = `
 exports[`MixTile should render correctly (yellow) 1`] = `
 <DocumentFragment>
   <div
-    __source="[object Object]"
     class="card shadow bg-base-100 border-2 border-yellow-400"
   >
     <a
-      __source="[object Object]"
       href="/mix/mix01"
     >
       <div
-        __source="[object Object]"
         class="card-body bg-yellow-400/20"
       >
         <h2
-          __source="[object Object]"
           class="card-title m-0 justify-center"
         >
           Mix 1

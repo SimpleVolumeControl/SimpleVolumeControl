@@ -9,8 +9,8 @@ const Home: NextPage = () => {
       <Header isHome={true} />
       <MixOverview />
       <div className="container mx-auto text-right mt-4">
-        <Link href="/config">
-          <a className="link link-hover">Einstellungen</a>
+        <Link href="/config" className="link link-hover">
+          Einstellungen
         </Link>
       </div>
     </>

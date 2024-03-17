@@ -1,6 +1,10 @@
-import { render } from '@testing-library/preact';
+import { render } from '@testing-library/react';
 import MixOverview from '../mixOverview';
 import { RecoilRoot } from 'recoil';
+
+jest.mock('next/router', () => ({
+  useRouter: jest.fn(),
+}));
 
 describe('MixOverview', () => {
   test('should render correctly', () => {

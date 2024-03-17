@@ -16,9 +16,9 @@ After installing the dependencies,
 you can create a production build of SimpleVolumeControl and start it using the following commands:
 
 ```
- $ yarn install
- $ yarn build
- $ yarn start
+ $ pnpm install
+ $ pnpm build
+ $ pnpm start
 ```
 
 SimpleVolumeControl is only intended to be run on Linux,
@@ -64,12 +64,12 @@ The configuration has the following format:
 ```
 
 ## Screenshots
+
 | Light Theme                                   | Dark Theme                                   |
-|-----------------------------------------------|----------------------------------------------|
+| --------------------------------------------- | -------------------------------------------- |
 | ![Login](./screenshots/login-light.png)       | ![Login](./screenshots/login-dark.png)       |
 | ![Overview](./screenshots/overview-light.png) | ![Overview](./screenshots/overview-dark.png) |
 | ![Room](./screenshots/room-light.png)         | ![Room](./screenshots/room-dark.png)         |
-
 
 ## License
 
