@@ -34,7 +34,7 @@ const NetworkConfig: FC<NetworkConfigProps> = ({ config, changeConfig }) => {
                 onChange={(event) => setInput(event.target.value)}
                 value={input}
               />
-              <button type="submit" className="btn">
+              <button type="submit" className="btn btn-neutral">
                 Speichern
               </button>
             </div>
