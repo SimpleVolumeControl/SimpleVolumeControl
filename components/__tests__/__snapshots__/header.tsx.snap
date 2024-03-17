@@ -19,7 +19,7 @@ exports[`Header should hide logout button when no password is set 1`] = `
       class="px-2 mx-2 navbar-center w-full xs:w-auto order-first xs:order-none justify-center"
     >
       <span
-        class="text-lg sm:text-3xl sm:font-thin"
+        class="text-lg sm:text-3xl sm:font-light"
       >
         SimpleVolumeControl
       </span>
@@ -43,7 +43,7 @@ exports[`Header should render correctly on home page 1`] = `
       class="px-2 mx-2 navbar-center w-full xs:w-auto order-first xs:order-none justify-center"
     >
       <span
-        class="text-lg sm:text-3xl sm:font-thin"
+        class="text-lg sm:text-3xl sm:font-light"
       >
         SimpleVolumeControl
       </span>
@@ -74,7 +74,7 @@ exports[`Header should render correctly on other pages 1`] = `
       class="px-2 mx-2 navbar-center w-full xs:w-auto order-first xs:order-none justify-center"
     >
       <span
-        class="text-lg sm:text-3xl sm:font-thin"
+        class="text-lg sm:text-3xl sm:font-light"
       >
         SimpleVolumeControl
       </span>
