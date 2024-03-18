@@ -28,6 +28,11 @@ const MixAssignmentCard: FC<MixAssignmentCardProps> = ({
       setInputs(mix.inputs);
     }
   }, [mix]);
+  useEffect(() => {
+    setAddName(
+      getAllInputs(mixer).find((input) => !inputs.includes(input)) ?? '',
+    );
+  }, [mixer, inputs]);
 
   return (
     <div className="card w-full bg-base-200 shadow-xl card-compact">

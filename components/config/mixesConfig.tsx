@@ -25,6 +25,13 @@ const MixesConfig: FC<MixesConfigProps> = ({ config, changeConfig }) => {
       setMixer(config.mixer);
     }
   }, [config]);
+  useEffect(() => {
+    setAddName(
+      getAllMixes(mixer).find(
+        (mix) => !mixes.some((mixAssignment) => mixAssignment.mix === mix),
+      ) ?? '',
+    );
+  }, [mixer, mixes]);
   const submit = () => {
     changeConfig({ mixes: mixes });
     setChanged(false);
