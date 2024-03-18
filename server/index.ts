@@ -4,7 +4,6 @@
 import express, { Request, Response } from 'express';
 import expressWs from 'express-ws';
 const { app: server, getWss } = expressWs(express());
-import next from 'next';
 import App from '../model/app';
 import api from './api';
 import { parse } from 'url';
@@ -13,7 +12,16 @@ import WebSocket from 'ws';
 import { homedir } from 'os';
 
 const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev });
+const app = dev
+  ? require('next')({ dev })
+  : require('next')(require('../../.next/required-server-files.json').config);
+
+if (!dev) {
+  process.env.__NEXT_PRIVATE_STANDALONE_CONFIG = JSON.stringify(
+    require('../../.next/required-server-files.json').config,
+  );
+}
+
 const handle = app.getRequestHandler();
 const port = process.env.PORT || 3000;
 
