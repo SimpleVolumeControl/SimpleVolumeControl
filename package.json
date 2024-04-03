@@ -23,7 +23,7 @@
     "recoil": "0.7.7"
   },
   "devDependencies": {
-    "@babel/core": "7.24.3",
+    "@babel/core": "7.24.4",
     "@tailwindcss/typography": "0.5.12",
     "@testing-library/dom": "9.3.4",
     "@testing-library/jest-dom": "6.4.2",
