@@ -45,7 +45,7 @@
     "jest": "29.7.0",
     "jest-environment-jsdom": "29.7.0",
     "jshashes": "1.0.8",
-    "nodemon": "3.1.0",
+    "nodemon": "3.1.1",
     "postcss": "8.4.38",
     "postcss-input-range": "5.0.0",
     "prettier": "3.2.5",
