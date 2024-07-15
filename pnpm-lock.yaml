@@ -39,7 +39,7 @@ devDependencies:
     version: 7.24.9
   '@tailwindcss/typography':
     specifier: 0.5.13
-    version: 0.5.13(tailwindcss@3.4.4)
+    version: 0.5.13(tailwindcss@3.4.5)
   '@testing-library/dom':
     specifier: 10.3.2
     version: 10.3.2
@@ -113,8 +113,8 @@ devDependencies:
     specifier: 3.3.3
     version: 3.3.3
   tailwindcss:
-    specifier: 3.4.4
-    version: 3.4.4(ts-node@10.9.2)
+    specifier: 3.4.5
+    version: 3.4.5(ts-node@10.9.2)
   ts-jest:
     specifier: 29.2.2
     version: 29.2.2(@babel/core@7.24.9)(babel-jest@29.7.0)(jest@29.7.0)(typescript@5.4.5)
@@ -1004,7 +1004,7 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@tailwindcss/typography@0.5.13(tailwindcss@3.4.4):
+  /@tailwindcss/typography@0.5.13(tailwindcss@3.4.5):
     resolution: {integrity: sha512-ADGcJ8dX21dVVHIwTRgzrcunY6YY9uSlAHHGVKvkA+vLc5qLwEszvKts40lx7z0qc4clpjclwLeK5rVCV2P/uw==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
@@ -1013,7 +1013,7 @@ packages:
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       postcss-selector-parser: 6.0.10
-      tailwindcss: 3.4.4(ts-node@10.9.2)
+      tailwindcss: 3.4.5(ts-node@10.9.2)
     dev: true
 
   /@testing-library/dom@10.3.2:
@@ -5591,8 +5591,8 @@ packages:
       tslib: 2.6.2
     dev: true
 
-  /tailwindcss@3.4.4(ts-node@10.9.2):
-    resolution: {integrity: sha512-ZoyXOdJjISB7/BcLTR6SEsLgKtDStYyYZVLsUtWChO4Ps20CBad7lfJKVDiejocV4ME1hLmyY0WJE3hSDcmQ2A==}
+  /tailwindcss@3.4.5(ts-node@10.9.2):
+    resolution: {integrity: sha512-DlTxttYcogpDfx3tf/8jfnma1nfAYi2cBUYV2YNoPPecwmO3YGiFlOX9D8tGAu+EDF38ryBzvrDKU/BLMsUwbw==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
@@ -5609,7 +5609,7 @@ packages:
       micromatch: 4.0.5
       normalize-path: 3.0.0
       object-hash: 3.0.0
-      picocolors: 1.0.0
+      picocolors: 1.0.1
       postcss: 8.4.39
       postcss-import: 15.1.0(postcss@8.4.39)
       postcss-js: 4.0.1(postcss@8.4.39)
