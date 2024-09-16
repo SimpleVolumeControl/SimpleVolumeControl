@@ -48,10 +48,10 @@ devDependencies:
     version: 6.5.0
   '@testing-library/react':
     specifier: 15.0.7
-    version: 15.0.7(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1)
+    version: 15.0.7(@types/react@18.3.6)(react-dom@18.3.1)(react@18.3.1)
   '@testing-library/react-hooks':
     specifier: 8.0.1
-    version: 8.0.1(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1)
+    version: 8.0.1(@types/react@18.3.6)(react-dom@18.3.1)(react@18.3.1)
   '@types/express':
     specifier: 4.17.21
     version: 4.17.21
@@ -65,8 +65,8 @@ devDependencies:
     specifier: 20.16.5
     version: 20.16.5
   '@types/react':
-    specifier: 18.3.5
-    version: 18.3.5
+    specifier: 18.3.6
+    version: 18.3.6
   '@types/ws':
     specifier: 8.5.12
     version: 8.5.12
@@ -1031,7 +1031,7 @@ packages:
       redent: 3.0.0
     dev: true
 
-  /@testing-library/react-hooks@8.0.1(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1):
+  /@testing-library/react-hooks@8.0.1(@types/react@18.3.6)(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-Aqhl2IVmLt8IovEVarNDFuJDVWVvhnr9/GCU6UUnrYXwgDFF9h2L2o2P9KBni1AST5sT6riAyoukFLyjQUgD/g==}
     engines: {node: '>=12'}
     peerDependencies:
@@ -1048,13 +1048,13 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.24.0
-      '@types/react': 18.3.5
+      '@types/react': 18.3.6
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       react-error-boundary: 3.1.4(react@18.3.1)
     dev: true
 
-  /@testing-library/react@15.0.7(@types/react@18.3.5)(react-dom@18.3.1)(react@18.3.1):
+  /@testing-library/react@15.0.7(@types/react@18.3.6)(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-cg0RvEdD1TIhhkm1IeYMQxrzy0MtUNfa3minv4MjbgcYzJAZ7yD0i0lwoPOTPr+INtiXFezt2o8xMSnyHhEn2Q==}
     engines: {node: '>=18'}
     peerDependencies:
@@ -1067,7 +1067,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.24.0
       '@testing-library/dom': 10.4.0
-      '@types/react': 18.3.5
+      '@types/react': 18.3.6
       '@types/react-dom': 18.2.22
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -1244,11 +1244,11 @@ packages:
   /@types/react-dom@18.2.22:
     resolution: {integrity: sha512-fHkBXPeNtfvri6gdsMYyW+dW7RXFo6Ad09nLFK0VQWR7yGLai/Cyvyj696gbwYvBnhGtevUG9cET0pmUbMtoPQ==}
     dependencies:
-      '@types/react': 18.3.5
+      '@types/react': 18.3.6
     dev: true
 
-  /@types/react@18.3.5:
-    resolution: {integrity: sha512-WeqMfGJLGuLCqHGYRGHxnKrXcTitc6L/nBUWfWPcTarG3t9PsquqUMuVeXZeca+mglY4Vo5GZjCi0A3Or2lnxA==}
+  /@types/react@18.3.6:
+    resolution: {integrity: sha512-CnGaRYNu2iZlkGXGrOYtdg5mLK8neySj0woZ4e2wF/eli2E6Sazmq5X+Nrj6OBrrFVQfJWTUFeqAzoRhWQXYvg==}
     dependencies:
       '@types/prop-types': 15.7.11
       csstype: 3.1.3
