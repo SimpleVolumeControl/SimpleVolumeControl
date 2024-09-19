@@ -98,8 +98,8 @@ devDependencies:
     specifier: 1.0.8
     version: 1.0.8
   nodemon:
-    specifier: 3.1.5
-    version: 3.1.5
+    specifier: 3.1.6
+    version: 3.1.6
   postcss:
     specifier: 8.4.47
     version: 8.4.47
@@ -4624,8 +4624,8 @@ packages:
     resolution: {integrity: sha512-d9VeXT4SJ7ZeOqGX6R5EM022wpL+eWPooLI+5UpWn2jCT1aosUQEhQP214x33Wkwx3JQMvIm+tIoVOdodFS40g==}
     dev: true
 
-  /nodemon@3.1.5:
-    resolution: {integrity: sha512-V5UtfYc7hjFD4SI3EzD5TR8ChAHEZ+Ns7Z5fBk8fAbTVAj+q3G+w7sHJrHxXBkVn6ApLVTljau8wfHwqmGUjMw==}
+  /nodemon@3.1.6:
+    resolution: {integrity: sha512-C8ymJbXpTTinxjWuMfMxw0rZhTn/r7ypSGldQyqPEgDEaVwAthqC0aodsMwontnAInN9TuPwRLeBoyhmfv+iSA==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
