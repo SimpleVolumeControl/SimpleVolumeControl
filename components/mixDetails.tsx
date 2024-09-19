@@ -1,3 +1,5 @@
+'use client';
+
 import { FC } from 'react';
 import useMix from '../hooks/useMix';
 import ChannelStrip from './channelStrip';

@@ -1,3 +1,5 @@
+'use client';
+
 import { FC } from 'react';
 import useConfig from '../../hooks/useConfig';
 import Link from 'next/link';
