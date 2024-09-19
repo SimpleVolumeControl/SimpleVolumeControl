@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
-import Header from '../components/header';
-import ConfigEditor from '../components/config';
+import Header from '../../components/header';
+import ConfigEditor from '../../components/config';
 
 const Config: NextPage = () => {
   return (

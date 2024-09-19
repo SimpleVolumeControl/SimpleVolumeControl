@@ -1,6 +1,5 @@
-import { atom, useRecoilState } from 'recoil';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { SHA256 } from 'jshashes';
 
 // Shortcut function to get the SHA256 hash of a string.
@@ -14,18 +13,6 @@ export const hash = (value: string): string => new SHA256().b64(value);
 // If the empty password is indeed the correct one, the whole authentication system should be hidden from the user.
 const emptyPassword = hash('');
 
-// Store the password hash globally as a Recoil atom, so it can be accessed in all components.
-const passwordState = atom<string>({
-  key: 'passwordState',
-  default: emptyPassword,
-  effects: [
-    ({ onSet }) => {
-      // Store the password hash in the localStorage of the browser so that it can be used across sessions.
-      onSet((newValue) => window?.localStorage?.setItem('password', newValue));
-    },
-  ],
-});
-
 /**
  * This hook provides access to authentication related functions and information.
  * It provides the current password hash, the information if a user is logged in (i.e. if a non-empty password is set),
@@ -33,7 +20,7 @@ const passwordState = atom<string>({
  */
 function useLogin() {
   // Get access to the current password hash.
-  const [password, setPassword] = useRecoilState(passwordState);
+  const [password, setPassword] = useState(emptyPassword);
 
   const router = useRouter();
 
@@ -43,18 +30,21 @@ function useLogin() {
     if (passwordHash !== null) {
       setPassword(passwordHash);
     }
-  });
+  }, []);
 
   // Define a login function that sets the new password and redirects to the index page.
   const login = (password: string) => {
-    setPassword(hash(password));
-    router.push('/').then();
+    const hashedPassword = hash(password);
+    window.localStorage.setItem('password', hashedPassword);
+    setPassword(hashedPassword);
+    router.push('/');
   };
 
   // Define a logout function that sets an empty password and redirects to the login page.
   const logout = () => {
+    window.localStorage.setItem('password', emptyPassword);
     setPassword(emptyPassword);
-    router.push('/login').then();
+    router.push('/login');
   };
 
   // This indicates if a non-empty password is set.
