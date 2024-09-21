@@ -1,5 +1,6 @@
 import NullableConfig from '../../model/nullableConfig';
 import { FC, FormEvent, useEffect, useState } from 'react';
+import TextInput from '../textInput';
 
 interface NetworkConfigProps {
   config: NullableConfig;
@@ -27,11 +28,10 @@ const NetworkConfig: FC<NetworkConfigProps> = ({ config, changeConfig }) => {
               <span className="label-text">IP-Adresse des Mischpults</span>
             </div>
             <div className="flex space-x-2">
-              <input
-                type="text"
+              <TextInput
                 placeholder="---.---.---.---"
                 className="w-full input input-bordered"
-                onChange={(event) => setInput(event.target.value)}
+                onChange={(newValue) => setInput(newValue)}
                 value={input}
               />
               <button type="submit" className="btn btn-neutral">

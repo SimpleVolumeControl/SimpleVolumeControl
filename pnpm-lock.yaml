@@ -26,6 +26,9 @@ dependencies:
   react-dom:
     specifier: 18.3.1
     version: 18.3.1(react@18.3.1)
+  react-simple-keyboard:
+    specifier: 3.8.3
+    version: 3.8.3(react-dom@18.3.1)(react@18.3.1)
   react-use-websocket:
     specifier: 4.8.1
     version: 4.8.1(react-dom@18.3.1)(react@18.3.1)
@@ -45,10 +48,7 @@ devDependencies:
     version: 6.5.0
   '@testing-library/react':
     specifier: 16.0.1
-    version: 16.0.1(@testing-library/dom@10.4.0)(@types/react@18.3.8)(react-dom@18.3.1)(react@18.3.1)
-  '@testing-library/react-hooks':
-    specifier: 8.0.1
-    version: 8.0.1(@types/react@18.3.8)(react-dom@18.3.1)(react@18.3.1)
+    version: 16.0.1(@testing-library/dom@10.4.0)(@types/react-dom@18.3.0)(@types/react@18.3.8)(react-dom@18.3.1)(react@18.3.1)
   '@types/express':
     specifier: 4.17.21
     version: 4.17.21
@@ -64,6 +64,9 @@ devDependencies:
   '@types/react':
     specifier: 18.3.8
     version: 18.3.8
+  '@types/react-dom':
+    specifier: 18.3.0
+    version: 18.3.0
   '@types/ws':
     specifier: 8.5.12
     version: 8.5.12
@@ -1030,30 +1033,7 @@ packages:
       redent: 3.0.0
     dev: true
 
-  /@testing-library/react-hooks@8.0.1(@types/react@18.3.8)(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-Aqhl2IVmLt8IovEVarNDFuJDVWVvhnr9/GCU6UUnrYXwgDFF9h2L2o2P9KBni1AST5sT6riAyoukFLyjQUgD/g==}
-    engines: {node: '>=12'}
-    peerDependencies:
-      '@types/react': ^16.9.0 || ^17.0.0
-      react: ^16.9.0 || ^17.0.0
-      react-dom: ^16.9.0 || ^17.0.0
-      react-test-renderer: ^16.9.0 || ^17.0.0
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-      react-dom:
-        optional: true
-      react-test-renderer:
-        optional: true
-    dependencies:
-      '@babel/runtime': 7.24.0
-      '@types/react': 18.3.8
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      react-error-boundary: 3.1.4(react@18.3.1)
-    dev: true
-
-  /@testing-library/react@16.0.1(@testing-library/dom@10.4.0)(@types/react@18.3.8)(react-dom@18.3.1)(react@18.3.1):
+  /@testing-library/react@16.0.1(@testing-library/dom@10.4.0)(@types/react-dom@18.3.0)(@types/react@18.3.8)(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-dSmwJVtJXmku+iocRhWOUFbrERC76TX2Mnf0ATODz8brzAZrMBbzLwQixlBSanZxR6LddK3eiwpSFZgDET1URg==}
     engines: {node: '>=18'}
     peerDependencies:
@@ -1071,6 +1051,7 @@ packages:
       '@babel/runtime': 7.24.0
       '@testing-library/dom': 10.4.0
       '@types/react': 18.3.8
+      '@types/react-dom': 18.3.0
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
     dev: true
@@ -1241,6 +1222,12 @@ packages:
 
   /@types/range-parser@1.2.7:
     resolution: {integrity: sha512-hKormJbkJqzQGhziax5PItDUTMAM9uE2XXQmM37dyd4hVM+5aVl7oVxMVUiVQn2oCQFN/LKCZdvSM0pFRqbSmQ==}
+    dev: true
+
+  /@types/react-dom@18.3.0:
+    resolution: {integrity: sha512-EhwApuTmMBmXuFOikhQLIBUn6uFg81SwLMOAUgodJF14SOBOCMdU04gDoYi0WOJJHD144TL32z4yDqCW3dnkQg==}
+    dependencies:
+      '@types/react': 18.3.8
     dev: true
 
   /@types/react@18.3.8:
@@ -5125,16 +5112,6 @@ packages:
       react: 18.3.1
       scheduler: 0.23.2
 
-  /react-error-boundary@3.1.4(react@18.3.1):
-    resolution: {integrity: sha512-uM9uPzZJTF6wRQORmSrvOIgt4lJ9MC1sNgEOj2XGsDTRE4kmpWxg7ENK9EWNKJRMAOY9z0MuF4yIfl6gp4sotA==}
-    engines: {node: '>=10', npm: '>=6'}
-    peerDependencies:
-      react: '>=16.13.1'
-    dependencies:
-      '@babel/runtime': 7.24.0
-      react: 18.3.1
-    dev: true
-
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: true
@@ -5146,6 +5123,16 @@ packages:
   /react-is@18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: true
+
+  /react-simple-keyboard@3.8.3(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-jLgWW8wJn/JnZCXkurAYhHVlvWuaXmlmPIII7gIGli+NEGkWmJ9udPtRpkLOcqwrOqb5D8p6r2Nu8bBVQMjYKQ==}
+    peerDependencies:
+      react: ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    dev: false
 
   /react-use-websocket@4.8.1(react-dom@18.3.1)(react@18.3.1):
     resolution: {integrity: sha512-FTXuG5O+LFozmu1BRfrzl7UIQngECvGJmL7BHsK4TYXuVt+mCizVA8lT0hGSIF0Z0TedF7bOo1nRzOUdginhDw==}
