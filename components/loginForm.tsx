@@ -2,6 +2,7 @@
 
 import { FC, FormEvent, useState } from 'react';
 import useLogin from '../hooks/useLogin';
+import TextInput from './textInput';
 
 interface LoginFormProps {}
 
@@ -26,11 +27,12 @@ const LoginForm: FC<LoginFormProps> = () => {
                   <div className="label">
                     <span className="label-text">Passwort</span>
                   </div>
-                  <input
+                  <TextInput
                     type="password"
                     placeholder="Passwort"
                     className="w-full input input-primary input-bordered"
-                    onChange={(event) => setInput(event.target.value)}
+                    onChange={(newValue) => setInput(newValue)}
+                    value={input}
                   />
                 </label>
               </div>

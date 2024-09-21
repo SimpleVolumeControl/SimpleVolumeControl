@@ -1,6 +1,8 @@
 import NullableConfig from '../../model/nullableConfig';
 import { FC, FormEvent, useState } from 'react';
 import { hash } from '../../hooks/useLogin';
+import TextInput from '../textInput';
+import { useRouter } from 'next/navigation';
 
 interface PasswordConfigProps {
   config: NullableConfig;
@@ -10,15 +12,19 @@ interface PasswordConfigProps {
 const PasswordConfig: FC<PasswordConfigProps> = ({ changeConfig }) => {
   const [input, setInput] = useState('');
   const [repeat, setRepeat] = useState('');
+  const router = useRouter();
   const submit = (e: FormEvent) => {
     e.preventDefault();
     if (input === repeat) {
       changeConfig({ password: hash(input) });
+      setInput('');
+      setRepeat('');
+      router.push('/');
     } else {
       alert('Eingaben stimmen nicht überein.');
+      setInput('');
+      setRepeat('');
     }
-    setInput('');
-    setRepeat('');
   };
 
   // The info icon is taken from the Bootstrap Icons library,
@@ -63,11 +69,10 @@ const PasswordConfig: FC<PasswordConfigProps> = ({ changeConfig }) => {
               <span className="label-text">Kennwort</span>
             </div>
             <div className="flex">
-              <input
+              <TextInput
                 type="password"
                 placeholder="Kennwort"
-                className="input input-bordered"
-                onChange={(event) => setInput(event.target.value)}
+                onChange={(newValue) => setInput(newValue)}
                 value={input}
               />
             </div>
@@ -79,11 +84,10 @@ const PasswordConfig: FC<PasswordConfigProps> = ({ changeConfig }) => {
               <span className="label-text">Kennwort wiederholen</span>
             </div>
             <div className="flex">
-              <input
+              <TextInput
                 type="password"
                 placeholder="Kennwort wiederholen"
-                className="input input-bordered"
-                onChange={(event) => setRepeat(event.target.value)}
+                onChange={(newValue) => setRepeat(newValue)}
                 value={repeat}
               />
             </div>

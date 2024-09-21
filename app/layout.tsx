@@ -5,7 +5,10 @@ import { Metadata } from 'next';
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html>
-      <body>{children}</body>
+      <body>
+        {children}
+        <div id="keyboard-container" />
+      </body>
     </html>
   );
 }
