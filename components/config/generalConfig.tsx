@@ -2,6 +2,7 @@ import NullableConfig from '../../model/nullableConfig';
 import { FC, FormEvent, useEffect, useState } from 'react';
 import TextInput from '../textInput';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 interface GeneralConfigProps {
   config: NullableConfig;
@@ -9,6 +10,7 @@ interface GeneralConfigProps {
 }
 
 const GeneralConfig: FC<GeneralConfigProps> = ({ config, changeConfig }) => {
+  const t = useTranslations('ConfigEditor');
   const [input, setInput] = useState(config.title ?? '');
   const router = useRouter();
   const submit = (e: FormEvent) => {
@@ -29,17 +31,18 @@ const GeneralConfig: FC<GeneralConfigProps> = ({ config, changeConfig }) => {
           <label>
             <div className="label">
               <span className="label-text">
-                Beschreibung in der Titelleiste (optional)
+                {t('GeneralConfig.titleLabel')}
               </span>
             </div>
             <div className="flex space-x-2">
               <TextInput
                 className="w-full input input-bordered"
+                placeholder={t('GeneralConfig.titleLabel')}
                 onChange={(newValue) => setInput(newValue)}
                 value={input}
               />
               <button type="submit" className="btn btn-neutral">
-                Speichern
+                {t('save')}
               </button>
             </div>
           </label>

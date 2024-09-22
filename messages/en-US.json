@@ -1,0 +1,69 @@
+{
+  "Header": {
+    "back": "back",
+    "logout": "Logout"
+  },
+  "Footer": {
+    "settings": "Settings",
+    "chooseLanguage": "\uD83C\uDF10 Choose language",
+    "LanguageSelector": {
+      "title": "Choose a language",
+      "browserDefault": "\uD83C\uDF10 Automatic",
+      "de-DE": "\uD83C\uDDE9\uD83C\uDDEA Deutsch (Deutschland)",
+      "en-US": "\uD83C\uDDFA\uD83C\uDDF8 English (United States)"
+    }
+  },
+  "Login": {
+    "passwordLabel": "Password",
+    "loginButton": "Login"
+  },
+  "Mix": {
+    "overallVolume": "Overall Volume"
+  },
+  "ConfigEditor": {
+    "configEditor": "Configuration Editor",
+    "Warning": {
+      "title": "Warning: Advanced Settings",
+      "body": "These settings should only be edited by trained personnel. Incorrect settings can cause SimpleVolumeControl to stop working properly.",
+      "backlink": "Back to the homepage"
+    },
+    "Tabs": {
+      "general": "General",
+      "mixer": "Mixer",
+      "mixes": "Mixes",
+      "password": "Password"
+    },
+    "GeneralConfig": {
+      "titleLabel": "Description in the title bar (optional)"
+    },
+    "MixerConfig": {
+      "ipLabel": "IP address of the mixer",
+      "mixerLabel": "Type of the mixer"
+    },
+    "MixesConfig": {
+      "addMix": "Add max",
+      "addInput": "Add input",
+      "add": "Add"
+    },
+    "PasswordConfig": {
+      "disclaimer1": "The password doesn't provide a secure access control, especially when not using HTTPS. Instead, it just offers protection against accidental use. Malicious Actors can overcome this protection. Because of this, it is imperative to only use SimpleVolumeControl in secure local networks, that can only be accessed by trustworthy parties.",
+      "disclaimer2": "Basic measures are in place to make it more difficult for a read-only attacker to draw conclusions about the used password. Nevertheless, the password used for SimpleVolumeControl should not be used for any other service.",
+      "passwordLabel": "Password",
+      "repeatLabel": "Repeat Password",
+      "mismatch": "Inputs don't match."
+    },
+    "save": "Save"
+  },
+  "Keyboard": {
+    "default1": "` 1 2 3 4 5 6 7 8 9 0 - = '{bksp'}",
+    "default2": "'{tab'} q w e r t y u i o p [ ] \\",
+    "default3": "'{lock'} a s d f g h j k l ; ' '{enter'}",
+    "default4": "'{shift'} z x c v b n m , . / '{shift'}",
+    "default5": "@ € '{space'} °",
+    "shift1": "~ ! @ # $ % ^ & * ( ) _ + '{bksp'}",
+    "shift2": "'{tab'} Q W E R T Y U I O P '{ '} |",
+    "shift3": "'{lock'} A S D F G H J K L : \" '{enter'}",
+    "shift4": "'{shift'} Z X C V B N M < > ? '{shift'}",
+    "shift5": "§ £ '{space'} ´"
+  }
+}

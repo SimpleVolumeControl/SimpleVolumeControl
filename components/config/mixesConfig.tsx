@@ -4,6 +4,7 @@ import MixAssignment from '../../model/mixAssignment';
 import MixAssignmentCard from './mixAssignmentCard';
 import { arrayMoveItemDown, arrayMoveItemUp } from '../../utils/arrayMoveItem';
 import { getAllMixes } from '../../common/mixerProperties';
+import { useTranslations } from 'next-intl';
 
 interface MixesConfigProps {
   config: NullableConfig;
@@ -11,6 +12,7 @@ interface MixesConfigProps {
 }
 
 const MixesConfig: FC<MixesConfigProps> = ({ config, changeConfig }) => {
+  const t = useTranslations('ConfigEditor');
   const [mixes, setMixes] = useState<MixAssignment[]>(config.mixes ?? []);
   const [changed, setChanged] = useState(false);
   const [mixer, setMixer] = useState(config.mixer ?? '');
@@ -110,7 +112,7 @@ const MixesConfig: FC<MixesConfigProps> = ({ config, changeConfig }) => {
             mixer={mixer}
           />
         ))}
-        <div className="card w-full shadow-xl card-compact border-base-200 border border-dashed border-4">
+        <div className="card w-full shadow-xl card-compact border-base-200 border-dashed border-4">
           <div className="card-body">
             <form
               onSubmit={(e: FormEvent) => {
@@ -123,7 +125,9 @@ const MixesConfig: FC<MixesConfigProps> = ({ config, changeConfig }) => {
               <div className="form-control">
                 <label>
                   <div className="label">
-                    <span className="label-text">Raum hinzufügen:</span>
+                    <span className="label-text">
+                      {t('MixesConfig.addMix')}
+                    </span>
                   </div>
                   <div className="flex space-x-2">
                     <select
@@ -143,7 +147,7 @@ const MixesConfig: FC<MixesConfigProps> = ({ config, changeConfig }) => {
                       ))}
                     </select>
                     <button type="submit" className="btn btn-sm btn-neutral">
-                      Hinzufügen
+                      {t('MixesConfig.add')}
                     </button>
                   </div>
                 </label>

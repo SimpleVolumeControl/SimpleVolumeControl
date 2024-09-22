@@ -1,5 +1,5 @@
 {
-  "watch": ["server", "model", "utils", "common"],
+  "watch": ["server", "model", "utils", "common", "i18n", "messages"],
   "exec": "ts-node --project tsconfig.server.json server/index.ts",
   "ext": "js ts"
 }

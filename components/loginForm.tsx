@@ -3,6 +3,7 @@
 import { FC, FormEvent, useState } from 'react';
 import useLogin from '../hooks/useLogin';
 import TextInput from './textInput';
+import { useTranslations } from 'next-intl';
 
 interface LoginFormProps {}
 
@@ -10,6 +11,7 @@ interface LoginFormProps {}
  * This component shows a form which can be used to enter a password.
  */
 const LoginForm: FC<LoginFormProps> = () => {
+  const t = useTranslations('Login');
   const { login } = useLogin();
   const [input, setInput] = useState('');
   const submit = (e: FormEvent) => {
@@ -25,11 +27,11 @@ const LoginForm: FC<LoginFormProps> = () => {
               <div className="form-control">
                 <label>
                   <div className="label">
-                    <span className="label-text">Passwort</span>
+                    <span className="label-text">{t('passwordLabel')}</span>
                   </div>
                   <TextInput
                     type="password"
-                    placeholder="Passwort"
+                    placeholder={t('passwordLabel')}
                     className="w-full input input-primary input-bordered"
                     onChange={(newValue) => setInput(newValue)}
                     value={input}
@@ -37,7 +39,7 @@ const LoginForm: FC<LoginFormProps> = () => {
                 </label>
               </div>
               <button type="submit" className="btn btn-primary btn-block">
-                Login
+                {t('loginButton')}
               </button>
             </form>
           </div>

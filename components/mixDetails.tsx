@@ -4,6 +4,7 @@ import { FC } from 'react';
 import useMix from '../hooks/useMix';
 import ChannelStrip from './channelStrip';
 import { b64Decode } from '../common/b64';
+import { useTranslations } from 'next-intl';
 
 interface MixDetailsProps {
   // The identifier of the mix of which the details should be shown.
@@ -16,6 +17,7 @@ interface MixDetailsProps {
  * as well as channel strips for all configured individual inputs of the mix.
  */
 const MixDetails: FC<MixDetailsProps> = ({ mixId }) => {
+  const t = useTranslations('Mix');
   // Utilize the useMix hook for the communication with the server.
   const { mix, inputs, meters, sendMute, sendLevel } = useMix(mixId);
 
@@ -32,7 +34,7 @@ const MixDetails: FC<MixDetailsProps> = ({ mixId }) => {
           </div>
           <ChannelStrip
             {...mix}
-            name={`${mix.name} (Gesamtlautstärke)`}
+            name={`${mix.name} (${t('overallVolume')})`}
             highlight={true}
             sendMute={(value) => sendMute('', value)}
             sendLevel={(value) => sendLevel('', value)}
