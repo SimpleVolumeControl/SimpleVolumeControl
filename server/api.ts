@@ -141,6 +141,10 @@ router.ws('/mix/:mixId', (ws, req) => {
   ws.on('close', () => App.getInstance().unregisterListeners(callbacks));
 });
 
+router.get('/title', (req, res) => {
+  res.send(App.getInstance().getTitle());
+});
+
 // API endpoint for the configuration.
 router.ws('/config', (ws) => {
   // On opening, send the current config (excluding the password).

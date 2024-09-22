@@ -78,9 +78,22 @@ class App {
     return this.config.toJSON(false, true);
   }
 
+  /**
+   * Updates the config with the values of the (partial) config that is provided as a parameter.
+   * Fields that are missing in the partial config remain unchanged.
+   *
+   * @param config The (partial) config containing the new values.
+   */
   public adjustConfig(config: NullableConfig) {
     this.config.adjust(config);
     this.refreshConfig();
+  }
+
+  /**
+   * Returns the description, which can be displayed in the title bar.
+   */
+  public getTitle(): string | null {
+    return this.config.title || null;
   }
 
   /**
@@ -205,7 +218,7 @@ class App {
   /**
    * Set a new mute status for an input or mix.
    * If input is null, the mute change affects the mix itself,
-   * otherwise, it affects the whether the given input sends to the given mix.
+   * otherwise, it affects whether the given input sends to the given mix.
    *
    * @param state True if the signal should be muted, otherwise false.
    * @param mix The mix that is affected by this change.

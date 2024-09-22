@@ -3,6 +3,11 @@ import { isArray, isRecord } from '../utils/helpers';
 
 interface NullableConfig {
   /**
+   * The description that can be displayed in the title bar.
+   */
+  title?: string | null;
+
+  /**
    * The IP address by which the mixer can be reached.
    */
   ip?: string | null;
@@ -27,6 +32,7 @@ interface NullableConfig {
 
 export const isNullableConfig = (data: unknown): data is NullableConfig =>
   isRecord(data) &&
+  (typeof data.title === 'string' || data.title == null) &&
   (typeof data.ip === 'string' || data.ip == null) &&
   (typeof data.mixer === 'string' || data.mixer == null) &&
   (data.mixes == null ||

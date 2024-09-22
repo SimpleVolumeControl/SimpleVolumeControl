@@ -68,14 +68,12 @@ const PasswordConfig: FC<PasswordConfigProps> = ({ changeConfig }) => {
             <div className="label">
               <span className="label-text">Kennwort</span>
             </div>
-            <div className="flex">
-              <TextInput
-                type="password"
-                placeholder="Kennwort"
-                onChange={(newValue) => setInput(newValue)}
-                value={input}
-              />
-            </div>
+            <TextInput
+              type="password"
+              placeholder="Kennwort"
+              onChange={(newValue) => setInput(newValue)}
+              value={input}
+            />
           </label>
         </div>
         <div className="form-control">
@@ -83,14 +81,12 @@ const PasswordConfig: FC<PasswordConfigProps> = ({ changeConfig }) => {
             <div className="label">
               <span className="label-text">Kennwort wiederholen</span>
             </div>
-            <div className="flex">
-              <TextInput
-                type="password"
-                placeholder="Kennwort wiederholen"
-                onChange={(newValue) => setRepeat(newValue)}
-                value={repeat}
-              />
-            </div>
+            <TextInput
+              type="password"
+              placeholder="Kennwort wiederholen"
+              onChange={(newValue) => setRepeat(newValue)}
+              value={repeat}
+            />
           </label>
         </div>
         <button type="submit" className="btn btn-neutral">

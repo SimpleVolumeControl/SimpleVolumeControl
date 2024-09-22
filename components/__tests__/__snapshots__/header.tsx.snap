@@ -3,20 +3,20 @@
 exports[`Header should hide logout button when no password is set 1`] = `
 <DocumentFragment>
   <div
-    class="navbar mb-4 shadow-lg bg-primary text-neutral-content rounded-box flex-wrap xs:flex-nowrap"
+    class="navbar mb-4 shadow-lg bg-primary text-neutral-content rounded-box flex-wrap xs:flex-nowrap items-stretch"
   >
     <div
       class="navbar-start"
     >
       <a
-        class="btn btn-outline btn-accent"
+        class="btn btn-outline btn-accent h-full"
         href="/"
       >
         zurück
       </a>
     </div>
     <div
-      class="px-2 mx-2 navbar-center w-full xs:w-auto order-first xs:order-none justify-center"
+      class="px-2 mx-2 navbar-center w-full xs:w-auto order-first xs:order-none justify-center flex-col"
     >
       <span
         class="text-lg sm:text-3xl sm:font-light"
@@ -34,13 +34,13 @@ exports[`Header should hide logout button when no password is set 1`] = `
 exports[`Header should render correctly on home page 1`] = `
 <DocumentFragment>
   <div
-    class="navbar mb-4 shadow-lg bg-primary text-neutral-content rounded-box flex-wrap xs:flex-nowrap"
+    class="navbar mb-4 shadow-lg bg-primary text-neutral-content rounded-box flex-wrap xs:flex-nowrap items-stretch"
   >
     <div
       class="navbar-start"
     />
     <div
-      class="px-2 mx-2 navbar-center w-full xs:w-auto order-first xs:order-none justify-center"
+      class="px-2 mx-2 navbar-center w-full xs:w-auto order-first xs:order-none justify-center flex-col"
     >
       <span
         class="text-lg sm:text-3xl sm:font-light"
@@ -58,20 +58,20 @@ exports[`Header should render correctly on home page 1`] = `
 exports[`Header should render correctly on other pages 1`] = `
 <DocumentFragment>
   <div
-    class="navbar mb-4 shadow-lg bg-primary text-neutral-content rounded-box flex-wrap xs:flex-nowrap"
+    class="navbar mb-4 shadow-lg bg-primary text-neutral-content rounded-box flex-wrap xs:flex-nowrap items-stretch"
   >
     <div
       class="navbar-start"
     >
       <a
-        class="btn btn-outline btn-accent"
+        class="btn btn-outline btn-accent h-full"
         href="/"
       >
         zurück
       </a>
     </div>
     <div
-      class="px-2 mx-2 navbar-center w-full xs:w-auto order-first xs:order-none justify-center"
+      class="px-2 mx-2 navbar-center w-full xs:w-auto order-first xs:order-none justify-center flex-col"
     >
       <span
         class="text-lg sm:text-3xl sm:font-light"
@@ -82,6 +82,43 @@ exports[`Header should render correctly on other pages 1`] = `
     <div
       class="navbar-end"
     />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Header should show logout button when password is set 1`] = `
+<DocumentFragment>
+  <div
+    class="navbar mb-4 shadow-lg bg-primary text-neutral-content rounded-box flex-wrap xs:flex-nowrap items-stretch"
+  >
+    <div
+      class="navbar-start"
+    >
+      <a
+        class="btn btn-outline btn-accent h-full"
+        href="/"
+      >
+        zurück
+      </a>
+    </div>
+    <div
+      class="px-2 mx-2 navbar-center w-full xs:w-auto order-first xs:order-none justify-center flex-col"
+    >
+      <span
+        class="text-lg sm:text-3xl sm:font-light"
+      >
+        SimpleVolumeControl
+      </span>
+    </div>
+    <div
+      class="navbar-end"
+    >
+      <button
+        class="btn btn-outline btn-accent h-full"
+      >
+        Logout
+      </button>
+    </div>
   </div>
 </DocumentFragment>
 `;

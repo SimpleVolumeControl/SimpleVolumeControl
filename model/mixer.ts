@@ -133,7 +133,7 @@ abstract class Mixer {
   /**
    * Set a new mute status for an input or mix.
    * If input is null, the mute change affects the mix itself,
-   * otherwise, it affects the whether the given input sends to the given mix.
+   * otherwise, it affects whether the given input sends to the given mix.
    *
    * @param state True if the signal should be muted, otherwise false.
    * @param mix The mix that is affected by this change.
