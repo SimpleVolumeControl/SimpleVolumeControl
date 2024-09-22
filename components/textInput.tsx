@@ -4,6 +4,7 @@ import { ChangeEventHandler, FC, useEffect, useRef, useState } from 'react';
 import Keyboard, { SimpleKeyboard } from 'react-simple-keyboard';
 import 'react-simple-keyboard/build/css/index.css';
 import { createPortal } from 'react-dom';
+import { useTranslations } from 'next-intl';
 
 export interface TextInputProps {
   type?: 'text' | 'password';
@@ -20,6 +21,7 @@ export const TextInput: FC<TextInputProps> = ({
   onChange,
   value,
 }) => {
+  const t = useTranslations('Keyboard');
   const [needsOsk, setNeedsOsk] = useState(false);
   const [showKeyboard, setShowKeyboard] = useState(false);
   const [capsLock, setCapsLock] = useState(false);
@@ -105,19 +107,13 @@ export const TextInput: FC<TextInputProps> = ({
 
   const layout = {
     default: [
-      '^ 1 2 3 4 5 6 7 8 9 0 \u00DF \u00B4 {bksp}',
-      '{tab} q w e r t z u i o p \u00FC +',
-      '{lock} a s d f g h j k l \u00F6 \u00E4 # {enter}',
-      '{shift} < y x c v b n m , . - {shift}',
-      '@ € {space} [ \u005c ]',
+      t('default1'),
+      t('default2'),
+      t('default3'),
+      t('default4'),
+      t('default5'),
     ],
-    shift: [
-      '\u00B0 ! " \u00A7 $ % & / ( ) = ? ` {bksp}',
-      '{tab} Q W E R T Z U I O P \u00DC *',
-      "{lock} A S D F G H J K L \u00D6 \u00C4 ' {enter}",
-      '{shift} > Y X C V B N M ; : _ {shift}',
-      '@ ~ {space} { | }',
-    ],
+    shift: [t('shift1'), t('shift2'), t('shift3'), t('shift4'), t('shift5')],
   };
 
   return (
@@ -158,8 +154,8 @@ export const TextInput: FC<TextInputProps> = ({
                   }}
                   buttonTheme={[
                     {
-                      class: 'max-w-[50px]',
-                      buttons: '~ € | \u005c { [ ] }',
+                      class: '[.hg-row:last-child>&]:!max-w-[50px]',
+                      buttons: '@ ~ € | \\ { [ ] } £ § ° ´',
                     },
                   ]}
                 />

@@ -2,6 +2,7 @@ import NullableConfig from '../../model/nullableConfig';
 import { FC, FormEvent, useEffect, useState } from 'react';
 import { getAvailableMixers } from '../../common/mixerProperties';
 import TextInput from '../textInput';
+import { useTranslations } from 'next-intl';
 
 interface MixerConfigProps {
   config: NullableConfig;
@@ -9,6 +10,7 @@ interface MixerConfigProps {
 }
 
 const MixerConfig: FC<MixerConfigProps> = ({ config, changeConfig }) => {
+  const t = useTranslations('ConfigEditor');
   const [ipInput, setIpInput] = useState(config.ip ?? '');
   const [mixerInput, setMixerInput] = useState(config.mixer ?? '');
   const submit = (e: FormEvent) => {
@@ -30,7 +32,7 @@ const MixerConfig: FC<MixerConfigProps> = ({ config, changeConfig }) => {
         <div className="form-control">
           <label>
             <div className="label">
-              <span className="label-text">IP-Adresse des Mischpults</span>
+              <span className="label-text">{t('MixerConfig.ipLabel')}</span>
             </div>
             <TextInput
               placeholder="---.---.---.---"
@@ -42,7 +44,7 @@ const MixerConfig: FC<MixerConfigProps> = ({ config, changeConfig }) => {
         <div className="form-control">
           <label>
             <div className="label">
-              <span className="label-text">Mischpulttyp</span>
+              <span className="label-text">{t('MixerConfig.mixerLabel')}</span>
             </div>
             <select
               className="select select-bordered"
@@ -56,7 +58,7 @@ const MixerConfig: FC<MixerConfigProps> = ({ config, changeConfig }) => {
           </label>
         </div>
         <button type="submit" className="btn btn-neutral">
-          Speichern
+          {t('save')}
         </button>
       </form>
     </div>

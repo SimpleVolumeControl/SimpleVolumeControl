@@ -1,6 +1,7 @@
 import { FC, FormEvent, useEffect, useState } from 'react';
 import MixAssignment from '../../model/mixAssignment';
 import { getAllInputs } from '../../common/mixerProperties';
+import { useTranslations } from 'next-intl';
 
 interface MixAssignmentCardProps {
   mix: MixAssignment;
@@ -21,6 +22,7 @@ const MixAssignmentCard: FC<MixAssignmentCardProps> = ({
   add,
   mixer,
 }) => {
+  const t = useTranslations('ConfigEditor');
   const [addName, setAddName] = useState('');
   const [inputs, setInputs] = useState<string[]>(mix.inputs);
   useEffect(() => {
@@ -106,7 +108,9 @@ const MixAssignmentCard: FC<MixAssignmentCardProps> = ({
               <div className="form-control">
                 <label>
                   <div className="label">
-                    <span className="label-text">Eingang hinzufügen:</span>
+                    <span className="label-text">
+                      {t('MixesConfig.addInput')}
+                    </span>
                   </div>
                   <div className="flex space-x-2">
                     <select
@@ -121,7 +125,7 @@ const MixAssignmentCard: FC<MixAssignmentCardProps> = ({
                       ))}
                     </select>
                     <button type="submit" className="btn btn-sm btn-neutral">
-                      Hinzufügen
+                      {t('MixesConfig.add')}
                     </button>
                   </div>
                 </label>

@@ -3,6 +3,7 @@ import { FC, FormEvent, useState } from 'react';
 import { hash } from '../../hooks/useLogin';
 import TextInput from '../textInput';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 interface PasswordConfigProps {
   config: NullableConfig;
@@ -10,6 +11,7 @@ interface PasswordConfigProps {
 }
 
 const PasswordConfig: FC<PasswordConfigProps> = ({ changeConfig }) => {
+  const t = useTranslations('ConfigEditor');
   const [input, setInput] = useState('');
   const [repeat, setRepeat] = useState('');
   const router = useRouter();
@@ -21,7 +23,7 @@ const PasswordConfig: FC<PasswordConfigProps> = ({ changeConfig }) => {
       setRepeat('');
       router.push('/');
     } else {
-      alert('Eingaben stimmen nicht überein.');
+      alert(t('PasswordConfig.mismatch'));
       setInput('');
       setRepeat('');
     }
@@ -44,33 +46,21 @@ const PasswordConfig: FC<PasswordConfigProps> = ({ changeConfig }) => {
           <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
         </svg>
         <div className="block space-y-2 text-justify">
-          <p>
-            Das Kennwort bietet, insbesondere dann, wenn auf die Verwendung von
-            HTTPS verzichtet wird, keinen sicheren Zugriffsschutz. Es handelt
-            sich eher um einen Schutz gegen versehentliche Verwendung, der von
-            bösartigen Akteuren überwunden werden kann. Aus diesem Grund ist es
-            zwingend erforderlich, dass SimpleVolumeControl nur in sicheren
-            lokalen Netzen verwendet wird, zu denen nur vertrauenswürdige
-            Parteien Zugang haben.
-          </p>
-          <p>
-            Es werden grundlegende Maßnahmen ergriffen, die es einem rein
-            lesenden Angreifer erschweren, Rückschlüsse auf das verwendete
-            Kennwort zu ziehen. Trotzdem sollte das Kennwort, das für
-            SimpleVolumeControl verwendet wird, für keine anderen Dienste
-            verwendet werden.
-          </p>
+          <p>{t('PasswordConfig.disclaimer1')}</p>
+          <p>{t('PasswordConfig.disclaimer2')}</p>
         </div>
       </div>
       <form onSubmit={submit} className="space-y-2">
         <div className="form-control">
           <label>
             <div className="label">
-              <span className="label-text">Kennwort</span>
+              <span className="label-text">
+                {t('PasswordConfig.passwordLabel')}
+              </span>
             </div>
             <TextInput
               type="password"
-              placeholder="Kennwort"
+              placeholder={t('PasswordConfig.passwordLabel')}
               onChange={(newValue) => setInput(newValue)}
               value={input}
             />
@@ -79,18 +69,20 @@ const PasswordConfig: FC<PasswordConfigProps> = ({ changeConfig }) => {
         <div className="form-control">
           <label>
             <div className="label">
-              <span className="label-text">Kennwort wiederholen</span>
+              <span className="label-text">
+                {t('PasswordConfig.repeatLabel')}
+              </span>
             </div>
             <TextInput
               type="password"
-              placeholder="Kennwort wiederholen"
+              placeholder={t('PasswordConfig.repeatLabel')}
               onChange={(newValue) => setRepeat(newValue)}
               value={repeat}
             />
           </label>
         </div>
         <button type="submit" className="btn btn-neutral">
-          Speichern
+          {t('save')}
         </button>
       </form>
     </div>

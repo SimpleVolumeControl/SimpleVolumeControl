@@ -12,7 +12,7 @@ exports[`Header should hide logout button when no password is set 1`] = `
         class="btn btn-outline btn-accent h-full"
         href="/"
       >
-        zurück
+        Header.back
       </a>
     </div>
     <div
@@ -67,7 +67,7 @@ exports[`Header should render correctly on other pages 1`] = `
         class="btn btn-outline btn-accent h-full"
         href="/"
       >
-        zurück
+        Header.back
       </a>
     </div>
     <div
@@ -98,7 +98,7 @@ exports[`Header should show logout button when password is set 1`] = `
         class="btn btn-outline btn-accent h-full"
         href="/"
       >
-        zurück
+        Header.back
       </a>
     </div>
     <div
@@ -116,7 +116,7 @@ exports[`Header should show logout button when password is set 1`] = `
       <button
         class="btn btn-outline btn-accent h-full"
       >
-        Logout
+        Header.logout
       </button>
     </div>
   </div>

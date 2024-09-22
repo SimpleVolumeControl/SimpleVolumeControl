@@ -1,0 +1,69 @@
+{
+  "Header": {
+    "back": "zurück",
+    "logout": "Logout"
+  },
+  "Footer": {
+    "settings": "Einstellungen",
+    "chooseLanguage": "\uD83C\uDF10 Sprache wählen",
+    "LanguageSelector": {
+      "title": "Sprache wählen",
+      "browserDefault": "\uD83C\uDF10 Automatisch",
+      "de-DE": "\uD83C\uDDE9\uD83C\uDDEA Deutsch (Deutschland)",
+      "en-US": "\uD83C\uDDFA\uD83C\uDDF8 English (United States)"
+    }
+  },
+  "Login": {
+    "passwordLabel": "Kennwort",
+    "loginButton": "Login"
+  },
+  "Mix": {
+    "overallVolume": "Gesamtlautstärke"
+  },
+  "ConfigEditor": {
+    "configEditor": "Konfigurationseditor",
+    "Warning": {
+      "title": "Achtung: Erweiterte Einstellungen",
+      "body": "Diese Einstellungen sollten nur von fachkundigen Personen bearbeitet werden. Falsche Einstellungen können dazu führen, dass SimpleVolumeControl nicht mehr richtig funktioniert.",
+      "backlink": "Zurück zur Startseite"
+    },
+    "Tabs": {
+      "general": "Allgemein",
+      "mixer": "Mischpult",
+      "mixes": "Mischungen",
+      "password": "Kennwort"
+    },
+    "GeneralConfig": {
+      "titleLabel": "Beschreibung in der Titelleiste (optional)"
+    },
+    "MixerConfig": {
+      "ipLabel": "IP-Adresse des Mischpults",
+      "mixerLabel": "Mischpulttyp"
+    },
+    "MixesConfig": {
+      "addMix": "Mischung hinzufügen",
+      "addInput": "Eingang hinzufügen",
+      "add": "Hinzufügen"
+    },
+    "PasswordConfig": {
+      "disclaimer1": "Das Kennwort bietet, insbesondere dann, wenn auf die Verwendung von HTTPS verzichtet wird, keinen sicheren Zugriffsschutz. Es handelt sich eher um einen Schutz gegen versehentliche Verwendung, der von bösartigen Akteuren überwunden werden kann. Aus diesem Grund ist es zwingend erforderlich, dass SimpleVolumeControl nur in sicheren lokalen Netzen verwendet wird, zu denen nur vertrauenswürdige Parteien Zugang haben.",
+      "disclaimer2": "Es werden grundlegende Maßnahmen ergriffen, die es einem rein lesenden Angreifer erschweren, Rückschlüsse auf das verwendete Kennwort zu ziehen. Trotzdem sollte das Kennwort, das für SimpleVolumeControl verwendet wird, für keine anderen Dienste verwendet werden.",
+      "passwordLabel": "Kennwort",
+      "repeatLabel": "Kennwort wiederholen",
+      "mismatch": "Eingaben stimmen nicht überein."
+    },
+    "save": "Speichern"
+  },
+  "Keyboard": {
+    "default1": "^ 1 2 3 4 5 6 7 8 9 0 ß ´ '{bksp'}",
+    "default2": "'{tab'} q w e r t z u i o p ü +",
+    "default3": "'{lock'} a s d f g h j k l ö ä # '{enter'}",
+    "default4": "'{shift'} < y x c v b n m , . - '{shift'}",
+    "default5": "@ € '{space'} [ ] \\",
+    "shift1": "° ! \" § $ % & / ( ) = ? ` '{bksp'}",
+    "shift2": "'{tab'} Q W E R T Z U I O P Ü *",
+    "shift3": "'{lock'} A S D F G H J K L Ö Ä ' '{enter'}",
+    "shift4": "'{shift'} > Y X C V B N M ; : _ '{shift'}",
+    "shift5": "~ £ '{space'} '{ '} |"
+  }
+}
