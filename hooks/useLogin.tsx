@@ -1,6 +1,9 @@
+'use client';
+
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
 import { SHA256 } from 'jshashes';
+import { atomWithStorage } from 'jotai/utils';
+import { useAtom } from 'jotai';
 
 // Shortcut function to get the SHA256 hash of a string.
 // jshashes is used instead of the more well known sjcl because of its significantly smaller size in this use case.
@@ -13,6 +16,9 @@ export const hash = (value: string): string => new SHA256().b64(value);
 // If the empty password is indeed the correct one, the whole authentication system should be hidden from the user.
 const emptyPassword = hash('');
 
+// Stores the password in localStorage and makes it available across all client-side components.
+const passwordAtom = atomWithStorage<string>('password', emptyPassword);
+
 /**
  * This hook provides access to authentication related functions and information.
  * It provides the current password hash, the information if a user is logged in (i.e. if a non-empty password is set),
@@ -20,29 +26,18 @@ const emptyPassword = hash('');
  */
 function useLogin() {
   // Get access to the current password hash.
-  const [password, setPassword] = useState(emptyPassword);
+  const [password, setPassword] = useAtom<string>(passwordAtom);
 
   const router = useRouter();
 
-  // If there is a hash saved in the localStorage, restore it.
-  useEffect(() => {
-    const passwordHash = window.localStorage.getItem('password');
-    if (passwordHash !== null) {
-      setPassword(passwordHash);
-    }
-  }, []);
-
   // Define a login function that sets the new password and redirects to the index page.
   const login = (password: string) => {
-    const hashedPassword = hash(password);
-    window.localStorage.setItem('password', hashedPassword);
-    setPassword(hashedPassword);
+    setPassword(hash(password));
     router.push('/');
   };
 
   // Define a logout function that sets an empty password and redirects to the login page.
   const logout = () => {
-    window.localStorage.setItem('password', emptyPassword);
     setPassword(emptyPassword);
     router.push('/login');
   };

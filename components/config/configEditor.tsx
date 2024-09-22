@@ -3,7 +3,7 @@
 import { FC } from 'react';
 import useConfig from '../../hooks/useConfig';
 import Link from 'next/link';
-import NetworkConfig from './networkConfig';
+import GeneralConfig from './generalConfig';
 import MixerConfig from './mixerConfig';
 import MixesConfig from './mixesConfig';
 import PasswordConfig from './passwordConfig';
@@ -12,7 +12,7 @@ import Tabs from '../tabs';
 interface ConfigEditorProps {}
 
 enum ConfigTabs {
-  NETWORK,
+  GENERAL,
   MIXER,
   MIXES,
   PASSWORD,
@@ -49,10 +49,10 @@ const ConfigEditor: FC<ConfigEditorProps> = () => {
       <Tabs
         tabs={[
           {
-            id: ConfigTabs.NETWORK,
-            title: 'Netzwerk',
+            id: ConfigTabs.GENERAL,
+            title: 'Allgemein',
             content: (
-              <NetworkConfig config={config} changeConfig={changeConfig} />
+              <GeneralConfig config={config} changeConfig={changeConfig} />
             ),
           },
           {

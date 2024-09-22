@@ -1,21 +1,24 @@
 import NullableConfig from '../../model/nullableConfig';
 import { FC, FormEvent, useEffect, useState } from 'react';
 import TextInput from '../textInput';
+import { useRouter } from 'next/navigation';
 
-interface NetworkConfigProps {
+interface GeneralConfigProps {
   config: NullableConfig;
   changeConfig: (config: NullableConfig) => void;
 }
 
-const NetworkConfig: FC<NetworkConfigProps> = ({ config, changeConfig }) => {
-  const [input, setInput] = useState(config.ip ?? '');
+const GeneralConfig: FC<GeneralConfigProps> = ({ config, changeConfig }) => {
+  const [input, setInput] = useState(config.title ?? '');
+  const router = useRouter();
   const submit = (e: FormEvent) => {
     e.preventDefault();
-    changeConfig({ ip: input });
+    changeConfig({ title: input });
+    router.refresh(); // Refresh in order to update the title.
   };
   useEffect(() => {
-    if (config.ip !== null && config.ip !== undefined) {
-      setInput(config.ip);
+    if (config.title !== null && config.title !== undefined) {
+      setInput(config.title);
     }
   }, [config]);
 
@@ -25,11 +28,12 @@ const NetworkConfig: FC<NetworkConfigProps> = ({ config, changeConfig }) => {
         <div className="form-control">
           <label>
             <div className="label">
-              <span className="label-text">IP-Adresse des Mischpults</span>
+              <span className="label-text">
+                Beschreibung in der Titelleiste (optional)
+              </span>
             </div>
             <div className="flex space-x-2">
               <TextInput
-                placeholder="---.---.---.---"
                 className="w-full input input-bordered"
                 onChange={(newValue) => setInput(newValue)}
                 value={input}
@@ -45,4 +49,4 @@ const NetworkConfig: FC<NetworkConfigProps> = ({ config, changeConfig }) => {
   );
 };
 
-export default NetworkConfig;
+export default GeneralConfig;

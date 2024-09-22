@@ -16,6 +16,11 @@ const emptyPassword = crypto.createHash('sha256').update('').digest('base64');
  */
 class Config implements NullableConfig {
   /**
+   * The description that can be displayed in the title bar.
+   */
+  title: string = '';
+
+  /**
    * The IP address by which the mixer can be reached.
    */
   ip: string = '';
@@ -79,6 +84,7 @@ class Config implements NullableConfig {
   public toJSON(pretty = false, redactPassword = false) {
     return JSON.stringify(
       {
+        title: this.title,
         ip: this.ip,
         mixer: this.mixer,
         mixes: this.mixes,
@@ -106,6 +112,7 @@ class Config implements NullableConfig {
 
     // Ensure that the correct data types are used.
     const config = ensureRecord(rawConfig);
+    this.title = typeof config?.title === 'string' ? config.title : '';
     this.ip = typeof config?.ip === 'string' ? config.ip : '';
     this.mixer = typeof config?.mixer === 'string' ? config.mixer : '';
     if (!Array.isArray(config?.mixes)) {
@@ -131,7 +138,16 @@ class Config implements NullableConfig {
     this.validate();
   }
 
+  /**
+   * Updates the config with the values of the (partial) config that is provided as a parameter.
+   * Fields that are missing in the partial config remain unchanged.
+   *
+   * @param config The (partial) config containing the new values.
+   */
   public adjust(config: NullableConfig) {
+    if (config.title !== undefined && config.title !== null) {
+      this.title = config.title;
+    }
     if (config.ip) {
       this.ip = config.ip;
     }

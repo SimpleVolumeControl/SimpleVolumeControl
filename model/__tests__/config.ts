@@ -45,6 +45,7 @@ describe('Config', () => {
     config.readFromFile('./model/__tests__/configTestData.json');
     expect(config.toJSON(true)).toBe(
       '{\n' +
+        '  "title": "Test data",\n' +
         '  "ip": "192.168.0.42",\n' +
         '  "mixer": "Behringer X32",\n' +
         '  "mixes": [\n' +
@@ -68,7 +69,7 @@ describe('Config', () => {
         '}',
     );
     expect(config.toJSON()).toBe(
-      '{"ip":"192.168.0.42","mixer":"Behringer X32","mixes":[{"mix":"bus-01","inputs":["ch-01","auxin-01"]},{"mix":"main-st","inputs":["ch-01","ch-02","ch-03"]}],"password":"foobaz"}',
+      '{"title":"Test data","ip":"192.168.0.42","mixer":"Behringer X32","mixes":[{"mix":"bus-01","inputs":["ch-01","auxin-01"]},{"mix":"main-st","inputs":["ch-01","ch-02","ch-03"]}],"password":"foobaz"}',
     );
   });
 });
