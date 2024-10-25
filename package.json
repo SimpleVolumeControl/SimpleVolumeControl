@@ -12,7 +12,7 @@
     "fix": "next lint --fix"
   },
   "dependencies": {
-    "@formatjs/intl-localematcher": "0.5.5",
+    "@formatjs/intl-localematcher": "0.5.6",
     "@next/bundle-analyzer": "14.2.16",
     "cross-env": "7.0.3",
     "express": "4.21.1",
