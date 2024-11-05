@@ -24,7 +24,7 @@
     "next-intl": "3.24.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-simple-keyboard": "3.8.18",
+    "react-simple-keyboard": "3.8.19",
     "react-use-websocket": "4.10.1"
   },
   "devDependencies": {
