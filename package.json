@@ -15,7 +15,7 @@
     "@formatjs/intl-localematcher": "0.5.8",
     "@next/bundle-analyzer": "14.2.20",
     "cross-env": "7.0.3",
-    "express": "4.21.1",
+    "express": "4.21.2",
     "express-ws": "5.0.2",
     "jotai": "2.10.3",
     "js-cookie": "3.0.5",
