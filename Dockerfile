@@ -1,4 +1,4 @@
-FROM node:iron-alpine as base
+FROM node:jod-alpine as base
 
 RUN npm install -g pnpm
 
