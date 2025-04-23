@@ -124,8 +124,8 @@ importers:
         specifier: 1.0.8
         version: 1.0.8
       nodemon:
-        specifier: 3.1.9
-        version: 3.1.9
+        specifier: 3.1.10
+        version: 3.1.10
       postcss:
         specifier: 8.5.3
         version: 8.5.3
@@ -2481,8 +2481,8 @@ packages:
   node-releases@2.0.19:
     resolution: {integrity: sha512-xxOWJsBKtzAq7DY0J+DTzuz58K8e7sJbdgwkbMWQe8UYB6ekmsQ45q0M/tJDsGaZmbC+l7n57UV8Hl5tHxO9uw==}
 
-  nodemon@3.1.9:
-    resolution: {integrity: sha512-hdr1oIb2p6ZSxu3PB2JWWYS7ZQ0qvaZsc3hK8DR8f02kRzc8rjYmxAIvdz+aYC+8F2IjNaB7HMcSDg8nQpJxyg==}
+  nodemon@3.1.10:
+    resolution: {integrity: sha512-WDjw3pJ0/0jMFmyNDp3gvY2YizjLmmOUQo6DEBY+JgdvW/yQ9mEeSw6H5ythl5Ny2ytb7f9C2nIbjSxMNzbJXw==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -2888,11 +2888,6 @@ packages:
 
   semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
-    hasBin: true
-
-  semver@7.6.3:
-    resolution: {integrity: sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==}
-    engines: {node: '>=10'}
     hasBin: true
 
   semver@7.7.1:
@@ -6288,14 +6283,14 @@ snapshots:
 
   node-releases@2.0.19: {}
 
-  nodemon@3.1.9:
+  nodemon@3.1.10:
     dependencies:
       chokidar: 3.6.0
       debug: 4.3.4(supports-color@5.5.0)
       ignore-by-default: 1.0.1
       minimatch: 3.1.2
       pstree.remy: 1.1.8
-      semver: 7.6.3
+      semver: 7.7.1
       simple-update-notifier: 2.0.0
       supports-color: 5.5.0
       touch: 3.1.0
@@ -6691,8 +6686,6 @@ snapshots:
       loose-envify: 1.4.0
 
   semver@6.3.1: {}
-
-  semver@7.6.3: {}
 
   semver@7.7.1: {}
 
