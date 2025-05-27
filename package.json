@@ -17,7 +17,7 @@
     "cross-env": "7.0.3",
     "express": "4.21.2",
     "express-ws": "5.0.2",
-    "jotai": "2.12.4",
+    "jotai": "2.12.5",
     "js-cookie": "3.0.5",
     "negotiator": "0.6.4",
     "next": "14.2.29",
