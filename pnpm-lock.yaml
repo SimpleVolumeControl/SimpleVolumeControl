@@ -45,8 +45,8 @@ importers:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
       react-simple-keyboard:
-        specifier: 3.8.93
-        version: 3.8.93(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 3.8.94
+        version: 3.8.94(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-use-websocket:
         specifier: 4.13.0
         version: 4.13.0
@@ -2793,8 +2793,8 @@ packages:
   react-is@18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
 
-  react-simple-keyboard@3.8.93:
-    resolution: {integrity: sha512-uLt3LeUeA0KAjTWKo5JMpLxxhPslXD7o8KOMCRSlfiQaTpqO5JqqJSSxyiQNKnbd3QYoOXsRyw3Uz8EuvSffRA==}
+  react-simple-keyboard@3.8.94:
+    resolution: {integrity: sha512-wboeXj2QeR6SyuR3Ln6fEdi+UQ4IbCxfNfTWVLc3ALBk1e6nuXjs1XPVQqziqqn6WdJmcMnWZM5KUPxVSROPcg==}
     peerDependencies:
       react: ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -6608,7 +6608,7 @@ snapshots:
 
   react-is@18.2.0: {}
 
-  react-simple-keyboard@3.8.93(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-simple-keyboard@3.8.94(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
