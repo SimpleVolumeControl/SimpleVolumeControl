@@ -14,7 +14,7 @@
   "dependencies": {
     "@formatjs/intl-localematcher": "0.6.1",
     "@next/bundle-analyzer": "14.2.31",
-    "cross-env": "7.0.3",
+    "cross-env": "10.0.0",
     "express": "4.21.2",
     "express-ws": "5.0.2",
     "jotai": "2.13.1",
