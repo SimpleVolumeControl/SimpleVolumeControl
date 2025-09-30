@@ -25,7 +25,7 @@ importers:
         version: 5.0.2(express@4.21.2)
       jotai:
         specifier: 2.15.0
-        version: 2.15.0(@babel/core@7.28.4)(@babel/template@7.27.2)(@types/react@18.3.24)(react@18.3.1)
+        version: 2.15.0(@babel/core@7.28.4)(@babel/template@7.27.2)(@types/react@18.3.25)(react@18.3.1)
       js-cookie:
         specifier: 3.0.5
         version: 3.0.5
@@ -65,7 +65,7 @@ importers:
         version: 6.8.0
       '@testing-library/react':
         specifier: 16.3.0
-        version: 16.3.0(@testing-library/dom@10.4.1)(@types/react-dom@18.3.7(@types/react@18.3.24))(@types/react@18.3.24)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 16.3.0(@testing-library/dom@10.4.1)(@types/react-dom@18.3.7(@types/react@18.3.25))(@types/react@18.3.25)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@types/express':
         specifier: 4.17.23
         version: 4.17.23
@@ -85,11 +85,11 @@ importers:
         specifier: 20.19.18
         version: 20.19.18
       '@types/react':
-        specifier: 18.3.24
-        version: 18.3.24
+        specifier: 18.3.25
+        version: 18.3.25
       '@types/react-dom':
         specifier: 18.3.7
-        version: 18.3.7(@types/react@18.3.24)
+        version: 18.3.7(@types/react@18.3.25)
       '@types/ws':
         specifier: 8.18.1
         version: 8.18.1
@@ -729,8 +729,8 @@ packages:
     peerDependencies:
       '@types/react': ^18.0.0
 
-  '@types/react@18.3.24':
-    resolution: {integrity: sha512-0dLEBsA1kI3OezMBF8nSsb7Nk19ZnsyE1LLhB8r27KbgU5H4pvuqZLdtE+aUkJVoXgTVuA+iLIwmZ0TuK4tx6A==}
+  '@types/react@18.3.25':
+    resolution: {integrity: sha512-oSVZmGtDPmRZtVDqvdKUi/qgCsWp5IDY29wp8na8Bj4B3cc99hfNzvNhlMkVVxctkAOGUA3Km7MMpBHAnWfcIA==}
 
   '@types/semver@7.5.8':
     resolution: {integrity: sha512-I8EUhyrgfLrcTkzV3TSsGyl1tSuPrEDzr0yd5m90UgNxQkyDXULk3b6MlQqTCpZpNtWe1K0hzclnZkTcLBe2UQ==}
@@ -3956,15 +3956,15 @@ snapshots:
       picocolors: 1.1.1
       redent: 3.0.0
 
-  '@testing-library/react@16.3.0(@testing-library/dom@10.4.1)(@types/react-dom@18.3.7(@types/react@18.3.24))(@types/react@18.3.24)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@testing-library/react@16.3.0(@testing-library/dom@10.4.1)(@types/react-dom@18.3.7(@types/react@18.3.25))(@types/react@18.3.25)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.24.0
       '@testing-library/dom': 10.4.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
     optionalDependencies:
-      '@types/react': 18.3.24
-      '@types/react-dom': 18.3.7(@types/react@18.3.24)
+      '@types/react': 18.3.25
+      '@types/react-dom': 18.3.7(@types/react@18.3.25)
 
   '@tootallnate/once@2.0.0': {}
 
@@ -4077,11 +4077,11 @@ snapshots:
 
   '@types/range-parser@1.2.7': {}
 
-  '@types/react-dom@18.3.7(@types/react@18.3.24)':
+  '@types/react-dom@18.3.7(@types/react@18.3.25)':
     dependencies:
-      '@types/react': 18.3.24
+      '@types/react': 18.3.25
 
-  '@types/react@18.3.24':
+  '@types/react@18.3.25':
     dependencies:
       '@types/prop-types': 15.7.11
       csstype: 3.1.3
@@ -5964,11 +5964,11 @@ snapshots:
 
   jiti@1.21.6: {}
 
-  jotai@2.15.0(@babel/core@7.28.4)(@babel/template@7.27.2)(@types/react@18.3.24)(react@18.3.1):
+  jotai@2.15.0(@babel/core@7.28.4)(@babel/template@7.27.2)(@types/react@18.3.25)(react@18.3.1):
     optionalDependencies:
       '@babel/core': 7.28.4
       '@babel/template': 7.27.2
-      '@types/react': 18.3.24
+      '@types/react': 18.3.25
       react: 18.3.1
 
   js-cookie@3.0.5: {}
