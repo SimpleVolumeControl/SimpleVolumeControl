@@ -44,7 +44,7 @@
     "@types/ws": "8.18.1",
     "autoprefixer": "10.4.21",
     "babel-jest": "29.7.0",
-    "daisyui": "4.12.24",
+    "daisyui": "5.3.9",
     "eslint": "8.57.1",
     "eslint-config-next": "14.2.33",
     "eslint-config-prettier": "9.1.2",
