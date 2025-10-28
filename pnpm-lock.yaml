@@ -67,8 +67,8 @@ importers:
         specifier: 16.3.0
         version: 16.3.0(@testing-library/dom@10.4.1)(@types/react-dom@18.3.7(@types/react@18.3.26))(@types/react@18.3.26)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@types/express':
-        specifier: 4.17.24
-        version: 4.17.24
+        specifier: 4.17.25
+        version: 4.17.25
       '@types/express-ws':
         specifier: 3.0.6
         version: 3.0.6
@@ -679,8 +679,8 @@ packages:
   '@types/express-ws@3.0.6':
     resolution: {integrity: sha512-6ZDt+tMEQgM4RC1sMX1fIO7kHQkfUDlWfxoPddXUeeDjmc+Yt/fCzqXfp8rFahNr5eIxdomrWphLEWDkB2q3UQ==}
 
-  '@types/express@4.17.24':
-    resolution: {integrity: sha512-Mbrt4SRlXSTWryOnHAh2d4UQ/E7n9lZyGSi6KgX+4hkuL9soYbLOVXVhnk/ODp12YsGc95f4pOvqywJ6kngUwg==}
+  '@types/express@4.17.25':
+    resolution: {integrity: sha512-dVd04UKsfpINUnK0yBoYHDF3xu7xVH4BuDotC/xGuycx4CgbP48X/KF/586bcObxT0HENHXEU8Nqtu6NR+eKhw==}
 
   '@types/graceful-fs@4.1.9':
     resolution: {integrity: sha512-olP3sd1qOEe5dXTSaFvQG+02VdRXcdytWLAZsAq1PecU8uqQAhkrnbli7DagjtXKW/Bl7YJbUsa8MPcuc8LHEQ==}
@@ -4034,11 +4034,11 @@ snapshots:
 
   '@types/express-ws@3.0.6':
     dependencies:
-      '@types/express': 4.17.24
+      '@types/express': 4.17.25
       '@types/express-serve-static-core': 4.17.43
       '@types/ws': 8.18.1
 
-  '@types/express@4.17.24':
+  '@types/express@4.17.25':
     dependencies:
       '@types/body-parser': 1.19.5
       '@types/express-serve-static-core': 4.17.43
