@@ -20,7 +20,7 @@ const Header: FC<HeaderProps> = ({ title }) => {
         <div className="navbar-start">
           <BackButton />
         </div>
-        <div className="px-2 mx-2 navbar-center w-full xs:w-auto order-first xs:order-none justify-center flex-col">
+        <div className="px-2 mx-2 navbar-center w-full xs:w-auto order-first xs:order-0 justify-center flex-col">
           <span className="text-lg sm:text-3xl sm:font-light">
             SimpleVolumeControl
           </span>

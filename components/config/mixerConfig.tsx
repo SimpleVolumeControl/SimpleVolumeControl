@@ -29,34 +29,26 @@ const MixerConfig: FC<MixerConfigProps> = ({ config, changeConfig }) => {
   return (
     <div>
       <form onSubmit={submit} className="space-y-2">
-        <div className="form-control">
-          <label>
-            <div className="label">
-              <span className="label-text">{t('MixerConfig.ipLabel')}</span>
-            </div>
-            <TextInput
-              placeholder="---.---.---.---"
-              onChange={(newValue) => setIpInput(newValue)}
-              value={ipInput}
-            />
-          </label>
-        </div>
-        <div className="form-control">
-          <label>
-            <div className="label">
-              <span className="label-text">{t('MixerConfig.mixerLabel')}</span>
-            </div>
-            <select
-              className="select select-bordered"
-              onChange={(event) => setMixerInput(event.target.value)}
-              value={mixerInput}
-            >
-              {getAvailableMixers().map((mixer) => (
-                <option key={mixer}>{mixer}</option>
-              ))}
-            </select>
-          </label>
-        </div>
+        <label className="fieldset">
+          <span className="label">{t('MixerConfig.ipLabel')}</span>
+          <TextInput
+            placeholder="---.---.---.---"
+            onChange={(newValue) => setIpInput(newValue)}
+            value={ipInput}
+          />
+        </label>
+        <label className="fieldset">
+          <span className="label">{t('MixerConfig.mixerLabel')}</span>
+          <select
+            className="select select-bordered"
+            onChange={(event) => setMixerInput(event.target.value)}
+            value={mixerInput}
+          >
+            {getAvailableMixers().map((mixer) => (
+              <option key={mixer}>{mixer}</option>
+            ))}
+          </select>
+        </label>
         <button type="submit" className="btn btn-neutral">
           {t('save')}
         </button>

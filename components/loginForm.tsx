@@ -24,20 +24,16 @@ const LoginForm: FC<LoginFormProps> = () => {
         <div className="card shadow-2xl lg:card-side bg-base-100 max-w-sm text-base-content">
           <div className="card-body">
             <form onSubmit={submit} className="space-y-2">
-              <div className="form-control">
-                <label>
-                  <div className="label">
-                    <span className="label-text">{t('passwordLabel')}</span>
-                  </div>
-                  <TextInput
-                    type="password"
-                    placeholder={t('passwordLabel')}
-                    className="w-full input input-primary input-bordered"
-                    onChange={(newValue) => setInput(newValue)}
-                    value={input}
-                  />
-                </label>
-              </div>
+              <label className="fieldset">
+                <span className="label">{t('passwordLabel')}</span>
+                <TextInput
+                  type="password"
+                  placeholder={t('passwordLabel')}
+                  className="w-full input input-primary input-bordered"
+                  onChange={(newValue) => setInput(newValue)}
+                  value={input}
+                />
+              </label>
               <button type="submit" className="btn btn-primary btn-block">
                 {t('loginButton')}
               </button>

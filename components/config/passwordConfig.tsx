@@ -39,7 +39,7 @@ const PasswordConfig: FC<PasswordConfigProps> = ({ changeConfig }) => {
           width="16"
           height="16"
           fill="currentColor"
-          className="text-info flex-shrink-0 w-6 h-6"
+          className="text-info shrink-0 w-6 h-6"
           viewBox="0 0 16 16"
         >
           <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -51,36 +51,24 @@ const PasswordConfig: FC<PasswordConfigProps> = ({ changeConfig }) => {
         </div>
       </div>
       <form onSubmit={submit} className="space-y-2">
-        <div className="form-control">
-          <label>
-            <div className="label">
-              <span className="label-text">
-                {t('PasswordConfig.passwordLabel')}
-              </span>
-            </div>
-            <TextInput
-              type="password"
-              placeholder={t('PasswordConfig.passwordLabel')}
-              onChange={(newValue) => setInput(newValue)}
-              value={input}
-            />
-          </label>
-        </div>
-        <div className="form-control">
-          <label>
-            <div className="label">
-              <span className="label-text">
-                {t('PasswordConfig.repeatLabel')}
-              </span>
-            </div>
-            <TextInput
-              type="password"
-              placeholder={t('PasswordConfig.repeatLabel')}
-              onChange={(newValue) => setRepeat(newValue)}
-              value={repeat}
-            />
-          </label>
-        </div>
+        <label className="fieldset">
+          <span className="label">{t('PasswordConfig.passwordLabel')}</span>
+          <TextInput
+            type="password"
+            placeholder={t('PasswordConfig.passwordLabel')}
+            onChange={(newValue) => setInput(newValue)}
+            value={input}
+          />
+        </label>
+        <label className="fieldset">
+          <span className="label">{t('PasswordConfig.repeatLabel')}</span>
+          <TextInput
+            type="password"
+            placeholder={t('PasswordConfig.repeatLabel')}
+            onChange={(newValue) => setRepeat(newValue)}
+            value={repeat}
+          />
+        </label>
         <button type="submit" className="btn btn-neutral">
           {t('save')}
         </button>

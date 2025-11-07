@@ -22,7 +22,7 @@ const Fader: FC<FaderProps> = ({ level, sendLevel }) => {
       max="1"
       step="0.01"
       value={level}
-      className="range range-lg fader relative"
+      className="range range-lg fader relative w-full"
       onInput={(e) =>
         sendLevel(parseFloat((e.target as HTMLInputElement).value))
       }

@@ -37,7 +37,7 @@ const MixAssignmentCard: FC<MixAssignmentCardProps> = ({
   }, [mixer, inputs]);
 
   return (
-    <div className="card w-full bg-base-200 shadow-xl card-compact">
+    <div className="card w-full bg-base-200 shadow-xl">
       <div className="card-body flex-row">
         <div className="card-actions justify-between flex-col mr-4">
           <button
@@ -67,7 +67,7 @@ const MixAssignmentCard: FC<MixAssignmentCardProps> = ({
           <h2 className="card-title">{mix.mix}</h2>
           <div className="flex gap-2 my-4">
             {inputs.map((input, index) => (
-              <div key={input} className="bg-base-300 p-1 rounded">
+              <div key={input} className="bg-base-300 p-1 rounded-sm">
                 <span className="px-1">{input}</span>
                 {index !== 0 && (
                   <button
@@ -103,33 +103,24 @@ const MixAssignmentCard: FC<MixAssignmentCardProps> = ({
                 add(addName);
                 setAddName('');
               }}
-              className="flex"
             >
-              <div className="form-control">
-                <label>
-                  <div className="label">
-                    <span className="label-text">
-                      {t('MixesConfig.addInput')}
-                    </span>
-                  </div>
-                  <div className="flex space-x-2">
-                    <select
-                      className="select select-bordered select-sm"
-                      onChange={(event) => setAddName(event.target.value)}
-                      value={addName}
-                    >
-                      {getAllInputs(mixer).map((input) => (
-                        <option key={input} disabled={inputs.includes(input)}>
-                          {input}
-                        </option>
-                      ))}
-                    </select>
-                    <button type="submit" className="btn btn-sm btn-neutral">
-                      {t('MixesConfig.add')}
-                    </button>
-                  </div>
-                </label>
-              </div>
+              <label className="flex gap-2 flex-wrap">
+                <span className="label">{t('MixesConfig.addInput')}</span>
+                <select
+                  className="select select-bordered select-sm w-auto"
+                  onChange={(event) => setAddName(event.target.value)}
+                  value={addName}
+                >
+                  {getAllInputs(mixer).map((input) => (
+                    <option key={input} disabled={inputs.includes(input)}>
+                      {input}
+                    </option>
+                  ))}
+                </select>
+                <button type="submit" className="btn btn-sm btn-neutral">
+                  {t('MixesConfig.add')}
+                </button>
+              </label>
             </form>
           </div>
         </div>

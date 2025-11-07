@@ -3,7 +3,7 @@
 exports[`Tabs should render correctly 1`] = `
 <DocumentFragment>
   <div
-    class="tabs md:tabs-lg tabs-lifted -mb-px z-10"
+    class="tabs md:tabs-lg tabs-lift -mb-px z-10"
   >
     <a
       class="tab [&&]:border-b-0 tab-active"
@@ -22,7 +22,7 @@ exports[`Tabs should render correctly 1`] = `
     </a>
   </div>
   <div
-    class="bg-base-100 border border-base-300 p-4 rounded-b-box  rounded-tr-box "
+    class="bg-base-100 border border-base-300 p-4 rounded-b-box rounded-tr-box "
   >
     A
   </div>
