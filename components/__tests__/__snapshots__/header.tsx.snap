@@ -16,7 +16,7 @@ exports[`Header should hide logout button when no password is set 1`] = `
       </a>
     </div>
     <div
-      class="px-2 mx-2 navbar-center w-full xs:w-auto order-first xs:order-none justify-center flex-col"
+      class="px-2 mx-2 navbar-center w-full xs:w-auto order-first xs:order-0 justify-center flex-col"
     >
       <span
         class="text-lg sm:text-3xl sm:font-light"
@@ -40,7 +40,7 @@ exports[`Header should render correctly on home page 1`] = `
       class="navbar-start"
     />
     <div
-      class="px-2 mx-2 navbar-center w-full xs:w-auto order-first xs:order-none justify-center flex-col"
+      class="px-2 mx-2 navbar-center w-full xs:w-auto order-first xs:order-0 justify-center flex-col"
     >
       <span
         class="text-lg sm:text-3xl sm:font-light"
@@ -71,7 +71,7 @@ exports[`Header should render correctly on other pages 1`] = `
       </a>
     </div>
     <div
-      class="px-2 mx-2 navbar-center w-full xs:w-auto order-first xs:order-none justify-center flex-col"
+      class="px-2 mx-2 navbar-center w-full xs:w-auto order-first xs:order-0 justify-center flex-col"
     >
       <span
         class="text-lg sm:text-3xl sm:font-light"
@@ -102,7 +102,7 @@ exports[`Header should show logout button when password is set 1`] = `
       </a>
     </div>
     <div
-      class="px-2 mx-2 navbar-center w-full xs:w-auto order-first xs:order-none justify-center flex-col"
+      class="px-2 mx-2 navbar-center w-full xs:w-auto order-first xs:order-0 justify-center flex-col"
     >
       <span
         class="text-lg sm:text-3xl sm:font-light"

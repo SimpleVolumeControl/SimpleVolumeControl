@@ -25,7 +25,7 @@ const MixTile: FC<MixTileProps> = ({ id, name, color }) => {
   return (
     <div
       key={id}
-      className={`card shadow bg-base-100 border-2 ${colorClasses.border}`}
+      className={`card shadow-sm bg-base-100 border-2 ${colorClasses.border}`}
     >
       <Link href={`/mix/${id}`} passHref>
         <div className={`card-body ${colorClasses.bgFaint}`}>

@@ -154,7 +154,7 @@ export const TextInput: FC<TextInputProps> = ({
                   }}
                   buttonTheme={[
                     {
-                      class: '[.hg-row:last-child>&]:!max-w-[50px]',
+                      class: '[.hg-row:last-child>&]:max-w-[50px]!',
                       buttons: '@ ~ € | \\ { [ ] } £ § ° ´',
                     },
                   ]}

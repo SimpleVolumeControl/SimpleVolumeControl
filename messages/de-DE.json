@@ -41,8 +41,8 @@
       "mixerLabel": "Mischpulttyp"
     },
     "MixesConfig": {
-      "addMix": "Mischung hinzufügen",
-      "addInput": "Eingang hinzufügen",
+      "addMix": "Mischung hinzufügen:",
+      "addInput": "Eingang hinzufügen:",
       "add": "Hinzufügen"
     },
     "PasswordConfig": {

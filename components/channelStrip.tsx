@@ -55,7 +55,7 @@ const ChannelStrip: FC<ChannelStripProps> = ({
   return (
     <div
       key={id}
-      className={`card my-4 shadow bg-base-100 border-2 ${colorClasses.border}`}
+      className={`card my-4 shadow-sm bg-base-100 border-2 ${colorClasses.border}`}
     >
       <div className={`card-body p-4 ${highlight ? colorClasses.bgFaint : ''}`}>
         <div className="flex items-center mb-2">
@@ -69,7 +69,7 @@ const ChannelStrip: FC<ChannelStripProps> = ({
           </h2>
           <MuteButton sendMute={sendMute} mute={mute} />
         </div>
-        <div className="relative leading-[0]">
+        <div className="relative leading-0">
           <Meter meter={meter} />
           <Fader level={level} sendLevel={sendLevel} />
         </div>

@@ -112,7 +112,7 @@ const MixesConfig: FC<MixesConfigProps> = ({ config, changeConfig }) => {
             mixer={mixer}
           />
         ))}
-        <div className="card w-full shadow-xl card-compact border-base-200 border-dashed border-4">
+        <div className="card w-full shadow-xl border-base-200 border-dashed border-4">
           <div className="card-body">
             <form
               onSubmit={(e: FormEvent) => {
@@ -120,38 +120,29 @@ const MixesConfig: FC<MixesConfigProps> = ({ config, changeConfig }) => {
                 getAddFunc()(addName);
                 setAddName('');
               }}
-              className="flex"
             >
-              <div className="form-control">
-                <label>
-                  <div className="label">
-                    <span className="label-text">
-                      {t('MixesConfig.addMix')}
-                    </span>
-                  </div>
-                  <div className="flex space-x-2">
-                    <select
-                      className="select select-bordered select-sm"
-                      onChange={(event) => setAddName(event.target.value)}
-                      value={addName}
+              <label className="flex gap-2 flex-wrap">
+                <span className="label">{t('MixesConfig.addMix')}</span>
+                <select
+                  className="select select-bordered select-sm w-auto"
+                  onChange={(event) => setAddName(event.target.value)}
+                  value={addName}
+                >
+                  {getAllMixes(mixer).map((mix) => (
+                    <option
+                      key={mix}
+                      disabled={mixes.some(
+                        (mixAssignment) => mixAssignment.mix === mix,
+                      )}
                     >
-                      {getAllMixes(mixer).map((mix) => (
-                        <option
-                          key={mix}
-                          disabled={mixes.some(
-                            (mixAssignment) => mixAssignment.mix === mix,
-                          )}
-                        >
-                          {mix}
-                        </option>
-                      ))}
-                    </select>
-                    <button type="submit" className="btn btn-sm btn-neutral">
-                      {t('MixesConfig.add')}
-                    </button>
-                  </div>
-                </label>
-              </div>
+                      {mix}
+                    </option>
+                  ))}
+                </select>
+                <button type="submit" className="btn btn-sm btn-neutral">
+                  {t('MixesConfig.add')}
+                </button>
+              </label>
             </form>
           </div>
         </div>

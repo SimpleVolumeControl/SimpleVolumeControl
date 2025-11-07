@@ -41,8 +41,8 @@
       "mixerLabel": "Type of the mixer"
     },
     "MixesConfig": {
-      "addMix": "Add max",
-      "addInput": "Add input",
+      "addMix": "Add mix:",
+      "addInput": "Add input:",
       "add": "Add"
     },
     "PasswordConfig": {
