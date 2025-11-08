@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es2015",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "target": "es2018",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -18,14 +14,9 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "typeRoots": [
-      "node_modules/@types",
-      "types"
-    ],
+    "typeRoots": ["node_modules/@types", "types"],
     "paths": {
-      "jshashes": [
-        "./types/jshashes"
-      ]
+      "jshashes": ["./types/jshashes"]
     },
     "plugins": [
       {
@@ -33,14 +24,6 @@
       }
     ]
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "types"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", "types"]
 }
