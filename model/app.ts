@@ -232,7 +232,7 @@ class App {
    * Check if a given password hash matches the configured password.
    * @param password The password hash that is to be checked.
    */
-  public checkPassword(password: String): boolean {
+  public checkPassword(password: string): boolean {
     return this.config.password === password;
   }
 

@@ -12,13 +12,13 @@ class DummyMixer extends Mixer {
   constructor(ip: string) {
     super(ip);
   }
-  getInputData(mixId: string, inputId: string): InputData | null {
+  getInputData(): InputData | null {
     return null;
   }
 
   stop() {}
 
-  getMixData(id: string): MixData | null {
+  getMixData(): MixData | null {
     return null;
   }
 
@@ -30,8 +30,8 @@ class DummyMixer extends Mixer {
     return DummyMixer.mixerName;
   }
 
-  setLevel(level: number, mix: string, input: string | null): void {}
-  setMute(state: boolean, mix: string, input: string | null): void {}
+  setLevel(): void {}
+  setMute(): void {}
 }
 
 export default DummyMixer;

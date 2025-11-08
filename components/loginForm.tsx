@@ -5,12 +5,10 @@ import useLogin from '../hooks/useLogin';
 import TextInput from './textInput';
 import { useTranslations } from 'next-intl';
 
-interface LoginFormProps {}
-
 /**
  * This component shows a form which can be used to enter a password.
  */
-const LoginForm: FC<LoginFormProps> = () => {
+const LoginForm: FC = () => {
   const t = useTranslations('Login');
   const { login } = useLogin();
   const [input, setInput] = useState('');

@@ -37,7 +37,7 @@ App.getInstance().registerConfigChangeListener(() =>
     server.all('*', (req: Request, res: Response) => handle(req, res));
 
     // Start listening and print the connection details on the console.
-    const srv = server.listen(port, (err?: any) => {
+    const srv = server.listen(port, (err?: Error) => {
       if (err) throw err;
       console.log(`> Ready on http://localhost:${port}`);
     });
@@ -49,7 +49,9 @@ App.getInstance().registerConfigChangeListener(() =>
     if (dev) {
       srv.removeListener(
         'upgrade',
-        srv.listeners('upgrade')?.[0] as (...args: any[]) => void,
+        srv.listeners('upgrade')?.[0] as Parameters<
+          typeof srv.removeListener
+        >[1],
       );
       srv.on('upgrade', function (req, socket, head) {
         const { pathname } = parse(req.url ?? '', true);

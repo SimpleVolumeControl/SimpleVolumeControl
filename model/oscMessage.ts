@@ -8,28 +8,24 @@ export enum OscParameterType {
   BLOB = 'blob',
 }
 
-// Add functions to the OscParameterType enum.
-// Based on https://stackoverflow.com/a/61715544
-export namespace OscParameterType {
-  /**
-   * Convert the characters that identify the parameter types to their corresponding enum values.
-   * Returns null for invalid characters.
-   *
-   * @param char The character to be converted.
-   */
-  export function fromChar(char: string): OscParameterType | null {
-    switch (char) {
-      case 's':
-        return OscParameterType.STRING;
-      case 'i':
-        return OscParameterType.INT;
-      case 'f':
-        return OscParameterType.FLOAT;
-      case 'b':
-        return OscParameterType.BLOB;
-      default:
-        return null;
-    }
+/**
+ * Convert the characters that identify the parameter types to their corresponding enum values.
+ * Returns null for invalid characters.
+ *
+ * @param char The character to be converted.
+ */
+export function charToOscParameterType(char: string): OscParameterType | null {
+  switch (char) {
+    case 's':
+      return OscParameterType.STRING;
+    case 'i':
+      return OscParameterType.INT;
+    case 'f':
+      return OscParameterType.FLOAT;
+    case 'b':
+      return OscParameterType.BLOB;
+    default:
+      return null;
   }
 }
 
@@ -90,7 +86,7 @@ class OscMessage {
 
     // Collect the concatenated (and padded if necessary) parameter values as a number array.
     // Every number represents one byte.
-    let parameters: number[] = [];
+    const parameters: number[] = [];
 
     // Iterate over all parameters to add them to the storage variables defined above.
     this.parameters.forEach((parameter) => {
@@ -159,7 +155,7 @@ class OscMessage {
     // Read out the parameter types one by one.
     let paramStart = paramTypesEnd + (4 - (paramTypesEnd % 4));
     paramTypes.split('').forEach((t) => {
-      const paramType = OscParameterType.fromChar(t);
+      const paramType = charToOscParameterType(t);
       if (paramType === null) {
         return;
       }

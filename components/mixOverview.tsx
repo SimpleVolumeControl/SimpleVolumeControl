@@ -4,13 +4,11 @@ import { FC } from 'react';
 import MixTile from './mixTile';
 import useMixes from '../hooks/useMixes';
 
-interface MixOverviewProps {}
-
 /**
  * This component provides an overview over all configured mixes.
  * It displays them as tiles which lead to the respective details views when clicked.
  */
-const MixOverview: FC<MixOverviewProps> = () => {
+const MixOverview: FC = () => {
   // Utilize the useMixes hook for the communication with the server.
   const mixes = useMixes();
 

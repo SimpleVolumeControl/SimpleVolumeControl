@@ -10,8 +10,6 @@ import PasswordConfig from './passwordConfig';
 import Tabs from '../tabs';
 import { useTranslations } from 'next-intl';
 
-interface ConfigEditorProps {}
-
 enum ConfigTabs {
   GENERAL,
   MIXER,
@@ -23,7 +21,7 @@ enum ConfigTabs {
  * This component allows to edit the configuration of the SimpleVolumeControl instance.
  * It allows to set the mixer type, the IP address of the mixer, the inputs per mix and the password.
  */
-const ConfigEditor: FC<ConfigEditorProps> = () => {
+const ConfigEditor: FC = () => {
   const t = useTranslations('ConfigEditor');
 
   // Utilize the useConfig hook for the communication with the server.
