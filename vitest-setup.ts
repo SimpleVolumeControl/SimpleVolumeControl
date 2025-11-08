@@ -1,5 +1,5 @@
-import '@testing-library/jest-dom';
+import '@testing-library/jest-dom/vitest';
 
-jest.mock('next-intl', () => ({
+vitest.mock('next-intl', () => ({
   useTranslations: (category: string) => (key: string) => `${category}.${key}`,
 }));

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Header should hide logout button when no password is set 1`] = `
+exports[`Header > should hide logout button when no password is set 1`] = `
 <DocumentFragment>
   <div
     class="navbar mb-4 shadow-lg bg-primary text-neutral-content rounded-box flex-wrap xs:flex-nowrap items-stretch"
@@ -31,7 +31,7 @@ exports[`Header should hide logout button when no password is set 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Header should render correctly on home page 1`] = `
+exports[`Header > should render correctly on home page 1`] = `
 <DocumentFragment>
   <div
     class="navbar mb-4 shadow-lg bg-primary text-neutral-content rounded-box flex-wrap xs:flex-nowrap items-stretch"
@@ -55,7 +55,7 @@ exports[`Header should render correctly on home page 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Header should render correctly on other pages 1`] = `
+exports[`Header > should render correctly on other pages 1`] = `
 <DocumentFragment>
   <div
     class="navbar mb-4 shadow-lg bg-primary text-neutral-content rounded-box flex-wrap xs:flex-nowrap items-stretch"
@@ -86,7 +86,7 @@ exports[`Header should render correctly on other pages 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Header should show logout button when password is set 1`] = `
+exports[`Header > should show logout button when password is set 1`] = `
 <DocumentFragment>
   <div
     class="navbar mb-4 shadow-lg bg-primary text-neutral-content rounded-box flex-wrap xs:flex-nowrap items-stretch"
