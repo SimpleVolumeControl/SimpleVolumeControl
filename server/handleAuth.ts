@@ -1,8 +1,12 @@
 import App from '../model/app';
 import { WebSocket } from 'ws';
-import { ExtendedWebsocket } from './api';
 import ApiCode from '../common/apiCode';
 import splitMessage from '../common/apiSplitMessage';
+
+// Declare that there can be an `authenticated` field on the WebSocket objects.
+interface ExtendedWebsocket extends WebSocket {
+  authenticated?: boolean;
+}
 
 /**
  * Handle the AUTH messages of the API.

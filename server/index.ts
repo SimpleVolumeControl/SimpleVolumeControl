@@ -2,14 +2,10 @@
 // Based on https://levelup.gitconnected.com/set-up-next-js-with-a-custom-express-server-typescript-9096d819da1c
 
 import express, { Request, Response } from 'express';
-import expressWs from 'express-ws';
-const { app: server, getWss } = expressWs(express());
+const server = express();
 import next from 'next';
 import App from '../model/app';
-import api from './api';
-import { parse } from 'url';
-import { Socket } from 'net';
-import WebSocket from 'ws';
+import { apiRouter, wss } from './api';
 import { homedir } from 'os';
 
 const dev = process.env.NODE_ENV !== 'production';
@@ -31,7 +27,9 @@ App.getInstance().registerConfigChangeListener(() =>
     await app.prepare();
 
     // Delegate all api paths to a dedicated router.
-    server.use('/api', api);
+    // This dedicated router does not handle WebSockets.
+    // For these, see the upgrade handler below and the WebSocketServer `wss`.
+    server.use('/api', apiRouter);
 
     // Everything else should be handled by next.js.
     server.all('*', (req: Request, res: Response) => handle(req, res));
@@ -45,24 +43,18 @@ App.getInstance().registerConfigChangeListener(() =>
     // The upgrade listener must be redefined with a custom implementation
     // in order to avoid conflicts with next's HMR websockets in dev mode.
     // Solution inspired by https://stackoverflow.com/a/69846167
-    // All upgrade requests are handled normally, except for those handled by next.
-    if (dev) {
-      srv.removeListener(
-        'upgrade',
-        srv.listeners('upgrade')?.[0] as Parameters<
-          typeof srv.removeListener
-        >[1],
-      );
-      srv.on('upgrade', function (req, socket, head) {
-        const { pathname } = parse(req.url ?? '', true);
-        if (pathname !== '/_next/webpack-hmr') {
-          const wss = getWss();
-          wss.handleUpgrade(req, socket as Socket, head, (ws: WebSocket) => {
+    srv.on('upgrade', function (req, socket, head) {
+      try {
+        const { pathname } = new URL(`http://localhost${req.url}`);
+        if (pathname?.startsWith('/api/')) {
+          wss.handleUpgrade(req, socket, head, (ws) => {
             wss.emit('connection', ws, req);
           });
         }
-      });
-    }
+      } catch (e) {
+        console.error(e);
+      }
+    });
   } catch (e) {
     console.error(e);
     process.exit(1);
