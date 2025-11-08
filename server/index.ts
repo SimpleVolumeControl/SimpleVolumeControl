@@ -32,7 +32,7 @@ App.getInstance().registerConfigChangeListener(() =>
     server.use('/api', apiRouter);
 
     // Everything else should be handled by next.js.
-    server.all('*', (req: Request, res: Response) => handle(req, res));
+    server.all('{*path}', (req: Request, res: Response) => handle(req, res));
 
     // Start listening and print the connection details on the console.
     const srv = server.listen(port, (err?: Error) => {
