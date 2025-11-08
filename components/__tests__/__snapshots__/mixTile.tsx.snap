@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`MixTile should render correctly (blue) 1`] = `
+exports[`MixTile > should render correctly (blue) 1`] = `
 <DocumentFragment>
   <div
     class="card shadow-sm bg-base-100 border-2 border-blue-500"
@@ -22,7 +22,7 @@ exports[`MixTile should render correctly (blue) 1`] = `
 </DocumentFragment>
 `;
 
-exports[`MixTile should render correctly (foobar) 1`] = `
+exports[`MixTile > should render correctly (foobar) 1`] = `
 <DocumentFragment>
   <div
     class="card shadow-sm bg-base-100 border-2 border-base-300"
@@ -44,7 +44,7 @@ exports[`MixTile should render correctly (foobar) 1`] = `
 </DocumentFragment>
 `;
 
-exports[`MixTile should render correctly (green) 1`] = `
+exports[`MixTile > should render correctly (green) 1`] = `
 <DocumentFragment>
   <div
     class="card shadow-sm bg-base-100 border-2 border-lime-500"
@@ -66,7 +66,7 @@ exports[`MixTile should render correctly (green) 1`] = `
 </DocumentFragment>
 `;
 
-exports[`MixTile should render correctly (lightblue) 1`] = `
+exports[`MixTile > should render correctly (lightblue) 1`] = `
 <DocumentFragment>
   <div
     class="card shadow-sm bg-base-100 border-2 border-cyan-400"
@@ -88,7 +88,7 @@ exports[`MixTile should render correctly (lightblue) 1`] = `
 </DocumentFragment>
 `;
 
-exports[`MixTile should render correctly (pink) 1`] = `
+exports[`MixTile > should render correctly (pink) 1`] = `
 <DocumentFragment>
   <div
     class="card shadow-sm bg-base-100 border-2 border-pink-500"
@@ -110,7 +110,7 @@ exports[`MixTile should render correctly (pink) 1`] = `
 </DocumentFragment>
 `;
 
-exports[`MixTile should render correctly (red) 1`] = `
+exports[`MixTile > should render correctly (red) 1`] = `
 <DocumentFragment>
   <div
     class="card shadow-sm bg-base-100 border-2 border-red-500"
@@ -132,7 +132,7 @@ exports[`MixTile should render correctly (red) 1`] = `
 </DocumentFragment>
 `;
 
-exports[`MixTile should render correctly (white) 1`] = `
+exports[`MixTile > should render correctly (white) 1`] = `
 <DocumentFragment>
   <div
     class="card shadow-sm bg-base-100 border-2 border-base-300"
@@ -154,7 +154,7 @@ exports[`MixTile should render correctly (white) 1`] = `
 </DocumentFragment>
 `;
 
-exports[`MixTile should render correctly (yellow) 1`] = `
+exports[`MixTile > should render correctly (yellow) 1`] = `
 <DocumentFragment>
   <div
     class="card shadow-sm bg-base-100 border-2 border-yellow-400"

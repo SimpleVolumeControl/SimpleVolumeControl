@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react';
 import MixOverview from '../mixOverview';
 
-jest.mock('next/navigation', () => ({
-  useRouter: jest.fn(),
+vitest.mock('next/navigation', () => ({
+  useRouter: vitest.fn(),
 }));
 
 describe('MixOverview', () => {

@@ -3,28 +3,30 @@ import Header from '../header';
 import * as nextNavigationModule from 'next/navigation';
 import * as useLoginModule from '../../hooks/useLogin';
 
-jest.mock('next/navigation', () => ({
-  useRouter: jest.fn(),
-  usePathname: jest.fn().mockReturnValue('/config'),
+vitest.mock('next/navigation', () => ({
+  useRouter: vitest.fn(),
+  usePathname: vitest.fn().mockReturnValue('/config'),
 }));
 
 describe('Header', () => {
   beforeEach(() => {
-    jest.spyOn(useLoginModule, 'default').mockReturnValue({
-      login: jest.fn(),
-      logout: jest.fn(),
+    vitest.spyOn(useLoginModule, 'default').mockReturnValue({
+      login: vitest.fn(),
+      logout: vitest.fn(),
       isLoggedIn: false,
       password: '',
     });
   });
 
   test('should render correctly on home page', () => {
-    jest.spyOn(nextNavigationModule, 'usePathname').mockReturnValue('/');
+    vitest.spyOn(nextNavigationModule, 'usePathname').mockReturnValue('/');
     const { asFragment } = render(<Header />);
     expect(asFragment()).toMatchSnapshot();
   });
   test('should render correctly on other pages', () => {
-    jest.spyOn(nextNavigationModule, 'usePathname').mockReturnValue('/config');
+    vitest
+      .spyOn(nextNavigationModule, 'usePathname')
+      .mockReturnValue('/config');
     const { asFragment } = render(<Header />);
     expect(asFragment()).toMatchSnapshot();
   });
@@ -33,9 +35,9 @@ describe('Header', () => {
     expect(asFragment()).toMatchSnapshot();
   });
   test('should show logout button when password is set', () => {
-    jest.spyOn(useLoginModule, 'default').mockReturnValue({
-      login: jest.fn(),
-      logout: jest.fn(),
+    vitest.spyOn(useLoginModule, 'default').mockReturnValue({
+      login: vitest.fn(),
+      logout: vitest.fn(),
       isLoggedIn: true,
       password: '',
     });
