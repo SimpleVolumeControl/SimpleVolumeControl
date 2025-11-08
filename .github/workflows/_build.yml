@@ -20,6 +20,8 @@ jobs:
           node-version: 24
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
+        with:
+          platforms: 'arm64'
       - name: Dev Build (no publish)
         if: ${{ !inputs.release-version }}
         run: podman build --platform linux/amd64,linux/arm64 .
