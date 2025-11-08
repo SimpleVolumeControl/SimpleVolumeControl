@@ -108,7 +108,9 @@ class Config implements NullableConfig {
     let rawConfig: unknown = {};
     try {
       rawConfig = JSON.parse(json);
-    } catch (e) {}
+    } catch (e) {
+      // Do nothing
+    }
 
     // Ensure that the correct data types are used.
     const config = ensureRecord(rawConfig);

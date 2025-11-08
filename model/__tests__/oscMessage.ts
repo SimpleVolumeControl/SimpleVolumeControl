@@ -1,11 +1,14 @@
-import OscMessage, { OscParameterType } from '../oscMessage';
+import OscMessage, {
+  charToOscParameterType,
+  OscParameterType,
+} from '../oscMessage';
 
 describe('OscMessage', () => {
   test('should construct OSC parameter type from string', () => {
-    expect(OscParameterType.fromChar('i')).toBe(OscParameterType.INT);
-    expect(OscParameterType.fromChar('f')).toBe(OscParameterType.FLOAT);
-    expect(OscParameterType.fromChar('s')).toBe(OscParameterType.STRING);
-    expect(OscParameterType.fromChar('x')).toBe(null);
+    expect(charToOscParameterType('i')).toBe(OscParameterType.INT);
+    expect(charToOscParameterType('f')).toBe(OscParameterType.FLOAT);
+    expect(charToOscParameterType('s')).toBe(OscParameterType.STRING);
+    expect(charToOscParameterType('x')).toBe(null);
   });
 
   test('should construct OSC command without parameters', () => {
