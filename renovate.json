@@ -1,6 +1,22 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "github>SimpleVolumeControl/SimpleVolumeControl:renovate/config.json"
-  ]
+  "extends": ["config:recommended"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "matchManagers": ["npm"],
+      "automerge": true,
+      "groupName": "npm patch updates"
+    }
+  ],
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "minimumReleaseAge": "3 days",
+  "labels": ["renovate"],
+  "prConcurrentLimit": 0
 }
