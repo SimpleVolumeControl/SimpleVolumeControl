@@ -1,4 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["./renovate/config.json"]
+  "extends": [
+    "github>SimpleVolumeControl/SimpleVolumeControl:renovate/config.json"
+  ]
 }
