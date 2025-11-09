@@ -4,14 +4,14 @@ import { match } from '@formatjs/intl-localematcher';
 import Negotiator from 'negotiator';
 import { allLocales, defaultLocale } from './config';
 
-function getLocale() {
-  const cookieLocale = cookies().get('language')?.value;
+async function getLocale() {
+  const cookieLocale = (await cookies()).get('language')?.value;
   if (cookieLocale !== undefined && allLocales.includes(cookieLocale)) {
     return cookieLocale;
   }
   const headerLanguages = new Negotiator({
     headers: {
-      'accept-language': headers().get('accept-language') ?? undefined,
+      'accept-language': (await headers()).get('accept-language') ?? undefined,
     },
   }).languages();
   try {
@@ -22,7 +22,7 @@ function getLocale() {
 }
 
 export default getRequestConfig(async () => {
-  const locale = getLocale();
+  const locale = await getLocale();
 
   return {
     locale,
