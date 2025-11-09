@@ -6,7 +6,7 @@ import { defineConfig, globalIgnores } from 'eslint/config';
 import pluginNext from '@next/eslint-plugin-next';
 
 export default defineConfig([
-  globalIgnores(['dist/', 'coverage/', '.next/']),
+  globalIgnores(['dist/', 'coverage/', '.next/', 'next-env.d.ts']),
   {
     files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     plugins: { js },

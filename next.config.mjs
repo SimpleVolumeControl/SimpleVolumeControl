@@ -11,8 +11,5 @@ const withNextIntl = nextIntl();
 export default withBundleAnalyzer(
   withNextIntl({
     reactStrictMode: true,
-    eslint: {
-      dirs: ['.'],
-    },
   }),
 );
