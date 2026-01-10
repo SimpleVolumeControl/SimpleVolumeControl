@@ -12,7 +12,7 @@
     "fix": "pnpm eslint --fix"
   },
   "dependencies": {
-    "@formatjs/intl-localematcher": "0.7.4",
+    "@formatjs/intl-localematcher": "0.7.5",
     "@next/bundle-analyzer": "16.1.1",
     "cross-env": "10.1.0",
     "express": "5.2.1",
