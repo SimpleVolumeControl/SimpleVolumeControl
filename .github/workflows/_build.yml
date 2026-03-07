@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: 24
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
         with:
           platforms: 'arm64'
       - name: Dev Build (no publish)
