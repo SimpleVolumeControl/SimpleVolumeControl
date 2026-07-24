@@ -54,7 +54,7 @@
     "nodemon": "3.1.14",
     "postcss": "8.5.8",
     "postcss-input-range": "6.0.0",
-    "prettier": "3.8.1",
+    "prettier": "3.9.6",
     "tailwindcss": "4.2.2",
     "ts-node": "10.9.2",
     "typescript": "5.9.3",
