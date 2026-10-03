@@ -22,7 +22,7 @@ importers:
         version: 5.2.1(supports-color@5.5.0)
       jotai:
         specifier: 2.19.0
-        version: 2.19.0(@babel/core@7.29.7(supports-color@5.5.0))(@babel/template@7.28.6)(@types/react@19.2.14)(react@19.2.4)
+        version: 2.19.0(@babel/core@7.29.7(supports-color@5.5.0))(@babel/template@7.29.7)(@types/react@19.2.14)(react@19.2.4)
       js-cookie:
         specifier: 3.0.8
         version: 3.0.8
@@ -97,8 +97,8 @@ importers:
         specifier: 6.1.1
         version: 6.1.1(vite@8.0.10(@types/node@24.19.0)(jiti@2.6.1))
       daisyui:
-        specifier: 5.5.19
-        version: 5.5.19
+        specifier: 5.7.47
+        version: 5.7.47
       eslint:
         specifier: 10.3.0
         version: 10.3.0(jiti@2.6.1)(supports-color@5.5.0)
@@ -249,10 +249,6 @@ packages:
 
   '@babel/runtime@7.29.2':
     resolution: {integrity: sha512-JiDShH45zKHWyGe4ZNVRrCjBz8Nh9TMmZG1kh4QTK8hCBTWBi8Da+i7s1fJw7/lYpM4ccepSNfqzZ/QvABBi5g==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/template@7.28.6':
-    resolution: {integrity: sha512-YA6Ma2KsCdGb+WC6UpBVFJGXL58MDA6oyONbjyF/+5sBgxY/dwkhLogbMT2GXXyU84/IhRw/2D1Os1B/giz+BQ==}
     engines: {node: '>=6.9.0'}
 
   '@babel/template@7.29.7':
@@ -1609,8 +1605,8 @@ packages:
   csstype@3.2.3:
     resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
 
-  daisyui@5.5.19:
-    resolution: {integrity: sha512-pbFAkl1VCEh/MPCeclKL61I/MqRIFFhNU7yiXoDDRapXN4/qNCoMxeCCswyxEEhqL5eiTTfwHvucFtOE71C9sA==}
+  daisyui@5.7.47:
+    resolution: {integrity: sha512-NOl4vPifelRqB3CMzoU751zc44KCDD9HdHMTTqQ30uiYVpIyK7+s94/ySDWgYqjdl1tQCaCrgGBx4KCizm+a3Q==}
 
   damerau-levenshtein@1.0.8:
     resolution: {integrity: sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==}
@@ -3451,13 +3447,6 @@ snapshots:
 
   '@babel/runtime@7.29.2': {}
 
-  '@babel/template@7.28.6':
-    dependencies:
-      '@babel/code-frame': 7.29.7
-      '@babel/parser': 7.29.9
-      '@babel/types': 7.29.8
-    optional: true
-
   '@babel/template@7.29.7':
     dependencies:
       '@babel/code-frame': 7.29.7
@@ -4612,7 +4601,7 @@ snapshots:
 
   csstype@3.2.3: {}
 
-  daisyui@5.5.19: {}
+  daisyui@5.7.47: {}
 
   damerau-levenshtein@1.0.8: {}
 
@@ -5424,10 +5413,10 @@ snapshots:
 
   jiti@2.6.1: {}
 
-  jotai@2.19.0(@babel/core@7.29.7(supports-color@5.5.0))(@babel/template@7.28.6)(@types/react@19.2.14)(react@19.2.4):
+  jotai@2.19.0(@babel/core@7.29.7(supports-color@5.5.0))(@babel/template@7.29.7)(@types/react@19.2.14)(react@19.2.4):
     optionalDependencies:
       '@babel/core': 7.29.7(supports-color@5.5.0)
-      '@babel/template': 7.28.6
+      '@babel/template': 7.29.7
       '@types/react': 19.2.14
       react: 19.2.4
 
