@@ -22,7 +22,7 @@ importers:
         version: 5.2.1(supports-color@5.5.0)
       jotai:
         specifier: 2.19.0
-        version: 2.19.0(@babel/core@7.29.7(supports-color@5.5.0))(@babel/template@7.28.6)(@types/react@19.2.14)(react@19.2.4)
+        version: 2.19.0(@babel/core@7.29.7(supports-color@5.5.0))(@babel/template@7.29.7)(@types/react@19.2.14)(react@19.2.4)
       js-cookie:
         specifier: 3.0.8
         version: 3.0.8
@@ -148,8 +148,8 @@ importers:
         specifier: 4.1.11
         version: 4.1.11(@types/node@24.19.0)(jsdom@29.1.1)(vite@8.0.10(@types/node@24.19.0)(jiti@2.6.1))
       ws:
-        specifier: 8.20.0
-        version: 8.20.0
+        specifier: 8.22.0
+        version: 8.22.0
 
 packages:
 
@@ -249,10 +249,6 @@ packages:
 
   '@babel/runtime@7.29.2':
     resolution: {integrity: sha512-JiDShH45zKHWyGe4ZNVRrCjBz8Nh9TMmZG1kh4QTK8hCBTWBi8Da+i7s1fJw7/lYpM4ccepSNfqzZ/QvABBi5g==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/template@7.28.6':
-    resolution: {integrity: sha512-YA6Ma2KsCdGb+WC6UpBVFJGXL58MDA6oyONbjyF/+5sBgxY/dwkhLogbMT2GXXyU84/IhRw/2D1Os1B/giz+BQ==}
     engines: {node: '>=6.9.0'}
 
   '@babel/template@7.29.7':
@@ -3293,8 +3289,8 @@ packages:
       utf-8-validate:
         optional: true
 
-  ws@8.20.0:
-    resolution: {integrity: sha512-sAt8BhgNbzCtgGbt2OxmpuryO63ZoDk/sqaB/znQm94T4fCEsy/yV+7CdC1kJhOU9lboAEU7R3kquuycDoibVA==}
+  ws@8.22.0:
+    resolution: {integrity: sha512-Ydggc987+RO0AnWtZ/7Wq9FtNvcrL1b/RO0ud9mWjUPgDrsAAwQSF51sm2hm1XofbU/4jkpGEsLFsZZxU+1DOg==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
@@ -3450,13 +3446,6 @@ snapshots:
       '@babel/types': 7.29.8
 
   '@babel/runtime@7.29.2': {}
-
-  '@babel/template@7.28.6':
-    dependencies:
-      '@babel/code-frame': 7.29.7
-      '@babel/parser': 7.29.9
-      '@babel/types': 7.29.8
-    optional: true
 
   '@babel/template@7.29.7':
     dependencies:
@@ -5424,10 +5413,10 @@ snapshots:
 
   jiti@2.6.1: {}
 
-  jotai@2.19.0(@babel/core@7.29.7(supports-color@5.5.0))(@babel/template@7.28.6)(@types/react@19.2.14)(react@19.2.4):
+  jotai@2.19.0(@babel/core@7.29.7(supports-color@5.5.0))(@babel/template@7.29.7)(@types/react@19.2.14)(react@19.2.4):
     optionalDependencies:
       '@babel/core': 7.29.7(supports-color@5.5.0)
-      '@babel/template': 7.28.6
+      '@babel/template': 7.29.7
       '@types/react': 19.2.14
       react: 19.2.4
 
@@ -6529,7 +6518,7 @@ snapshots:
 
   ws@7.5.10: {}
 
-  ws@8.20.0: {}
+  ws@8.22.0: {}
 
   xml-name-validator@5.0.0: {}
 
