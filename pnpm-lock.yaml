@@ -21,8 +21,8 @@ importers:
         specifier: 5.2.1
         version: 5.2.1(supports-color@5.5.0)
       jotai:
-        specifier: 2.19.0
-        version: 2.19.0(@babel/core@7.29.7(supports-color@5.5.0))(@babel/template@7.28.6)(@types/react@19.2.14)(react@19.2.4)
+        specifier: 3.0.1
+        version: 3.0.1(@types/react@19.2.14)(react@19.2.4)
       js-cookie:
         specifier: 3.0.8
         version: 3.0.8
@@ -249,10 +249,6 @@ packages:
 
   '@babel/runtime@7.29.2':
     resolution: {integrity: sha512-JiDShH45zKHWyGe4ZNVRrCjBz8Nh9TMmZG1kh4QTK8hCBTWBi8Da+i7s1fJw7/lYpM4ccepSNfqzZ/QvABBi5g==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/template@7.28.6':
-    resolution: {integrity: sha512-YA6Ma2KsCdGb+WC6UpBVFJGXL58MDA6oyONbjyF/+5sBgxY/dwkhLogbMT2GXXyU84/IhRw/2D1Os1B/giz+BQ==}
     engines: {node: '>=6.9.0'}
 
   '@babel/template@7.29.7':
@@ -2260,19 +2256,13 @@ packages:
     resolution: {integrity: sha512-ekilCSN1jwRvIbgeg/57YFh8qQDNbwDb9xT/qu2DAHbFFZUicIl4ygVaAvzveMhMVr3LnpSKTNnwt8PoOfmKhQ==}
     hasBin: true
 
-  jotai@2.19.0:
-    resolution: {integrity: sha512-r2wwxEXP1F2JteDLZEOPoIpAHhV89paKsN5GWVYndPNMMP/uVZDcC+fNj0A8NjKgaPWzdyO8Vp8YcYKe0uCEqQ==}
-    engines: {node: '>=12.20.0'}
+  jotai@3.0.1:
+    resolution: {integrity: sha512-6tS7wY9otdiNp26Wqb/1ds3OuVJVoV+tJlN4hpLrYmfFf/t9bauVt+zKBNSpS5qSl5h6GieVQ+OknVraZX+udQ==}
+    engines: {node: '>=22.12.0'}
     peerDependencies:
-      '@babel/core': '>=7.0.0'
-      '@babel/template': '>=7.0.0'
-      '@types/react': '>=17.0.0'
-      react: '>=17.0.0'
+      '@types/react': '>=18.0.0'
+      react: '>=18.0.0'
     peerDependenciesMeta:
-      '@babel/core':
-        optional: true
-      '@babel/template':
-        optional: true
       '@types/react':
         optional: true
       react:
@@ -3447,13 +3437,6 @@ snapshots:
       '@babel/types': 7.29.8
 
   '@babel/runtime@7.29.2': {}
-
-  '@babel/template@7.28.6':
-    dependencies:
-      '@babel/code-frame': 7.29.7
-      '@babel/parser': 7.29.9
-      '@babel/types': 7.29.8
-    optional: true
 
   '@babel/template@7.29.7':
     dependencies:
@@ -5421,10 +5404,8 @@ snapshots:
 
   jiti@2.6.1: {}
 
-  jotai@2.19.0(@babel/core@7.29.7(supports-color@5.5.0))(@babel/template@7.28.6)(@types/react@19.2.14)(react@19.2.4):
+  jotai@3.0.1(@types/react@19.2.14)(react@19.2.4):
     optionalDependencies:
-      '@babel/core': 7.29.7(supports-color@5.5.0)
-      '@babel/template': 7.28.6
       '@types/react': 19.2.14
       react: 19.2.4
 
