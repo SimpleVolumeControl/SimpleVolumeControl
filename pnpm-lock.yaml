@@ -22,7 +22,7 @@ importers:
         version: 5.2.1(supports-color@5.5.0)
       jotai:
         specifier: 2.19.0
-        version: 2.19.0(@babel/core@7.29.7(supports-color@5.5.0))(@babel/template@7.28.6)(@types/react@19.2.14)(react@19.2.4)
+        version: 2.19.0(@babel/core@7.29.7(supports-color@5.5.0))(@babel/template@7.29.7)(@types/react@19.2.14)(react@19.2.4)
       js-cookie:
         specifier: 3.0.8
         version: 3.0.8
@@ -112,8 +112,8 @@ importers:
         specifier: 5.5.6
         version: 5.5.6(eslint-config-prettier@10.1.8(eslint@10.3.0(jiti@2.6.1)(supports-color@5.5.0)))(eslint@10.3.0(jiti@2.6.1)(supports-color@5.5.0))(prettier@3.8.1)
       globals:
-        specifier: 17.6.0
-        version: 17.6.0
+        specifier: 17.12.0
+        version: 17.12.0
       jsdom:
         specifier: 29.1.1
         version: 29.1.1
@@ -249,10 +249,6 @@ packages:
 
   '@babel/runtime@7.29.2':
     resolution: {integrity: sha512-JiDShH45zKHWyGe4ZNVRrCjBz8Nh9TMmZG1kh4QTK8hCBTWBi8Da+i7s1fJw7/lYpM4ccepSNfqzZ/QvABBi5g==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/template@7.28.6':
-    resolution: {integrity: sha512-YA6Ma2KsCdGb+WC6UpBVFJGXL58MDA6oyONbjyF/+5sBgxY/dwkhLogbMT2GXXyU84/IhRw/2D1Os1B/giz+BQ==}
     engines: {node: '>=6.9.0'}
 
   '@babel/template@7.29.7':
@@ -2029,8 +2025,8 @@ packages:
     resolution: {integrity: sha512-ob/2LcVVaVGCYN+r14cnwnoDPUufjiYgSqRhiFD0Q1iI4Odora5RE8Iv1D24hAz5oMophRGkGz+yuvQmmUMnMw==}
     engines: {node: '>=18'}
 
-  globals@17.6.0:
-    resolution: {integrity: sha512-sepffkT8stwnIYbsMBpoCHJuJM5l98FUF2AnE07hfvE0m/qp3R586hw4jF4uadbhvg1ooIdzuu7CsfD2jzCaNA==}
+  globals@17.12.0:
+    resolution: {integrity: sha512-cezEd/DTyyht9cvSSURyygXPfy04GtWO/5e6ZPvH7fCtjKz9PYOmuawphw1Ctd1f6C+5JypXfGD7ahNMXvevBA==}
     engines: {node: '>=18'}
 
   globalthis@1.0.4:
@@ -3450,13 +3446,6 @@ snapshots:
       '@babel/types': 7.29.8
 
   '@babel/runtime@7.29.2': {}
-
-  '@babel/template@7.28.6':
-    dependencies:
-      '@babel/code-frame': 7.29.7
-      '@babel/parser': 7.29.9
-      '@babel/types': 7.29.8
-    optional: true
 
   '@babel/template@7.29.7':
     dependencies:
@@ -5195,7 +5184,7 @@ snapshots:
 
   globals@16.4.0: {}
 
-  globals@17.6.0: {}
+  globals@17.12.0: {}
 
   globalthis@1.0.4:
     dependencies:
@@ -5424,10 +5413,10 @@ snapshots:
 
   jiti@2.6.1: {}
 
-  jotai@2.19.0(@babel/core@7.29.7(supports-color@5.5.0))(@babel/template@7.28.6)(@types/react@19.2.14)(react@19.2.4):
+  jotai@2.19.0(@babel/core@7.29.7(supports-color@5.5.0))(@babel/template@7.29.7)(@types/react@19.2.14)(react@19.2.4):
     optionalDependencies:
       '@babel/core': 7.29.7(supports-color@5.5.0)
-      '@babel/template': 7.28.6
+      '@babel/template': 7.29.7
       '@types/react': 19.2.14
       react: 19.2.4
 
