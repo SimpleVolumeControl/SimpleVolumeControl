@@ -148,8 +148,8 @@ importers:
         specifier: 4.1.11
         version: 4.1.11(@types/node@24.19.0)(jsdom@29.1.1)(vite@8.0.10(@types/node@24.19.0)(jiti@2.6.1))
       ws:
-        specifier: 8.20.0
-        version: 8.20.0
+        specifier: 8.22.0
+        version: 8.22.0
 
 packages:
 
@@ -3316,8 +3316,8 @@ packages:
       utf-8-validate:
         optional: true
 
-  ws@8.20.0:
-    resolution: {integrity: sha512-sAt8BhgNbzCtgGbt2OxmpuryO63ZoDk/sqaB/znQm94T4fCEsy/yV+7CdC1kJhOU9lboAEU7R3kquuycDoibVA==}
+  ws@8.22.0:
+    resolution: {integrity: sha512-Ydggc987+RO0AnWtZ/7Wq9FtNvcrL1b/RO0ud9mWjUPgDrsAAwQSF51sm2hm1XofbU/4jkpGEsLFsZZxU+1DOg==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
@@ -6584,7 +6584,7 @@ snapshots:
 
   ws@7.5.10: {}
 
-  ws@8.20.0: {}
+  ws@8.22.0: {}
 
   xml-name-validator@5.0.0: {}
 
