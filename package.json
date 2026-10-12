@@ -23,7 +23,7 @@
     "next-intl": "4.14.9",
     "react": "19.3.0",
     "react-dom": "19.3.0",
-    "react-simple-keyboard": "3.8.278",
+    "react-simple-keyboard": "3.8.280",
     "react-use-websocket": "4.13.0"
   },
   "devDependencies": {
@@ -38,7 +38,7 @@
     "@types/express": "5.0.6",
     "@types/js-cookie": "3.0.6",
     "@types/negotiator": "0.6.5",
-    "@types/node": "24.19.1",
+    "@types/node": "24.19.2",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@types/ws": "8.18.2",
