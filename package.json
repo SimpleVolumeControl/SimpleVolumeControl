@@ -23,11 +23,11 @@
     "next-intl": "4.14.9",
     "react": "19.3.1",
     "react-dom": "19.3.1",
-    "react-simple-keyboard": "3.8.286",
+    "react-simple-keyboard": "3.8.287",
     "react-use-websocket": "4.13.0"
   },
   "devDependencies": {
-    "@babel/core": "8.0.7",
+    "@babel/core": "8.0.9",
     "@eslint/js": "10.0.1",
     "@next/eslint-plugin-next": "16.2.1",
     "@tailwindcss/postcss": "4.3.3",
