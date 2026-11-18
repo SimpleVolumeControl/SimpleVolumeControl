@@ -97,8 +97,8 @@ importers:
         specifier: 6.3.0
         version: 6.3.0(vite@8.3.3(@types/node@24.19.2)(jiti@2.7.0))
       daisyui:
-        specifier: 5.8.0
-        version: 5.8.0
+        specifier: 5.8.1
+        version: 5.8.1
       eslint:
         specifier: 10.15.0
         version: 10.15.0(jiti@2.7.0)(supports-color@5.5.0)
@@ -1649,8 +1649,8 @@ packages:
   csstype@3.2.3:
     resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
 
-  daisyui@5.8.0:
-    resolution: {integrity: sha512-pIdff0OLXTgCNvbRZlY2W2qjCnJd7DgRLyTpzhHgg+JqMzVDsQoRzJXyDKyPCOUYvTFHlOt97+JCeGyxQav4Zw==}
+  daisyui@5.8.1:
+    resolution: {integrity: sha512-ptP4WHOJ6WltNnA5zwkg3GypOLhsyUM2FHuXCckWVEpWviioInFKsjnShCWYGYHsQ5P9bUCOH1tn45cKLeTUpg==}
 
   damerau-levenshtein@1.0.8:
     resolution: {integrity: sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==}
@@ -4754,7 +4754,7 @@ snapshots:
 
   csstype@3.2.3: {}
 
-  daisyui@5.8.0: {}
+  daisyui@5.8.1: {}
 
   damerau-levenshtein@1.0.8: {}
 
