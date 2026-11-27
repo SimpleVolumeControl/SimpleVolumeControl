@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@formatjs/intl-localematcher':
-        specifier: 0.10.1
-        version: 0.10.1
+        specifier: 0.10.2
+        version: 0.10.2
       '@next/bundle-analyzer':
         specifier: 16.2.1
         version: 16.2.1
@@ -42,8 +42,8 @@ importers:
         specifier: 19.3.1
         version: 19.3.1(react@19.3.1)
       react-simple-keyboard:
-        specifier: 3.8.297
-        version: 3.8.297(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+        specifier: 3.8.298
+        version: 3.8.298(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       react-use-websocket:
         specifier: 4.13.0
         version: 4.13.0
@@ -434,6 +434,9 @@ packages:
   '@formatjs/fast-memoize@3.1.7':
     resolution: {integrity: sha512-zXfhLpvA6T7+efdt9JLbBwZ00tT7NsBMDVnDu8rpHeNNv8KfRZAMo2gkG0k9lK/Nzc//3kJ9pImsfuJxk3KhUA==}
 
+  '@formatjs/fast-memoize@3.1.8':
+    resolution: {integrity: sha512-Y9YFFfeBDkAWmLWD3LVNHbHlyELsP2lYRNoY6+QhtPh1/ujCiX5QYBzAqe0cWdkCxKVezHLt0qjWz1veEUV7UA==}
+
   '@formatjs/icu-messageformat-parser@3.5.18':
     resolution: {integrity: sha512-wX1efcL8d7K5QapOTRsP/OLTA/kpwe4LwqWyNxDNg5iRs8i9jJbCyxB5P8jc4KOW5oiLzz2DJr+BRY5xMV9+bA==}
 
@@ -446,8 +449,8 @@ packages:
   '@formatjs/icu-skeleton-parser@2.1.12':
     resolution: {integrity: sha512-ca7tZMLpfHX3sUD7hP6gE/qr6Iq89EDd3ZLeRhbsB7r0UD55DGJq+tmFLzrGrnx5StahUevQmQQVtbDRHsfDHA==}
 
-  '@formatjs/intl-localematcher@0.10.1':
-    resolution: {integrity: sha512-gBqglQK9rXuHsLmM8wzTMBy4Xo4d0jamirIVKuEL8F1rwbskWdpMA1kZarSkny+uvr5q/K6GSzE0Rcq1wZLl3g==}
+  '@formatjs/intl-localematcher@0.10.2':
+    resolution: {integrity: sha512-KvXcVOPLYRQ5s6O0MrHePLIIhkSUm5bZbsEHGmKI3xXoy7hvGxUoagaobAIi8/hc9YabgHvLDFeeqbrjPNIKwg==}
 
   '@formatjs/intl-localematcher@0.8.14':
     resolution: {integrity: sha512-8O7V38QmbB11+ryJ3KM/znrzXtiqgpXzqNoqDsndHZZ5/zDKTTL+cf5F0mzXkQEwhx8IlWnqYvEovf2S5EwLTw==}
@@ -2835,8 +2838,8 @@ packages:
   react-is@17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
 
-  react-simple-keyboard@3.8.297:
-    resolution: {integrity: sha512-ZH8tA5+4SwMGoIGY1YaKvgZUAHfm32qoawpXUNFP/alzcTApVXiG50pgQ4RDPadRRA9TzUnh0e12dkHlw5O21A==}
+  react-simple-keyboard@3.8.298:
+    resolution: {integrity: sha512-ry3c+IYmj1pEWSIrqixYCXPcU+YuU/C13K5OCWPZhAaY/oL8mqN58U679K8dt5Gry6EbQs3BCmp+djQFxFZsCQ==}
     peerDependencies:
       react: ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -3749,6 +3752,8 @@ snapshots:
 
   '@formatjs/fast-memoize@3.1.7': {}
 
+  '@formatjs/fast-memoize@3.1.8': {}
+
   '@formatjs/icu-messageformat-parser@3.5.18':
     dependencies:
       '@formatjs/icu-skeleton-parser': 2.1.11
@@ -3761,9 +3766,9 @@ snapshots:
 
   '@formatjs/icu-skeleton-parser@2.1.12': {}
 
-  '@formatjs/intl-localematcher@0.10.1':
+  '@formatjs/intl-localematcher@0.10.2':
     dependencies:
-      '@formatjs/fast-memoize': 3.1.7
+      '@formatjs/fast-memoize': 3.1.8
 
   '@formatjs/intl-localematcher@0.8.14':
     dependencies:
@@ -6097,7 +6102,7 @@ snapshots:
 
   react-is@17.0.2: {}
 
-  react-simple-keyboard@3.8.297(react-dom@19.3.1(react@19.3.1))(react@19.3.1):
+  react-simple-keyboard@3.8.298(react-dom@19.3.1(react@19.3.1))(react@19.3.1):
     dependencies:
       react: 19.3.1
       react-dom: 19.3.1(react@19.3.1)
